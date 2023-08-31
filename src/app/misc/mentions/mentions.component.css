@@ -1,4 +1,4 @@
-.cgu {
+.mentions {
     font-family: Arial, sans-serif;
     background-color: #8f8d8d; /* Couleur de fond gris */
     color: whitesmoke; /* Couleur de texte whitesmoke */
@@ -28,3 +28,4 @@
     text-decoration: underline; /* Soulignement au survol du lien */
   }
   
+

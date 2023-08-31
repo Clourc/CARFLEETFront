@@ -5,8 +5,13 @@ import { VehicleCardComponent } from './vehicle-card/vehicle-card.component';
 import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
+import { RouterModule, Routes } from '@angular/router';
 
 
+const vehicleRoutes: Routes = [
+  {path: 'vehicles', component: VehicleListComponent},
+  {path: 'vehicles/search', component: VehicleSearchComponent},
+];
 
 @NgModule({
   declarations: [
@@ -17,7 +22,9 @@ import { VehicleSearchComponent } from './vehicle-search/vehicle-search.componen
     VehicleSearchComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(vehicleRoutes)
+
   ]
 })
 export class VehicleModule { }

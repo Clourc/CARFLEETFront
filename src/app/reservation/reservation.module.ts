@@ -6,8 +6,14 @@ import { ReservationCardComponent } from './reservation-card/reservation-card.co
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationCancelComponent } from './reservation-cancel/reservation-cancel.component';
 import { ReservationConfirmComponent } from './reservation-confirm/reservation-confirm.component';
-
-
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+const reservationRoutes: Routes = [
+  {path: 'reservations', component: ReservationListComponent},
+  {path: 'reservations/:id', component: ReservationDetailsComponent},
+  {path: 'reservations/:id/cancel', component: ReservationCancelComponent},
+  {path: 'reservations/:id/confirm', component: ReservationConfirmComponent},
+];
 
 @NgModule({
   declarations: [
@@ -19,7 +25,8 @@ import { ReservationConfirmComponent } from './reservation-confirm/reservation-c
     ReservationConfirmComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(reservationRoutes)
   ]
 })
 export class ReservationModule { }

@@ -1,0 +1,16 @@
+.formulaire {
+    background-color:rgba(34, 97, 117, 1);
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    height: 50vh;
+    width: 100%;
+}
+
+label, input , select {
+    height: 08vh;
+}

@@ -1,1 +1,33 @@
-<p>vehicle-search works!</p>
+
+<p>Texte avant le formulaire</p>
+<div class="formulaire">
+    <form method="get" action="">
+        <p>Recherche d'un vehicule </p>
+
+        <label for="start">Start date:</label>
+
+<input type="date" id="start" name="location-start" value="2023-10-20" min="2023-01-01" max="2050-12-31" />
+<label for="start-hour">Start hour:</label>
+    <input type="time" id="start-hour" name="location-start-hour" value="00:00" min="00:00" max="23:59" step="3600" />
+
+    <label for="end">End date:</label>
+<input type="date" id="end" name="location-end" value="2023-10-20" min="2023-01-01" max="2050-12-31" />
+       <label for="end-hour">End hour:</label>
+       <input type="time" id="end-hour" name="location-end-hour" value="00:00" min="00:00" max="23:59" step="3600" />
+       type de véhicule
+       <select name="type-vehicle">
+           <option value="1">citadine</option>
+           <option value="2">utilitaire</option>
+           <option value="3">break</option>
+       </select>
+
+       <select name=""carburant>
+              <option value="1">essence</option>
+              <option value="2">diesel</option>
+              <option value="3">electrique</option>
+       </select>
+<input type="submit" value="Trouver un véhicule" />
+
+    </form>
+</div>
+<p>Texte après le formulaire</p>
