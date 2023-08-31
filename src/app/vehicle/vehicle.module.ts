@@ -6,6 +6,7 @@ import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 const vehicleRoutes: Routes = [
@@ -23,7 +24,8 @@ const vehicleRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(vehicleRoutes)
+    RouterModule.forChild(vehicleRoutes),
+    FormsModule
 
   ]
 })

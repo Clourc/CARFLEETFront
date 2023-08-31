@@ -1,1 +1,19 @@
-<p>vehicle-list works!</p>
+<form #f="ngForm" (submit)="trouvervehicule(f)">
+    <label for="debutreservation">Début de la réservation</label>
+    <input type="date" id="debutreservation" name="debutreservation" ngModel name="debutreservation" required>
+    <label for="finreservation">Fin de la réservation</label>
+    <input type="date" id="finreservation" name="finreservation" ngModel name="finreservation" required>
+    <label for="heuredebutreservation">Heure de début de la réservation</label>
+    <input type="time" id="heuredebutreservation" name="heuredebutreservation" ngModel name="heuredebutreservation"
+        required>
+    <label for="heurefinreservation">Heure de fin de la réservation</label>
+    <input type="time" id="heurefinreservation" name="heurefinreservation" ngModel name="heurefinreservation" required>
+    <button type="submit">trouver véhicule</button>
+</form>
+
+<ul>
+    <li *ngFor="let vehicule of listVehicules">
+        {{vehicule.brand}}
+        <img [src]="vehicule.model.image" alt="vehicule.model">
+    </li>
+</ul>
