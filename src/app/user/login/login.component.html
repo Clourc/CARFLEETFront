@@ -1,1 +1,51 @@
-<p>login works!</p>
+<div class="bg-blue">
+  <div class="bg-gray p-4 rounded shadow">
+    <h2 class="mb-4">Connexion</h2>
+    <form>
+      <div class="mb-3">
+        <label for="identifiant">Identifiant (N° de CP)</label>
+        <br />
+        <input
+          type="text"
+          id="identifiant"
+          name="identifiant"
+          class="form-control col-md-6"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="motDePasse">Mot de passe</label>
+        <br />
+        <input
+          type="password"
+          id="motDePasse"
+          name="motDePasse"
+          class="form-control col-md-6"
+          [(ngModel)]="password"
+        />
+      </div>
+      <div class="mb-3 form-check text-center">
+        <!-- Centrer le label "Mémoriser mon mot de passe" -->
+        <input
+          type="checkbox"
+          id="memoriserMotDePasse"
+          name="memoriserMotDePasse"
+          class="form-check-input"
+          [(ngModel)]="memoriserMotDePasse"
+        />
+        <label for="memoriserMotDePasse" class="form-check-label"
+          >Mémoriser mon mot de passe</label
+        >
+      </div>
+      <div class="mb-5">
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <!-- <form (ngSubmit)="OnSubmit()" #loginForm="ngForm"> -->
+          <button type="submit" class="btn btn-primary btn-block">
+            Connexion
+          </button>
+        </form>
+        <!-- Utiliser btn-block pour occuper toute la largeur -->
+      </div>
+    </form>
+  </div>
+</div>

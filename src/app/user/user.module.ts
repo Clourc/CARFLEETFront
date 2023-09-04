@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Importez FormsModule ici
+
 import { LoginComponent } from './login/login.component';
-import { AccountComponent } from './account/account.component';
-import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
-
-
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    AccountComponent,
-    AdminInterfaceComponent,
-  ],
+  declarations: [LoginComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    FormsModule, // Assurez-vous que FormsModule est importé ici
+  ],
 })
-export class UserModule { }
+export class UserModule {}

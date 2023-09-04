@@ -1,0 +1,48 @@
+/* Style pour le fond bleu */
+.bg-blue {
+  background-color: #226175;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style pour le fond gris du formulaire */
+.bg-gray {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Style pour les champs de saisie */
+.form-control {
+  margin: 10px 0;
+  padding: 5px 10px; /* Réduire la hauteur en ajustant le padding */
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style pour la case à cocher */
+.form-check {
+  text-align: left;
+}
+
+/* Style pour le bouton de connexion */
+.btn-primary {
+  background-color: #3ebee6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Style pour les labels */
+label {
+  font-weight: bold;
+}

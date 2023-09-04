@@ -2,24 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { RouterModule } from '@angular/router';
-
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { MiscModule } from './misc/misc.module';
-import { UserModule } from './user/user.module';
-
-
+import { UserModule } from './user/user.module'; // Assurez-vous d'importer UserModule si vous ne l'avez pas déjà fait
 
 @NgModule({
-  declarations: [
-    AppComponent
-  
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     VehicleModule,
@@ -27,12 +20,11 @@ import { UserModule } from './user/user.module';
     MiscModule,
     UserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
