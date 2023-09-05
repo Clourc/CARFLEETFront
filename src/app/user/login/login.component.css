@@ -1,5 +1,5 @@
-/* Style pour le fond bleu */
-.bg-blue {
+/* Style pour le conteneur d'authentification */
+.auth-container {
   background-color: #226175;
   height: 100vh;
   display: flex;
@@ -7,22 +7,22 @@
   align-items: center;
 }
 
-/* Style pour le fond gris du formulaire */
-.bg-gray {
+/* Style pour le formulaire d'authentification */
+.auth-form {
   background-color: #f8f9fa;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
   max-width: 400px;
-  width: 100%;
+  width: 95%;
 }
 
 /* Style pour les champs de saisie */
 .form-control {
   margin: 10px 0;
-  padding: 5px 10px; /* Réduire la hauteur en ajustant le padding */
-  width: 60%;
+  padding: 5px 10px;
+  width: 90%;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -40,9 +40,24 @@
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  margin-top: 10px; /* Ajoutez la marge en haut selon vos besoins */
 }
 
 /* Style pour les labels */
 label {
   font-weight: bold;
+}
+
+/* Style pour le titre */
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style pour le sous-titre */
+h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  /* Couleur du bouton Connexion */
 }

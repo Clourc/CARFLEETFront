@@ -8,7 +8,7 @@ import { UserService } from '../user.service'; // Importez NgModel ici
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email: string = '';
+  CP: string = '';
   password: string = '';
   memoriserMotDePasse: boolean = false;
 
@@ -19,7 +19,7 @@ export class LoginComponent {
 
     // Appeler la méthode Login qui est dans UserService (Faire l'importe UserService avant et CREER le consctructor pour l'injecter)
     // Appelez la méthode login du service UserService en passant les données du formulaire
-    this.userService.login(this.email, this.password).subscribe(
+    this.userService.login(this.CP, this.password).subscribe(
       (response) => {
         // Traitez ici la réponse du service (par exemple, gérer la connexion réussie)
         console.log('Réponse du service après la connexion:', response);
@@ -31,7 +31,7 @@ export class LoginComponent {
       }
     );
 
-    console.log('Identifiant:', this.email);
+    console.log('Identifiant:', this.CP);
     console.log('Mot de passe:', this.password);
     console.log('Mémoriser le mot de passe:', this.memoriserMotDePasse);
 

@@ -8,9 +8,9 @@ import { tap } from 'rxjs';
 export class AuthentificationService {
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string) {
+  login(CP: string, password: string) {
     return this.http
-      .post<any>(`http://localhost:8080/login`, { email, password })
+      .post<any>(`http://localhost:8080/users/login`, { CP, password })
       .pipe(
         tap((data: any) => {
           const response = data.data;

@@ -1,31 +1,31 @@
-<div class="bg-blue">
-  <div class="bg-gray p-4 rounded shadow">
-    <h2 class="mb-4">Connexion</h2>
-    <form>
-      <div class="mb-3">
-        <label for="identifiant">Identifiant (N° de CP)</label>
-        <br />
+<div class="auth-container">
+  <div class="auth-form">
+    <img src="votre-image.jpg" alt="Image de fond" class="auth-image" />
+    <h1>Authentification <span style="color: #3ebee6">SNCF</span></h1>
+    <h2>Se connecter</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="identifiant">Identifiant Groupe SNCF </label>
         <input
           type="text"
           id="identifiant"
           name="identifiant"
-          class="form-control col-md-6"
-          [(ngModel)]="email"
+          class="form-control"
+          [(ngModel)]="CP"
         />
       </div>
-      <div class="mb-3">
+
+      <div class="form-group">
         <label for="motDePasse">Mot de passe</label>
-        <br />
         <input
           type="password"
           id="motDePasse"
           name="motDePasse"
-          class="form-control col-md-6"
+          class="form-control"
           [(ngModel)]="password"
         />
       </div>
-      <div class="mb-3 form-check text-center">
-        <!-- Centrer le label "Mémoriser mon mot de passe" -->
+      <div class="form-group form-check">
         <input
           type="checkbox"
           id="memoriserMotDePasse"
@@ -37,15 +37,7 @@
           >Mémoriser mon mot de passe</label
         >
       </div>
-      <div class="mb-5">
-        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-          <!-- <form (ngSubmit)="OnSubmit()" #loginForm="ngForm"> -->
-          <button type="submit" class="btn btn-primary btn-block">
-            Connexion
-          </button>
-        </form>
-        <!-- Utiliser btn-block pour occuper toute la largeur -->
-      </div>
+      <button type="submit" class="btn btn-primary btn-block">Connexion</button>
     </form>
   </div>
 </div>
