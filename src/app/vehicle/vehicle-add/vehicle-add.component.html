@@ -1,4 +1,4 @@
-<form #addvehicleForm="ngForm" (ngSubmit)="addVehicleSubmit()" novalidate>
+<form #addvehicleForm="ngForm" (ngSubmit)="addVehicleSubmit()" >
 
 
     <select [(ngModel)]="brand" name=brand>
@@ -24,7 +24,7 @@
     </select>
 
     <label for="licencePlate">Immatriculation</label>
-    <input type="text" id="licencePlate" name="licencePlate">
+    <input [(ngModel)]="licencePlate" type="text" id="licencePlate" name="licencePlate">
 
     <select [(ngModel)]="fleetId" name="fleet" id="fleet">
         <option value=1>Strasbourg</option>
