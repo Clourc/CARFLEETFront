@@ -2,24 +2,24 @@
 
 
     <select [(ngModel)]="brand" name=brand>
-        <option value="Peugeot">Peugeot</option>
-        <option value="Renault">Renault</option>
-        <option value="Citroen">Citroen</option>
+        <option *ngFor="let brand of brandArray" value=brand>{{brand}}</option>
+       
     </select>
     {{brand}}
 
-    <select [(ngModel)]="modelId" name=modelNamePeugeot *ngIf="brand=='Peugeot'">
+
+    <select [(ngModel)]="modelId" name=modelNamePeugeot *ngIf="brand=='peugeot'">
         <option value=6>BOXER Asphalt 333</option>
         <option value="208">208</option>
     </select>
     {{modelId}}
 
-    <select [(ngModel)]="modelId" name=modelNameRenault *ngIf="brand=='Renault'">
+    <select [(ngModel)]="modelId" name=modelNameRenault *ngIf="brand=='renault'">
         <option value="Clio">Clio</option>
         <option value="Megane2">Megane2</option>
     </select>
 
-    <select [(ngModel)]="modelId" name=modelNameCitroen *ngIf="brand=='Citroen'">
+    <select [(ngModel)]="modelId" name=modelNameCitroen *ngIf="brand=='citroen'">
         <option value="C3">C3</option>
     </select>
 
