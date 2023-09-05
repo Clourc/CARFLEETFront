@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ReservationModule } from './reservation/reservation.module';
+import { VehicleModule } from './vehicle/vehicle.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ReservationModule } from './reservation/reservation.module';
   imports: [
     BrowserModule,
     ReservationModule,
+    VehicleModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

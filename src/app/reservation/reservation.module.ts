@@ -11,7 +11,7 @@ import { ReservationCancelComponent } from './reservation-cancel/reservation-can
 import { ReservationConfirmComponent } from './reservation-confirm/reservation-confirm.component';
 
 const resaRoutes: Routes = [
-  { path: "reserve", component: ReservationComponent }
+  { path: "vehicles/:id/reserve", component: ReservationComponent }
 ];
 
 @NgModule({

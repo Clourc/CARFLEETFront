@@ -1,6 +1,6 @@
 <form #resa_form="ngForm" (ngSubmit)="submitReservation()">
     <label for="startDate">Date et heure de début</label>
-    <input type="datetime-local" id="startDate" name="startDate" step="1800" [(ngModel)]="start_Date" required>
+    <input type="datetime-local" id="startDate" name="startDate" [(ngModel)]="start_Date" required>
     <label for="endDate">Date et heure de fin</label>
     <input type="datetime-local" id="endDate" name="endDate" [(ngModel)]="end_Date" required>
 
