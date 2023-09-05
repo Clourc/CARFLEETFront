@@ -1,1 +1,42 @@
-<p>vehicle-add works!</p>
+<form #addvehicleForm="ngForm" (ngSubmit)="addVehicleSubmit()" novalidate>
+
+
+    <select [(ngModel)]="brand" name=brand>
+        <option value="Peugeot">Peugeot</option>
+        <option value="Renault">Renault</option>
+        <option value="Citroen">Citroen</option>
+    </select>
+    {{brand}}
+
+    <select [(ngModel)]="modelId" name=modelNamePeugeot *ngIf="brand=='Peugeot'">
+        <option value=6>BOXER Asphalt 333</option>
+        <option value="208">208</option>
+    </select>
+    {{modelId}}
+
+    <select [(ngModel)]="modelId" name=modelNameRenault *ngIf="brand=='Renault'">
+        <option value="Clio">Clio</option>
+        <option value="Megane2">Megane2</option>
+    </select>
+
+    <select [(ngModel)]="modelId" name=modelNameCitroen *ngIf="brand=='Citroen'">
+        <option value="C3">C3</option>
+    </select>
+
+    <label for="licencePlate">Immatriculation</label>
+    <input type="text" id="licencePlate" name="licencePlate">
+
+    <select [(ngModel)]="fleetId" name="fleet" id="fleet">
+        <option value=1>Strasbourg</option>
+        <option value=2>Paris</option>
+        <option value=3>Lyon</option>
+        <option value=4>Marseille</option>
+        <label for="fleet"></label>
+        <input type="text" id="fleet" name="fleet">
+    </select>
+
+
+
+    <button type=submit>véhicule ajouté</button>
+
+</form>

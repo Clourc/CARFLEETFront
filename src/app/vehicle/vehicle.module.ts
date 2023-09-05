@@ -6,12 +6,17 @@ import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 const vehicleRoutes: Routes = [
   {path: 'vehicles', component: VehicleListComponent},
   {path: 'vehicles/search', component: VehicleSearchComponent},
+  {path: 'vehicles/add', component: VehicleAddComponent},
+  {path: 'vehicles/details', component: VehicleDetailsComponent},
+
 ];
 
 @NgModule({
@@ -20,13 +25,14 @@ const vehicleRoutes: Routes = [
     VehicleCardComponent,
     VehicleAddComponent,
     VehicleDetailsComponent,
-    VehicleSearchComponent
+    VehicleSearchComponent,
+    VehicleDetailsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(vehicleRoutes),
-    FormsModule
-
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class VehicleModule { }
