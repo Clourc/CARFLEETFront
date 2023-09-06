@@ -20,10 +20,40 @@ export class VehicleService {
     return this.http.post(`${this.apiUrlAddVehicle}`, vehicleData);
   }
 
-  catalogueBrand = [
+  catalogueBrands = [
     "renault",
     "citroen",
     "peugeot"
+  ];
+
+  catalogueModels = [
+    {
+      renault: [
+        { modelName: "ZOE R110", id: 1 },
+        { modelName: "CLIO RS Line", id: 2 },
+        { modelName: "KANGOO 3", id: 3 },
+        { modelName: "MEGANE 3 phase 3", id: 4 },
+        { modelName: "TRAFIC Grand confort", id: 7 },
+      ]
+    },
+    {
+      citroen: [
+        { modelName: "e BERLINGO shie", id: 5 },
+      ]
+    },
+    {
+      peugeot: [
+        { modelName: "BOXER Asphalt 333", id: 6 },
+      ]
+    },
+  ];
+
+  catalogueFleets = [
+
+    { fleetName: "strasbourg", id: 1 },
+    { fleetName: "paris", id: 2 },
+    { fleetName: "lyon", id: 3 },
+    { fleetName: "marseille", id: 4 },
   ]
 
   catalogueVehicle = [
