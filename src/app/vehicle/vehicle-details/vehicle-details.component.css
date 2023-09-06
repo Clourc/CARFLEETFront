@@ -1,11 +1,9 @@
-
-
 .vehicle-details {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
     max-height: 70vh;
-border: 1px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
     display: flex;
@@ -36,5 +34,4 @@ h2{
 
 li{
     list-style: none;
-    
 }
