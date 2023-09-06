@@ -8,7 +8,6 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { ReservationCardComponent } from './reservation-card/reservation-card.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationCancelComponent } from './reservation-cancel/reservation-cancel.component';
-import { ReservationConfirmComponent } from './reservation-confirm/reservation-confirm.component';
 
 const resaRoutes: Routes = [
   { path: "vehicles/:id/reserve", component: ReservationComponent }
@@ -21,7 +20,6 @@ const resaRoutes: Routes = [
     ReservationCardComponent,
     ReservationDetailsComponent,
     ReservationCancelComponent,
-    ReservationConfirmComponent,
   ],
   imports: [
     CommonModule,

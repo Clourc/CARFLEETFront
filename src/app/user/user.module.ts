@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
-import { AccountComponent } from './account/account.component';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 
 
@@ -9,7 +8,6 @@ import { AdminInterfaceComponent } from './admin-interface/admin-interface.compo
 @NgModule({
   declarations: [
     LoginComponent,
-    AccountComponent,
     AdminInterfaceComponent,
   ],
   imports: [
