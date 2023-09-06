@@ -15,9 +15,7 @@
 
 <div class="list">
     <li *ngFor="let vehicle of vehiclesToDisplay">
-      <app-vehicle-card [vehicle]="vehicle">
-        <a [routerLink]="['/vehicle', vehicle.id]"></a>
-      </app-vehicle-card>
+      <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
     </li>
   </div>
 

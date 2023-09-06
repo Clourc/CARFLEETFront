@@ -14,7 +14,7 @@ const vehicleRoutes: Routes = [
   {path: 'vehicles', component: VehicleListComponent},
   {path: 'vehicles/search', component: VehicleSearchComponent},
   {path: 'vehicles/add', component: VehicleAddComponent},
-  {path: 'vehicle/:id', component: VehicleDetailsComponent} 
+  {path: 'vehicles/:id', component: VehicleDetailsComponent} 
 ];
 
 @NgModule({
