@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class VehicleDetailsComponent implements OnInit {
   vehicleId!: string | undefined;
-  vehicleDetails: any;
+  vehicleDetails: any; 
 
   constructor(private http: HttpClient, private router: Router) {}
 

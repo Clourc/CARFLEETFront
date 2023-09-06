@@ -1,0 +1,22 @@
+.not-found {
+    background-image: url(src\assets\images\not-found.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+}
+
+h1 {
+    color: whitesmoke;
+    font-size: 5em;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 20vh;
+}
+
+h2, p{
+    color: whitesmoke;
+    font-size: 2em;
+    text-align: center;
+    /* margin-top: 0;
+    padding-top: 1vh; */
+}
