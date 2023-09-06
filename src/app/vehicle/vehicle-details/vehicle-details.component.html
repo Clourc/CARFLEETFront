@@ -1,46 +1,13 @@
+<div id="background">
+  <h2>{{ vehicleDetails.brand }} {{ vehicleDetails.model.modelName }}</h2>
+  <img [src]="vehicleDetails.model.image" />
+  <div id="details_vehicle">
+    <p>Type : {{ vehicleDetails.model.type }}</p>
+    <p>Energie : {{ vehicleDetails.model.energy }}</p>
+    <p>Nombre de portes : {{ vehicleDetails.model.nbDoors }}</p>
+    <p>Nombre de sièges : {{ vehicleDetails.model.nbSeats }}</p>
+    <p>{{ vehicleDetails.fleet.place }}</p>
 
-<h1>hello</h1>
-
-
-<!--<form [formGroup="form"]="vehicleDetails" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="vehicleModel">Marque</label>
-        <select formControlName="vehicleModel" id="vehicleModel" class="form-control">
-            <option *ngFor="let vehicleModel any vehicleDetails" [value]="vehicleModel.id">{{vehicleModel.brand}}
-            </option>
-        </select>
-        <label for="vehicleImage">Image</label>
-        <select formControlName="vehicleImage" id="vehicleImage" class="form-control" type="url">
-            <option *ngFor="let vehicleImage any vehicleDetails" [value]="vehicleImage.id">{{vehicleImage.image}}
-            </option>
-        </select>
-        <label for="vehicleType">Type</label>
-        <select formControlName="vehicleType" id="vehicleType" class="form-control">
-            <option *ngFor="let vehicleType any vehicleDetails" [value]="vehicleType.id">{{vehicleType.type}}</option>
-        </select>
-        <label for="vehicleEnergy">Carburant</label>
-        <select formControlName="vehicleEnergy" id="vehicleEnergy" class="form-control">
-            <option *ngFor="let vehicleEnergy any vehicleDetails" [value]="vehicleEnergy.id">{{vehicleEnergy.energy}}
-            </option>
-        </select>
-        <label for="vehicleDoors">Nombre de portes</label>
-        <select formControlName="vehicleDoors" id="vehicleDoors" class="form-control">
-            <option *ngFor="let vehicleDoors any vehicleDetails" [value]="vehicleDoors.id">{{vehicleDoors.doors}}
-            </option>
-        </select>
-        <label for="vehicleSeats">Nombre de sièges</label>
-        <select formControlName="vehicleSeats" id="vehicleSeats" class="form-control">
-            <option *ngFor="let vehicleSeats any vehicleDetails" [value]="vehicleSeats.id">{{vehicleSeats.seats}}
-            </option>
-        </select>
-        <label for="vehiclePlace">Lieu</label>
-        <select formControlName="vehiclePlace" id="vehiclePlace" class="form-control">
-            <option *ngFor="let vehiclePlace any vehicleDetails" [value]="vehiclePlace.id">{{vehiclePlace.place}}
-            </option>
-        </select>
-        </div>
-
-        <button type="submit" [disabled]="!vehicleDetails.valid">Réserver</button>
-
-</form>-->
-
+    <button type="button" routerLink="reserve">Réserver</button>
+  </div>
+</div>

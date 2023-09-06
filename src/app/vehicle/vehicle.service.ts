@@ -69,7 +69,6 @@ export class VehicleService {
 
 }
 
-
 class vehicleAdd {
   brand: string;
   licencePlate: string;

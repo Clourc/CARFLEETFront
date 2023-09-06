@@ -14,6 +14,9 @@ header {
     width: 100%;
     border-radius: 5px;
     display: flex;
+    align-items: center;
+    box-shadow: lightgray 3px 3px 7px;
+    
  
 }
 
@@ -25,7 +28,7 @@ h2 {
     font-family: 'Roboto', sans-serif;
     color: whitesmoke;
     text-align: center;
-    justify-content: center;
+    justify-content: space-around;
 
 }
 
@@ -33,3 +36,4 @@ a {
     text-decoration: none;
     color: whitesmoke;
 }
+

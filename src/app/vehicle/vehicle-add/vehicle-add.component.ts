@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
 
 
@@ -9,7 +9,7 @@ import { VehicleService } from '../vehicle.service';
   templateUrl: './vehicle-add.component.html',
   styleUrls: ['./vehicle-add.component.css']
 })
-export class VehicleAddComponent implements OnInit{
+export class VehicleAddComponent implements OnInit {
 
   brand: string = ""
   modelId: number = 0;
@@ -25,18 +25,18 @@ export class VehicleAddComponent implements OnInit{
   constructor(private vehicleService: VehicleService) {
   }
 
-ngOnInit(): void {
-    fetch('http://localhost:8080/models/{id}')
-    .then(response => response.json())
-    .then(data => {
-      this.catalogueVehicle = data;
-      console.log(data);
-          }
-    )
-    
-}
+listModel: any = [];
 
 
+  ngOnInit(): void {
+    fetch('http://localhost:8080/models')
+      .then(response => response.json())
+      .then(data => {
+        this.listModel = data;
+        console.log(this.listModel);
+      }
+      )
+  }
 
   addVehicleSubmit() {
     this.vehicle = this.catalogueVehicle.find(vehicle => vehicle.model.id == this.modelId);
@@ -44,7 +44,6 @@ ngOnInit(): void {
     this.vehicle.licencePlate = this.licencePlate;
 
     console.log(this.vehicle);
-
 
     this.vehicleService.addVehicle(this.vehicle).subscribe(
       (response) => {
@@ -54,30 +53,8 @@ ngOnInit(): void {
         } else {
           console.log("Erreur lors de l'ajout du véhicule");
         }
-
-
       }
     );
-
-
-
-
-
-   /* trouvervehicule(form:any){
-      console.log(form.value);
-      //this.vehiculeService.getVehicles();
-      fetch('http://localhost:8080/vehicules')
-        .then(response => response.json())
-        .then(data => {
-          this.listVehicules = data;
-          console.log(data);
-        }
-        )
-    }*/
-
-
-
-
 
   }
 }
