@@ -1,0 +1,28 @@
+#resaForm {
+  background-color: #226175;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 1rem 1rem;
+  gap: 0.5rem;
+}
+
+#startDate,
+#endDate {
+  width: 50vw;
+}
+
+#reason {
+    width: 16rem;
+}
+
+#reserveButton {
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  width: 6rem;
+  border-radius: 10px;
+  background-color: #3EBDE6;
+  align-self: center;
+}

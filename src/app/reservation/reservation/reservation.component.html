@@ -1,4 +1,4 @@
-<form #resa_form="ngForm" (ngSubmit)="submitReservation()">
+<form #resa_form="ngForm" (ngSubmit)="submitReservation()" id="resaForm">
     <label for="startDate">Date et heure de début</label>
     <input type="datetime-local" id="startDate" name="startDate" [(ngModel)]="start_Date" required>
     <label for="endDate">Date et heure de fin</label>
@@ -7,5 +7,5 @@
     <label form="reason">Motif de la réservation: </label>
     <input type="text" id="reason" name="reason" [(ngModel)]="reasonReservation" required>
 
-    <button type="submit">Réserver</button>
+    <button type="submit" id="reserveButton">Réserver</button>
 </form>
