@@ -1,1 +1,20 @@
-<p>vehicle-details works!</p>
+<h2>Détails du véhicule</h2>
+
+<div class="vehicle-details">
+   
+        <li>
+    marque:{{vehicle.brand}}<br>
+    modele:{{vehicle.model.modelName}}<br>
+    <!-- puissance:{{vehicle.model.energy}}<br> -->
+    carburant:{{vehicle.carburant}}<br>
+    type:{{vehicle.model.type}}<br>
+    nombre de portes:{{vehicle.model.nbDoors}}<br>
+    nombre de sièges{{vehicle.model.nbSeats}}<br>
+   
+    immatriculation:{{vehicle.licencePlate}}<br>
+    <img [src]="vehicle.model.image" alt="{{ vehicle.model.modelName }}">
+    </li>
+
+</div>
+
+

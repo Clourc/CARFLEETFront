@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 const vehicleRoutes: Routes = [
   {path: 'vehicles', component: VehicleListComponent},
   {path: 'vehicles/search', component: VehicleSearchComponent},
+  {path: 'vehicles/add', component: VehicleAddComponent},
+  {path: 'vehicle/:id', component: VehicleDetailsComponent}
+  
+ 
 ];
 
 @NgModule({
