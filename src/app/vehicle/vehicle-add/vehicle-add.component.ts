@@ -44,16 +44,17 @@ export class VehicleAddComponent implements OnInit {
    //.find renvoie le premier élément correspondant à la condition donnée dans la fonction
     this.vehicle = this.listModel.find((vehicle:any) => vehicle.modelName == this.vehicleModelName);
    console.log(this.vehicle);
-
+   
   }
-
-
-
+  
+  
+  
   addVehicleSubmit(): void {
-    this.vehicle = this.catalogueVehicle.find(vehicle => vehicle.model.id == this.modelId);
-    this.vehicle.fleet.id = this.fleetId;
-    this.vehicle.licencePlate = this.licencePlate;
-
+ 
+  this.vehicle = this.catalogueVehicle.find(vehicle => vehicle.model.id == this.modelId);
+  this.vehicle.fleet.id = this.fleetId;
+  this.vehicle.licencePlate = this.licencePlate;
+  
     console.log(this.vehicle);
 
     this.vehicleService.addVehicle(this.vehicle).subscribe(

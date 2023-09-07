@@ -46,7 +46,7 @@ export class VehicleService {
     },
     {
       citroen: [
-        { modelName: "e BERLINGO shie", id: 5 },
+        { modelName: "e BERLINGO shine", id: 5 },
       ]
     },
     {
