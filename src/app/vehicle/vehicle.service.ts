@@ -5,14 +5,11 @@ import { Observable } from 'rxjs';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VehicleService {
-  addVehicleSubmit(form: any) {
-    throw new Error('Method not implemented.');
-  }
-  private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
 
+  private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
 
   constructor(private http: HttpClient) { }
 
@@ -91,3 +88,4 @@ class vehicleAdd {
   }
 
 }
+

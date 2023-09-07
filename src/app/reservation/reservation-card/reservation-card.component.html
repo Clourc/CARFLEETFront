@@ -1,1 +1,6 @@
-<p>reservation-card works!</p>
+<div id="cardBox" [ngClass]="resaStyleClass" [routerLink]="reservation.id">
+    <div id="resaCardHeader"><span>Réservation n°{{reservation.id}}{{reservationPlaceCode}}</span><span>Statut : {{resaStatus}} le <span *ngIf="resaStatus == 'terminée'; else elseBlock">{{reservation.end_Date | date:'dd/MM/yyyy'}}</span></span></div>
+    <ng-template #elseBlock>{{reservation.start_Date | date:'dd/MM/yyyy'}}</ng-template>
+    <span>Réservation pour la période du {{reservation.start_Date | date:'dd/MM/yyyy'}} {{reservation.start_Date | date:'h:mm'}} au {{reservation.end_Date | date:'dd/MM/yyyy'}} {{reservation.end_Date | date:'h:mm'}} à {{vehiclePlace}}.</span>
+    <span>Détails : Réservation n°{{reservation.id}}{{reservationPlaceCode}} {{resaStatus}} pour un véhicule "{{vehicleBrand}} {{vehicleModel}}" pour {{reservation.reason}}.</span>
+</div>

@@ -1,37 +1,39 @@
-.vehicle-details {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    max-height: 70vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 2px 3px #ccc;
-    max-width: 100%;
-    background-color:rgb(203, 224, 230);
-
+#vehicle_details {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  max-height: 70vh;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 3px #ccc;
+  max-width: 100%;
+  background-color: rgb(203, 224, 230);
 }
 
-h2{
-    font-size: 1.3em;
-    margin-left: 20px;
-    line-height: 1em;
-    font-family: 'Roboto', sans-serif;
-    color: rgb(58, 57, 57);
-   
-    justify-content: space-around;
-    
+h2 {
+  font-size: 1.3em;
+  margin-left: 20px;
+  line-height: 1em;
+  font-family: "Roboto", sans-serif;
+  color: rgb(58, 57, 57);
+
+  justify-content: space-around;
 }
- img {
-    
-    max-width: 100%;
-   display: flex;
-    align-items: center;
+img {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-li{
-    list-style: none;
+li {
+  list-style: none;
+}
+
+button {
+  position: relative;
+  left: calc(100vw - 180px);
 }
