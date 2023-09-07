@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { UserService } from '../user.service'; // Importez NgModel ici
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
   showSuccessMessage = false;
   formSubmissionTime = 0;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   checkPseudoValidity() {
     this.isCPValid = this.CP && this.CP.length >= 3 && this.CP.length <= 20;
@@ -40,6 +41,8 @@ export class LoginComponent {
         console.error('Erreur lors de la connexion:', error);
       }
     );
+
+    this.router.navigate(['/vehicles']);
 
     console.log('Identifiant:', this.CP);
     console.log('Mot de passe:', this.password);

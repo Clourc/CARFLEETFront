@@ -24,6 +24,13 @@ export class AuthentificationService {
       );
   }
 
+  getUserData() {
+    return this.http
+      .get<any>(`http://localhost:4200/vehicles`)
+      .pipe((data: any) => {
+        return data;
+      });
+  }
   register({
     email,
     password,
@@ -50,5 +57,9 @@ export class AuthentificationService {
           return data;
         })
       );
+  }
+
+  onSignOut() {
+    localStorage.removeItem('token');
   }
 }
