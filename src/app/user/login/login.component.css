@@ -30,6 +30,7 @@
 /* Style pour la case à cocher */
 .form-check {
   text-align: left;
+  opacity: 0.4;
 }
 
 /* Style pour le bouton de connexion */
@@ -45,7 +46,7 @@
 
 /* Style pour les labels */
 label {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 /* Style pour le titre */
@@ -56,8 +57,23 @@ h1 {
 
 /* Style pour le sous-titre */
 h2 {
-  font-size: 20px;
+  opacity: 0.5;
+  font-weight: normal;
+  font-size: 18px;
   margin-top: 0;
   margin-bottom: 20px;
   /* Couleur du bouton Connexion */
+}
+
+.invalid-message {
+  margin-top: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  background-color: #ff0000;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-family: "Comic Neue", cursive;
 }

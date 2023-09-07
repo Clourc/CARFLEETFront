@@ -12,7 +12,17 @@ export class LoginComponent {
   password: string = '';
   memoriserMotDePasse: boolean = false;
 
+  isCPValid: boolean | '' = false;
+  formSubmitted = false;
+
+  showSuccessMessage = false;
+  formSubmissionTime = 0;
+
   constructor(private userService: UserService) {}
+
+  checkPseudoValidity() {
+    this.isCPValid = this.CP && this.CP.length >= 3 && this.CP.length <= 20;
+  }
 
   onSubmit() {
     // Affichez les données du formulaire dans la console à des fins de débogage
