@@ -1,0 +1,16 @@
+#cardBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80vw;
+    height: 9rem;
+    margin: 12px auto;
+    padding: 2px;
+    font-size: medium;
+}
+
+#resaCardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

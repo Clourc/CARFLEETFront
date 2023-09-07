@@ -25,6 +25,9 @@ export class ReservationComponent implements OnInit {
   }
 
   submitReservation() {
+    if(this.start_Date > this.end_Date){
+      throw new Error("La date de début de réservation doit être avant celle de fin");
+    }
     let isReserved: boolean = false;
     this.reservationService.getListResa(this.vehicleId).subscribe((data) => {
       this.listResa = data;

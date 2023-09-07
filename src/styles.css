@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.resa-ongoing {
+    border: solid 2px #04BE17;
+}
+
+.resa-toCome {
+    border: solid 2px #FFA500;
+}
+
+.resa-ended {
+    border: solid 2px #36778a;
+}
