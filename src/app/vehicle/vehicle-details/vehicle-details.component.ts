@@ -12,7 +12,6 @@ export class VehicleDetailsComponent implements OnInit {
   vehicleDetails: any; 
 
   constructor(private http: HttpClient, private router: Router) {}
-
   ngOnInit(): void {
     this.vehicleId = this.router.url.split('/').pop();
     console.log('Url: ' + this.router.url);
@@ -26,3 +25,4 @@ export class VehicleDetailsComponent implements OnInit {
       });
   }
 }
+

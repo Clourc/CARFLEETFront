@@ -23,7 +23,8 @@ const vehicleRoutes: Routes = [
     VehicleCardComponent,
     VehicleAddComponent,
     VehicleDetailsComponent,
-    VehicleSearchComponent
+    VehicleSearchComponent,
+    VehicleDetailsComponent
   ],
   imports: [
     CommonModule,
