@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class VehicleService {
  
+private apiUrl = 'http://localhost:8080/vehicles';
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 getVehicles() :Observable<any[]>{
   return this.http.get<any[]>('http://localhost:8080/vehicles');
@@ -16,17 +17,10 @@ getVehicles() :Observable<any[]>{
   getVehiclebyId(id:number):Observable<any>{
     return this.http.get<any>(`http://localhost:8080/vehicles/${id}`);
   }
-
+  findVehicleByTypeAndEnergy(type: string, energy: string): Observable<any[]> {
+    const url = `${this.apiUrl}?type=${type}&energy=${energy}`;
+    return this.http.get<any[]>(url);
 
 }
-
-  /*getVehicles() {
-    fetch('http://localhost:8080/vehicules')
-      .then(response => response.json())
-      .then(data => {
-        this.listVehicles = data;
-        console.log(data);
-      }
-      )
-      return this.listVehicles;
-  }*/
+}
+  

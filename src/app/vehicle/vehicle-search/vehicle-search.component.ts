@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
-import { HttpClient } from '@angular/common/http';
-
-
+import { HttpClient,HttpParams, HttpClientModule } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-vehicle-search',
@@ -10,24 +9,41 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./vehicle-search.component.css']
 })
 
-export class VehicleSearchComponent implements OnInit{
+export class VehicleSearchComponent {
 
-  vehicleToDisplay:any[]=[];
-  constructor(public vehicleService: VehicleService) { }
+  vehicles:any[]=[];
+  searchForm:any=FormGroup ;
+  maxShownVehicles:number=10;
+  constructor(private httpClient:HttpClient , private fb: FormBuilder, private VehicleService: VehicleService) { 
 
-  ngOnInit(): void {
+  
+    this.searchForm = this.fb.group({
+      type: [''], // Correspond au champ de sélection de type de véhicule
+      energy: [''] // Correspond au champ de sélection d'énergie
+    });
   }
 
+  onSubmit() {
+    const type = this.searchForm.get('type').value;
+    const energy = this.searchForm.get('energy').value;
+console.log(type);
+console.log(energy);
+    const params = new HttpParams()
+      .set('type', type)
+      .set('energy', energy);
 
+  this.VehicleService.findVehicleByTypeAndEnergy(type,energy).subscribe(
+    (data:any) => {
+      this.vehicles=data;
+      console.log(data);
 
- recherche(form:any){
-    console.log(form.value);
   
-    this.vehicleService.getVehicles().subscribe(
-      (data) => {
-        this.vehicleToDisplay = data;
-        console.log(data);
-      }
- 
-    );}
-    }
+      });
+    
+}
+}
+
+
+
+
+
