@@ -16,6 +16,14 @@ export class VehicleService {
 
   constructor(private http: HttpClient) { }
 
+  getVehicles(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/vehicles');
+  }
+
+  getVehiclebyId(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/vehicles/${id}`);
+  }
+
   addVehicle(vehicleData: any): Observable<any> {
     return this.http.post(`${this.apiUrlAddVehicle}`, vehicleData);
   }
@@ -26,7 +34,7 @@ export class VehicleService {
     "peugeot"
   ];
 
-  catalogueModels = [
+  catalogueModels = [ //catalogueModel aurait du etre un grand objet avec les cles renault,citroen,peugeot
     {
       renault: [
         { modelName: "ZOE R110", id: 1 },

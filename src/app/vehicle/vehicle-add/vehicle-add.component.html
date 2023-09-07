@@ -4,20 +4,23 @@
         <option *ngFor="let brand of catalogueBrands" [value]="brand">{{brand}}</option>
     </select>
     {{brand}}
-    
 
 
-    <select [(ngModel)]="modelId" name=modelNamePeugeot *ngIf="brand=='peugeot'">
-        <option *ngFor="let model of catalogueModels[2].peugeot" [value]="model.id">{{model.modelName}}</option>
-    </select>
-    
-    <select [(ngModel)]="modelId" name=modelNameRenault *ngIf="brand=='renault'">
-        <option *ngFor="let model of catalogueModels[0].renault" [value]="model.id">{{model.modelName}}</option>
-    </select>
 
-    <select [(ngModel)]="modelId" name=modelNameCitroen *ngIf="brand=='citroen'">
-        <option *ngFor="let model of catalogueModels[1].citroen" [value]="model.id">{{model.modelName}}</option>
+    <select [(ngModel)]="vehicleModelName" (change)="viewModel()" name=modelNamePeugeot *ngIf="brand=='peugeot'">
+        <option *ngFor="let model of catalogueModels[2].peugeot" [value]="model.modelName">{{model.modelName}}</option>
     </select>
+    {{vehicle.modelName}} {{vehicle.energy}} <!--{{vehicle.nbSeats}} {{vehicle.nbDoors}} {{vehicle.type}}-->
+
+    <select [(ngModel)]="vehicleModelName" name=modelNameRenault *ngIf="brand=='renault'">
+        <option *ngFor="let model of catalogueModels[0].renault" [value]="model.modelName">{{model.modelName}}</option>
+    </select>
+   <!-- {{vehicle.modelName}} {{vehicle.energy}} {{vehicle.nbSeats}} {{vehicle.nbDoors}} {{vehicle.type}}-->
+
+    <select [(ngModel)]="vehicleModelName" (change)="viewModel()" name=modelNameCitroen *ngIf="brand=='citroen'">
+        <option *ngFor="let model of catalogueModels[1].citroen" [value]="model.modelName">{{model.modelName}}</option>
+    </select>
+    {{vehicle.modelName}} {{vehicle.energy}} {{vehicle.nbSeats}} {{vehicle.nbDoors}} {{vehicle.type}}
 
     <label for="licencePlate">Immatriculation</label>
     <input [(ngModel)]="licencePlate" type="text" id="licencePlate" name="licencePlate">
