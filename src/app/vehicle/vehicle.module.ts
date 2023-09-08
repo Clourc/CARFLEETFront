@@ -9,9 +9,14 @@ import { VehicleCardComponent } from './vehicle-card/vehicle-card.component';
 import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
+import { authGuard } from '../auth.guard';
 
 const vehicleRoutes: Routes = [
-  {path: 'vehicles', component: VehicleListComponent},
+    {
+    path: 'vehicles',
+    component: VehicleListComponent,
+    canActivate: [authGuard],
+    }
   {path: 'vehicles/search', component: VehicleSearchComponent},
   {path: 'vehicles/add', component: VehicleAddComponent},
   {path: 'vehicles/:id', component: VehicleDetailsComponent} 
@@ -24,12 +29,12 @@ const vehicleRoutes: Routes = [
     VehicleAddComponent,
     VehicleDetailsComponent,
     VehicleSearchComponent,
-    VehicleDetailsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(vehicleRoutes),
     FormsModule
   ]
+  
 })
-export class VehicleModule { }
+export class VehicleModule {}
