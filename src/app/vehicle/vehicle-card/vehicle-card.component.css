@@ -3,13 +3,14 @@
   width: 300px;
   height: 300px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
     box-shadow: 0 2px 3px #ccc;
-    
+    box-sizing: border-box;
+    background-color:rgb(	193,	211,	215)
 }
 
 a {

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { VehicleCardComponent } from './vehicle-card/vehicle-card.component';
@@ -33,7 +33,8 @@ const vehicleRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(vehicleRoutes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
   
 })

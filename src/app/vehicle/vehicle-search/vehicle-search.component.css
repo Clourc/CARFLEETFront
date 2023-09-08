@@ -1,7 +1,7 @@
 .searchpage {
 
-    background-color: grey;
-    padding-top: 10%;
+    background-color:rgb(193,211,215);
+        padding-top: 10%;
     padding-bottom: 10%;
 }
 
@@ -75,6 +75,17 @@ button:hover {
     background: var(--slate-800, #1E293B);
         color: var(--slate-100, #F9FAFB);
         cursor: pointer;
+}
+
+li{
+    list-style-type: none;
+    text-decoration: none;
+    /* padding: 10px; */
+    margin: 0;
+    color: white;
+    display: block;
+    font-size: 1em;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px){
