@@ -21,7 +21,7 @@ export class HeaderInterceptor implements HttpInterceptor {
     }
     const protectedUrls = ['/vehicles'];
 
-    const urlRoute = new URL(request.url).pathname; // http://localhost:8080/only-admin-data => /only-admin-data
+    const urlRoute = new URL(request.url).pathname;
 
     if (protectedUrls.includes(urlRoute)) {
       return next.handle(

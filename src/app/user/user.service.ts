@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
+  private currentUser: any;
+
   login(CP: string, password: string) {
     return this.http
       .post<any>('http://localhost:8080/users/login', { CP, password })
@@ -19,10 +21,19 @@ export class UserService {
 
           if (response && response.token) {
             localStorage.setItem('token', response.token);
+            this.currentUser = response.user;
             this.router.navigate(['/vehicles']);
           }
           return response;
         })
       );
+  }
+
+  getUser(){
+    return this.currentUser;
+  }
+
+  getUserId(): number{
+    return this.currentUser.id;
   }
 }

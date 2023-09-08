@@ -7,9 +7,9 @@ export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
 
   if (authService.isTokenValid()) {
-    return true; // L'utilisateur a un token valide, il est autorisé à accéder à la route
+    return true; // L'utilisateur a un token, il est autorisé à accéder à la route
   } else {
-    // L'utilisateur n'a pas de token valide, redirigez-le vers la page de connexion
+    // L'utilisateur n'a pas de token, redirigez-le vers la page de connexion
     router.navigate(['/login']);
     return false;
   }
