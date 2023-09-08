@@ -12,7 +12,7 @@ export class HeaderInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(
-    request: HttpRequest<unknown>,
+    request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     let Authorization = '';

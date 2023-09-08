@@ -42,8 +42,6 @@ export class LoginComponent {
       }
     );
 
-    this.router.navigate(['/vehicles']);
-
     console.log('Identifiant:', this.CP);
     console.log('Mot de passe:', this.password);
     console.log('Mémoriser le mot de passe:', this.memoriserMotDePasse);

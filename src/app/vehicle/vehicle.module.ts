@@ -7,11 +7,16 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { authGuard } from '../auth.guard';
 
 const vehicleRoutes: Routes = [
-  {path: 'vehicles', component: VehicleListComponent},
-  {path: 'vehicles/search', component: VehicleSearchComponent},
+  {
+    path: 'vehicles',
+    component: VehicleListComponent,
+    canActivate: [authGuard],
+  },
+
+  { path: 'vehicles/search', component: VehicleSearchComponent },
 ];
 
 @NgModule({
@@ -20,13 +25,8 @@ const vehicleRoutes: Routes = [
     VehicleCardComponent,
     VehicleAddComponent,
     VehicleDetailsComponent,
-    VehicleSearchComponent
+    VehicleSearchComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(vehicleRoutes),
-    FormsModule
-
-  ]
+  imports: [CommonModule, RouterModule.forChild(vehicleRoutes), FormsModule],
 })
-export class VehicleModule { }
+export class VehicleModule {}

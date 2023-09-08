@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(CP: string, password: string) {
     return this.http
@@ -18,6 +19,7 @@ export class UserService {
 
           if (response && response.token) {
             localStorage.setItem('token', response.token);
+            this.router.navigate(['/vehicles']);
           }
           return response;
         })
