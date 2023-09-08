@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { VehicleCardComponent } from './vehicle-card/vehicle-card.component';
@@ -12,14 +12,14 @@ import { VehicleSearchComponent } from './vehicle-search/vehicle-search.componen
 import { authGuard } from '../auth.guard';
 
 const vehicleRoutes: Routes = [
-    {
+  {
     path: 'vehicles',
     component: VehicleListComponent,
     canActivate: [authGuard],
-    }
-  {path: 'vehicles/search', component: VehicleSearchComponent},
-  {path: 'vehicles/add', component: VehicleAddComponent},
-  {path: 'vehicles/:id', component: VehicleDetailsComponent} 
+  },
+  { path: 'vehicles/search', component: VehicleSearchComponent },
+  { path: 'vehicles/add', component: VehicleAddComponent },
+  { path: 'vehicles/:id', component: VehicleDetailsComponent },
 ];
 
 @NgModule({
@@ -34,8 +34,7 @@ const vehicleRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(vehicleRoutes),
     FormsModule,
-    ReactiveFormsModule
-  ]
-  
+    ReactiveFormsModule,
+  ],
 })
 export class VehicleModule {}
