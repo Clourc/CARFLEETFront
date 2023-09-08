@@ -21,7 +21,7 @@ export class VehicleDetailsComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.vehicleDetails = data;
-        this.vehicleDetails.brand = this.vehicleDetails.brand.toUpperCase();
+        this.vehicleDetails.model.brand = this.vehicleDetails.model.brand.toUpperCase();
       });
   }
 }

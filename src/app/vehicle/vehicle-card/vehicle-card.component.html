@@ -1,15 +1,9 @@
 <a [routerLink]="['/vehicles/',this.vehicle.id ]" >
   <div class="vehicle-card">
-{{vehicle.brand}}
-<!-- {{vehicle.licencePlate}} -->
+{{vehicle.model.brand}}
 {{vehicle.model.modelName}}
 {{vehicle.model.energy}}
 {{vehicle.model.type}}
-<!-- {{vehicle.model.nbDoors}}
-{{vehicle.model.nbSeats}} -->
-
-{{vehicle.carburant}}
-<!-- {{vehicle.vehicleType}} -->
 <img [src]="vehicle.model.image" alt="vehicule.model">
 </div>
 </a>
