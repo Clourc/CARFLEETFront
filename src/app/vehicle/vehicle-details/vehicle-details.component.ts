@@ -12,7 +12,6 @@ export class VehicleDetailsComponent implements OnInit {
   vehicleDetails: any; 
 
   constructor(private http: HttpClient, private router: Router) {}
-
   ngOnInit(): void {
     this.vehicleId = this.router.url.split('/').pop();
     console.log('Url: ' + this.router.url);
@@ -22,7 +21,8 @@ export class VehicleDetailsComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.vehicleDetails = data;
-        this.vehicleDetails.brand = this.vehicleDetails.brand.toUpperCase();
+        this.vehicleDetails.model.brand = this.vehicleDetails.model.brand.toUpperCase();
       });
   }
 }
+

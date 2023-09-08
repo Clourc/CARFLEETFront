@@ -1,1 +1,3 @@
-<p>reservation-list works!</p>
+<div>
+    <app-reservation-card *ngFor="let reservation of reservationList" [reservation]="reservation">{{reservation.reason}}</app-reservation-card>
+</div>
