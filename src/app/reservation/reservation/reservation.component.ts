@@ -14,6 +14,9 @@ export class ReservationComponent implements OnInit {
   vehicleId!: string | undefined;
   listResa: any = [];
 
+  today: Date = new Date();
+  todayString: string = this.today.getFullYear() + "-" + this.formatDate(this.today.getMonth() + 1) + "-" + this.formatDate(this.today.getDate()) + "T00:00";
+
   constructor(
     private reservationService: ReservationService,
     private route: ActivatedRoute
@@ -22,6 +25,12 @@ export class ReservationComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
   }
+
+  private formatDate(nmbr: number): string {
+    var date = nmbr + "";
+    date = (date.length < 2) ? "0" + date : date;
+    return date;
+}
 
   submitReservation() {
     if(this.start_Date > this.end_Date){
