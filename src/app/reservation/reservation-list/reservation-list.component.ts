@@ -10,7 +10,7 @@ export class ReservationListComponent implements OnInit{
 
   constructor(private http: HttpClient){}
 
-  userId: number = 2;
+  userId: number = 1;
   reservationList: any[] = [];
 
   ngOnInit(): void {
