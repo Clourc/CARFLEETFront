@@ -1,5 +1,44 @@
+<div class="searchpage">
+<form #searchform="ngForm"(submit)="recherche(searchform)">
+<h2>Recherche détaillée de véhicule</h2>
+    <label for="start">Jour et heure de début</label><br>
 
-<p>Texte avant le formulaire</p>
+<input type="datetime-local" id="start" name="start" ngModel name="start"  /><br>
+<!-- <label for="start-hour">Start hour:</label><br> -->
+    <!-- <input type="time" id="start-hour" name="startHour" ngModel name =formData.startHour value="00:00" min="00:00" max="23:59" step="3600" /><br> -->
+
+    <label for="end">Jour et heure de fin</label><br>
+<input type="datetime-local" id="end" name="end" ngModel name="end" value="2023-10-20T08:00" min="2023-01-01T00:00" max="2050-12-31T00:00" /><br>
+       <!-- <label for="end-hour">End hour:</label><br> -->
+       <!-- <input type="time" id="end-hour" name="location-end-hour" ngModel name="formData.endHour" value="00:00" min="00:00" max="23:59" step="3600" /><br> -->
+      
+      <label for="type">type de véhicule</label><br>
+       <select id="type-vehicule" name="type-vehicule" ngModel name="type-vehicule"><br>
+           <option value="">Choisir</option>    
+           <option value="citadine">citadine</option>
+           <option value="utilitaire">utilitaire</option>
+           <option value="break">break</option>
+         </select>
+            <br>
+            
+       
+        <label for="carburant">choix du carburant</label><br>
+       <select id="carburant" name="carburant" ngModel name="formData.carburant" ><br>
+                <option value="">Choisir</option>
+              <option value="essence">essence</option>
+              <option value="diesel">diesel</option>
+              <option value="electrique">electrique</option>
+       </select><br>
+<button type="submit">Trouver un véhicule</button>
+
+
+
+</form>
+
+<app-vehicle-card *ngFor="let vehicle of vehicleToDisplay  " [vehicle]="vehicle">
+</app-vehicle-card>
+
+<!-- <p>Texte avant le formulaire</p>
 <div class="formulaire">
     <form method="get" action="">
         <p>Recherche d'un vehicule </p>
@@ -30,4 +69,4 @@
 
     </form>
 </div>
-<p>Texte après le formulaire</p>
+<p>Texte après le formulaire</p> -->

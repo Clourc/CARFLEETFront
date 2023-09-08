@@ -1,0 +1,30 @@
+.vehicle-card {
+  margin: 10px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    box-shadow: 0 2px 3px #ccc;
+    
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+text-align: center;
+
+}
+
+img{
+margin: 3%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+  
+}

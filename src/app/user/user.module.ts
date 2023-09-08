@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Importez FormsModule ici
 
+import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const userRoutes: Routes = [
@@ -13,11 +14,14 @@ const userRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent,
+    AdminInterfaceComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(userRoutes), // Assurez-vous que FormsModule est importé ici
+    RouterModule.forChild(userRoutes)
   ],
 })
 export class UserModule {}

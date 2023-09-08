@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -7,24 +8,32 @@ import { VehicleService } from '../vehicle.service';
   styleUrls: ['./vehicle-list.component.css']
 })
 export class VehicleListComponent implements OnInit{
+  vehiclesToDisplay:any[]=[];
+  maxShownVehicles:number=10;
+  savedVehicles:any;
 
-  constructor(public vehiculeService: VehicleService) { }
-
+  constructor(private http:HttpClient,private vehicleService: VehicleService) { }
+  recherche(form:any){
+    console.log(form.value)};
+ 
   ngOnInit(): void {
-  }
-
-listVehicules:any[]=[];
-
-  trouvervehicule(form:any){
-    console.log(form.value);
-    //this.vehiculeService.getVehicles();
-    fetch('http://localhost:8080/vehicules')
-      .then(response => response.json())
-      .then(data => {
-        this.listVehicules = data;
+    this.vehicleService.getVehicles().subscribe(
+      (data) => {
+        this.savedVehicles=data;
         console.log(data);
+        if (data.length ===1) {
+           this.vehiclesToDisplay.push(data[0]);
+       } else {
+        for (let i = 0; i < this.maxShownVehicles && i < data.length; i++) {
+          this.vehiclesToDisplay.push(data[i]);
+        }
       }
-      )
+  },
+  (error) => {
+    console.error('Erreur dans la récupération des véhicules:', error);
+ 
+  
   }
+  );
 
-}
+  }}

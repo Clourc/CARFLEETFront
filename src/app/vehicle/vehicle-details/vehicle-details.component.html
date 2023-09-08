@@ -1,1 +1,12 @@
-<p>vehicle-details works!</p>
+<div id="details_vehicle">
+  <h2>{{ vehicleDetails.model.brand }} {{ vehicleDetails.model.modelName }}</h2>
+  <img [src]="vehicleDetails.model.image" />
+  <ul>
+    <li>Type : {{ vehicleDetails.model.type }}</li>
+    <li>Energie : {{ vehicleDetails.model.energy }}</li>
+    <li>Nombre de portes : {{ vehicleDetails.model.nbDoors }}</li>
+    <li>Nombre de sièges : {{ vehicleDetails.model.nbSeats }}</li>
+    <li>{{ vehicleDetails.fleet.place }}</li>
+  </ul>
+</div>
+<button type="button" routerLink="reserve">Réserver</button>
