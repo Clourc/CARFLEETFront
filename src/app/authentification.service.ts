@@ -7,20 +7,14 @@ import { tap } from 'rxjs';
 })
 export class AuthentificationService {
   isTokenValid(): boolean {
-    // throw new Error('Method not implemented.');
     const token = localStorage.getItem('token');
-
-    // Vérifiez si le token existe et s'il n'est pas expiré (ajoutez votre logique ici)
     if (token) {
-      // Vous pouvez ajouter une vérification de l'expiration du token ici
-      // Si le token est valide, retournez true
-      // Sinon, retournez false
-      return true; // Par exemple, retournez true si le token existe, sinon retournez false
+      return true; 
     } else {
-      // Si le token n'existe pas, retournez false
       return false;
     }
   }
+
   constructor(private http: HttpClient) {}
 
   login(CP: string, password: string) {
@@ -39,13 +33,6 @@ export class AuthentificationService {
       );
   }
 
-  getUserData() {
-    return this.http
-      .get<any>(`http://localhost:4200/vehicles`)
-      .pipe((data: any) => {
-        return data;
-      });
-  }
   // register({
   //   email,
   //   password,

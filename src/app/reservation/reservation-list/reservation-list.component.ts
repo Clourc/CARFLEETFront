@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-reservation-list',
@@ -8,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationListComponent implements OnInit{
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private userService: UserService){}
 
-  userId: number = 1;
+  userId: number = this.userService.getUserId();
   reservationList: any[] = [];
 
   ngOnInit(): void {
