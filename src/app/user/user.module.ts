@@ -5,12 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AdminInterfaceComponent } from './admin-interface/admin-interface.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ReservationModule } from '../reservation/reservation.module';
 
 const userRoutes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
-  },
+    component: LoginComponent},
+  { path: 'admin', component: AdminInterfaceComponent}
+  
+
 ];
 
 @NgModule({
@@ -20,6 +23,7 @@ const userRoutes: Routes = [
   ],
   imports: [
     CommonModule,
+    ReservationModule,
     FormsModule,
     RouterModule.forChild(userRoutes)
   ],
