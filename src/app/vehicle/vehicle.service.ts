@@ -27,6 +27,7 @@ private apiUrl = 'http://localhost:8080/vehicles';
     return this.http.get<any[]>(url);
 
 }
+
 }
 
   /*getVehicles() {
