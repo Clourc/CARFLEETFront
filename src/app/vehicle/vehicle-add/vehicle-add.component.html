@@ -1,36 +1,40 @@
-<!-- <form #addvehicleForm="ngForm" (ngSubmit)="addVehicleSubmit()">
+<form #addvehicleForm="ngForm" (ngSubmit)="addVehicleSubmit()">
+  <select [(ngModel)]="brand" name="brand" (click)="filterModels()">
+    <option *ngFor="let brand of listBrands" [value]="brand">
+      {{ brand }}
+    </option>
+  </select>
+  {{ brand }}
 
-    <select [(ngModel)]="brand" name=brand>
-        <option   *ngFor="let brand of catalogueBrands" [value]="brand">{{brand}}</option>
-     
-    </select>
-    {{brand}}
+  <select
+    [(ngModel)]="vehicleModelName"
+    (click)="viewModel()"
+    name="vehicleModel"
+  >
+    <option *ngFor="let model of listModelFiltered" [value]="model.modelName">
+      {{ model.modelName }}
+    </option>
+  </select>
 
+  <label for="licencePlate">Immatriculation</label>
+  <input
+    [(ngModel)]="licencePlate"
+    type="text"
+    id="licencePlate"
+    name="licencePlate"
+  />
 
-    <select [(ngModel)]="vehicleModelName" (click)="viewModel()"  name=modelNamePeugeot *ngIf="brand=='peugeot'">
-        <option *ngFor="let model of catalogueModels[2].peugeot" [value]="model.modelName">{{model.modelName}}</option>
-    </select>
-   {{vehicle.modelName}} {{vehicle.energy}} {{vehicle.nbSeats}} {{vehicle.nbDoors}} {{vehicle.type}}
-   
+  <select [(ngModel)]="fleetId" name="fleet" id="fleet">
+    <option *ngFor="let fleet of listFleets" [value]="fleet.id">
+      {{ fleet.place }}
+    </option>
+  </select>
 
-    <select [(ngModel)]="vehicleModelName" (click)="viewModel()" name=modelNameRenault *ngIf="brand=='renault'">
-        <option   *ngFor="let model of catalogueModels[0].renault" [value]="model.modelName">{{model.modelName}}</option>
-    </select>
-      
-   <select [(ngModel)]="vehicleModelName" (click)="viewModel()" name=modelNameCitroen *ngIf="brand=='citroen'">
-       <option  *ngFor="let model of catalogueModels[1].citroen" [value]="model.modelName">{{model.modelName}}</option>
-       
-       
-    </select>
-    
-    <label for="licencePlate">Immatriculation</label>
-    <input [(ngModel)]="licencePlate" type="text" id="licencePlate" name="licencePlate">
-    
-    <select [(ngModel)]="fleetId" name="fleet" id="fleet">
-        <option *ngFor="let fleet of catalogueFleets" [value]="fleet?.id">{{fleet?.fleetName}}</option>
-    </select>
-    
+  <button type="submit">véhicule ajouté</button>
+</form>
 
-    <button type=submit>véhicule ajouté</button>
+<p>
+  {{ vehicle.modelName }} {{ vehicle.energy }} {{ vehicle.nbSeats }}
+  {{ vehicle.nbDoors }} {{ vehicle.type }}
+</p>
 
-</form> -->

@@ -1,1 +1,66 @@
-<p>login works!</p>
+<div class="auth-container">
+  <div class="auth-form">
+    <h1>Authentification <span style="color: #3ebee6">SNCF</span></h1>
+    <h2>Se connecter</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="identifiant" class="required"
+          ><span style="font-weight: bold">I</span>dentifiant
+          <span style="font-weight: bold">G</span>roupe
+          <span style="font-weight: bold">SNCF</span>
+        </label>
+        <input
+          type="text"
+          id="cp"
+          name="name"
+          class="form-control"
+          [(ngModel)]="CP"
+          required
+          minlength="8"
+          maxlength="8"
+          pattern="^[a-zA-Z0-9àéèç' -]{1,25}$"
+          [(ngModel)]="CP"
+          #nameInput="ngModel"
+          placeholder="N° CP"
+        />
+        <div
+          class="form-group"
+          [hidden]="
+            !nameInput.invalid || nameInput.pristine || nameInput.value === ''
+          "
+        >
+          bla bla bla
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="motDePasse"
+          ><span style="font-weight: bold">M</span>ot de passe</label
+        >
+        <input
+          type="password"
+          id="motDePasse"
+          name="motDePasse"
+          class="form-control"
+          [(ngModel)]="password"
+          placeholder="********"
+        />
+      </div>
+      <div class="form-group form-check">
+        <input
+          type="checkbox"
+          id="memoriserMotDePasse"
+          name="memoriserMotDePasse"
+          class="form-check-input"
+          [(ngModel)]="memoriserMotDePasse"
+        />
+        <label for="memoriserMotDePasse" class="form-check-label"
+          >Mémoriser mon identifiant</label
+        >
+      </div>
+      <button class="btn-primary" type="submit" [disabled]="loginForm.invalid">
+        Connexion
+      </button>
+    </form>
+  </div>
+</div>
