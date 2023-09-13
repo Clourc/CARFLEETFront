@@ -10,6 +10,7 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
   private currentUser: any;
+  private currentUserId: any;
 
   login(CP: string, password: string) {
     return this.http
@@ -22,6 +23,7 @@ export class UserService {
           if (response && response.token) {
             localStorage.setItem('token', response.token);
             this.currentUser = response.user;
+            this.currentUserId = this.getUserId();
             this.router.navigate(['/vehicles']);
           }
           return response;
@@ -29,11 +31,27 @@ export class UserService {
       );
   }
 
-  getUser(){
+  logout() {
+    localStorage.removeItem('token');
+  }
+
+  retrieveUser(CP: string) {
+    return this.http.get('http://localhost:8080/users/retrieve?cp=' + CP);
+  }
+
+  getUserId(): number {
+    return this.currentUserId;
+  }
+
+  getUser(): any {
     return this.currentUser;
   }
 
-  getUserId(): number{
-    return this.currentUser.id;
+  setUser(user: any): void {
+    this.currentUser = user;
+  }
+
+  setUserId(): void {
+    this.currentUserId = this.currentUser.id;
   }
 }
