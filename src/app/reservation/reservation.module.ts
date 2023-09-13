@@ -9,10 +9,12 @@ import { ReservationCardComponent } from './reservation-card/reservation-card.co
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationCancelComponent } from './reservation-cancel/reservation-cancel.component';
 
+
 const resaRoutes: Routes = [
   { path: "vehicles/:id/reserve", component: ReservationComponent },
-  { path: "reservations", component: ReservationListComponent}
-];
+  { path: "reservations", component: ReservationListComponent},
+  { path: "admin/reservations", component: ReservationDetailsComponent},
+ ];
 
 @NgModule({
   declarations: [
@@ -27,6 +29,10 @@ const resaRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(resaRoutes)
+  ],
+  exports: [
+    ReservationCardComponent
   ]
+
 })
 export class ReservationModule { }
