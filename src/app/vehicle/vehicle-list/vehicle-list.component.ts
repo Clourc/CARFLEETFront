@@ -15,21 +15,25 @@ export class VehicleListComponent implements OnInit {
   savedVehicles: any;
   reservationStart: Date | any;
   reservationEnd: Date | any;
-  reservationList: any;
-  filterResult: any[] = [];
+  
   constructor(
     private http: HttpClient,
     private vehicleService: VehicleService,
     private reservationService: ReservationService
   ) {}
 
-  recherche(form: any) {
+  recherche(){
+    this.vehiclesToDisplay = [];
+    return this.vehicleService.recherche(this.vehiclesToDisplay, this.savedVehicles, this.reservationStart, this.reservationEnd);
+  }
+
+  /* recherche() {
+    // this.vehicleService.recherche(this.reservationList)
     this.vehiclesToDisplay = [];
     this.filterResult = [];
     console.log("test vide");
     console.log(this.vehiclesToDisplay)
 
-    console.log(form.value);
 
     for (let i = 0; i < this.reservationList.length; i++) {
       let checkResaStartDates: boolean =
@@ -44,29 +48,37 @@ export class VehicleListComponent implements OnInit {
       if (checkResaStartDates || checkResaEndDates || checkResaWide) {
         console.log('vehicle: ');
         this.filterResult.push(this.reservationList[i].vehicle);
-        console.log(this.filterResult);
+        console.log("filter results", this.filterResult);
       }
     }
     this.savedVehicles.forEach((vehicle: any) => {
+      // Liste de tous les véhicule 
       if (this.filterResult.length > 0) {
+        // filterResult est la liste des véhicule réservé dans les dates choisies 
         for (let hideVehicle of this.filterResult) {
           if (hideVehicle.id != vehicle.id) {
+            // On check si le véhicule de la liste de tous les véhicule 
+            // n'est pas dans la liste des véhicule réservé pour l'afficher 
             console.log('Test');
             this.vehiclesToDisplay.push(vehicle);
           }
         }
       } else {
+        // Si la liste de véhicule réservé est vide on affiche tous les véhicules
+        // Parce qu'ils sont tous disponible
         this.vehiclesToDisplay = this.savedVehicles;
       }
     });
     console.log('display');
     console.log(this.vehiclesToDisplay);
-  }
+    // return la liste de véhicule disponible par date 
+  } */
 
   ngOnInit(): void {
     this.vehicleService.getVehicles().subscribe(
       (data) => {
         this.savedVehicles = data;
+        this.vehiclesToDisplay = data;
         console.log("liste")
         console.log(data);
       },
@@ -74,10 +86,5 @@ export class VehicleListComponent implements OnInit {
         console.error('Erreur dans la récupération des véhicules:', error);
       }
     );
-
-    this.reservationService.getListResa().subscribe((data) => {
-      this.reservationList = data;
-      this.vehiclesToDisplay=this.savedVehicles
-    });
   }
 }
