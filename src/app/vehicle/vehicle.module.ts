@@ -18,7 +18,7 @@ const vehicleRoutes: Routes = [
     canActivate: [authGuard],
   },
   { path: 'vehicles/search', component: VehicleSearchComponent },
-  { path: 'vehicles/add', component: VehicleAddComponent },
+  { path: 'admin/vehicles/add', component: VehicleAddComponent },
   { path: 'vehicles/:id', component: VehicleDetailsComponent },
 ];
 
