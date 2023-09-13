@@ -28,6 +28,8 @@ export class AppComponent implements OnInit{
         this.userService.retrieveUser(userCP).subscribe((data: any) => {
           this.userService.setUser(data);
           this.userService.setUserId();
+
+          console.log(this.userService.getUserRole());
         });
       }
   }
