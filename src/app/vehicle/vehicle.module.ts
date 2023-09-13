@@ -9,17 +9,27 @@ import { VehicleCardComponent } from './vehicle-card/vehicle-card.component';
 import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehicleSearchComponent } from './vehicle-search/vehicle-search.component';
-import { authGuard } from '../auth.guard';
+import { userGuard, adminGuard } from '../auth.guard';
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 const vehicleRoutes: Routes = [
   {
     path: 'vehicles',
-    component: VehicleListComponent,
-    canActivate: [authGuard],
+    component: VehicleComponent,
+    canActivate: [userGuard],
+    children: [
+      {
+        path: '',
+        canActivateChild: [userGuard],
+        children: [
+          { path: 'search', component: VehicleSearchComponent },
+          { path: ':id', component: VehicleDetailsComponent },
+          { path: '', component: VehicleListComponent }
+        ]
+      }
+    ]
   },
-  { path: 'vehicles/search', component: VehicleSearchComponent },
-  { path: 'admin/vehicles/add', component: VehicleAddComponent },
-  { path: 'vehicles/:id', component: VehicleDetailsComponent },
+  { path: 'admin/vehicles/add', component: VehicleAddComponent, canActivate: [adminGuard] },
 ];
 
 @NgModule({
@@ -29,12 +39,13 @@ const vehicleRoutes: Routes = [
     VehicleAddComponent,
     VehicleDetailsComponent,
     VehicleSearchComponent,
+    VehicleComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(vehicleRoutes),
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forChild(vehicleRoutes),
   ],
 })
 export class VehicleModule {}
