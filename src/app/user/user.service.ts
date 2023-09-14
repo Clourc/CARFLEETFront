@@ -22,6 +22,7 @@ export class UserService {
 
           if (response && response.token) {
             localStorage.setItem('token', response.token);
+            this.currentUser = response.user;
             this.setUser(response.user);
             this.setUserId();
             this.router.navigate(['/vehicles']);
@@ -40,8 +41,12 @@ export class UserService {
     return this.http.get('http://localhost:8080/users/retrieve?cp=' + CP);
   }
 
-  getUser(): any {
-    return this.currentUser;
+  getUser(): string | undefined{
+    if(this.currentUser){
+      return this.currentUser.role.type;
+
+    }
+    return undefined
   }
 
   setUser(user: any): void {
