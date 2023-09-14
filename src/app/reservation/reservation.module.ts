@@ -8,11 +8,14 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { ReservationCardComponent } from './reservation-card/reservation-card.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationCancelComponent } from './reservation-cancel/reservation-cancel.component';
+import { userGuard } from '../auth.guard';
+
 
 const resaRoutes: Routes = [
-  { path: "vehicles/:id/reserve", component: ReservationComponent },
-  { path: "reservations", component: ReservationListComponent}
-];
+  { path: "vehicles/:id/reserve", component: ReservationComponent, canActivate: [userGuard] },
+  { path: "reservations", component: ReservationListComponent, canActivate: [userGuard]},
+  { path: "reservations/:id", component: ReservationDetailsComponent, canActivate: [userGuard]},
+ ];
 
 @NgModule({
   declarations: [
@@ -27,6 +30,10 @@ const resaRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(resaRoutes)
+  ],
+  exports: [
+    ReservationCardComponent
   ]
+
 })
 export class ReservationModule { }

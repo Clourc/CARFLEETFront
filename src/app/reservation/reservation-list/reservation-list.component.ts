@@ -11,13 +11,17 @@ export class ReservationListComponent implements OnInit{
 
   constructor(private http: HttpClient, private userService: UserService){}
 
-  userId: number = this.userService.getUserId();
   reservationList: any[] = [];
 
+
   ngOnInit(): void {
-      this.http.get(`http://localhost:8080/reservations?userId=${this.userId}`).subscribe((data: any) => {
-        this.reservationList = data;
-        console.log(this.reservationList);
-      })
+    setTimeout(() => {
+      const userId = this.userService.getUserId();
+      console.log("User id from service: " + userId);
+      this.http.get(`http://localhost:8080/reservations?userId=${this.userService.getUserId()}`).subscribe((data: any) => {
+          this.reservationList = data;
+          console.log(this.reservationList);
+        })
+    }, 250)
   }
 }
