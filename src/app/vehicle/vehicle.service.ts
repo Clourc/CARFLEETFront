@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 export class VehicleService {
   private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
 
-  private apiUrl = 'http://localhost:8080/vehicles';
+
+
+  private apiUrl='http://localhost:8080/vehicles'
 
   constructor(private http: HttpClient) {}
 
@@ -28,4 +30,10 @@ export class VehicleService {
   addVehicle(vehicleData: any): Observable<any> {
     return this.http.post(`${this.apiUrlAddVehicle}`, vehicleData);
   }
+
+  deleteVehicle(id: number): Observable<any> {
+    const deleteUrl = `${this.apiUrl}/${id}/delete`;
+    return this.http.delete(deleteUrl);
+
+}
 }

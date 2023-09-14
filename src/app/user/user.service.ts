@@ -29,11 +29,24 @@ export class UserService {
       );
   }
 
-  getUser(){
-    return this.currentUser;
+  getUser(): string | undefined {
+    if (this.currentUser) {
+      return this.currentUser.role.type;
+    }
+    return undefined;
   }
+  
 
   getUserId(): number{
     return this.currentUser.id;
   }
-}
+
+ 
+
+  
+    
+  }
+
+
+
+

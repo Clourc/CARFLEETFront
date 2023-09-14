@@ -10,3 +10,6 @@
   </ul>
 </div>
 <button type="button" routerLink="reserve">Réserver</button>
+<button [routerLink]="['/vehicles']" *ngIf="isAdmin" (click)="confirmDelete(vehicleDetails.id)">
+  Supprimer
+</button>
