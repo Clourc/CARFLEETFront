@@ -1,10 +1,10 @@
 <h2>trouvez rapidement un véhicule de service !</h2>
 <div class="form-liste">
-<form #f="ngForm" (submit)="(f)">
+<form #f="ngForm" (submit)="f.valid && recherche()">
     <label for="debutreservation">Début de la réservation</label>
-    <input type="datetime-local" id="debutreservation" name="debutreservation" ngModel name="debutreservation" required><br>
+    <input type="datetime-local" id="debutreservation" name="debutreservation"  [(ngModel)]="reservationStart" required=""><br>
     <label for="finreservation">Fin de la réservation</label>
-    <input type="datetime-local" id="finreservation" name="finreservation" ngModel name="finreservation" required>
+    <input type="datetime-local" id="finreservation" name="finreservation"  [(ngModel)]="reservationEnd" required>
     <button type="submit">trouver véhicule</button>
 </form>
 
@@ -13,5 +13,4 @@
       <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
     </li>
   </div>
-
  

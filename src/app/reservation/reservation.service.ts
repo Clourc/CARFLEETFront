@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class ReservationService {
 
   constructor(private http: HttpClient) { }
 
-  getListResa(vehicleId?: string) {
+  getListResa(vehicleId?: string){
     let endpoint = "";
     if (vehicleId) {
       endpoint = `?vehiclesId=${vehicleId}`;
@@ -45,8 +47,5 @@ export class ReservationService {
     }
     return "en cours";
   }
-
-
-
-
 }
+

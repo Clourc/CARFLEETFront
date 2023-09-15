@@ -40,10 +40,6 @@ export class UserService {
     return this.http.get('http://localhost:8080/users/retrieve?cp=' + CP);
   }
 
-  getUserId(): number {
-    return this.currentUserId;
-  }
-
   getUser(): any {
     return this.currentUser;
   }
@@ -52,7 +48,15 @@ export class UserService {
     this.currentUser = user;
   }
 
+  getUserId(): number {
+    return this.currentUserId;
+  }
+
   setUserId(): void {
     this.currentUserId = this.currentUser.id;
+  }
+
+  getUserRole(): string {
+    return this.currentUser.role.type;
   }
 }

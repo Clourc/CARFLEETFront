@@ -3,11 +3,11 @@
 <h2>Recherche détaillée de véhicule</h2>
     <label for="start">Jour et heure de début</label><br>
 
-<input type="datetime-local" id="start" name="start" formControlName="start"  /><br>
+<input type="datetime-local" id="start" name="start" formControlName="startDate"  /><br>
 
 
     <label for="end">Jour et heure de fin</label><br>
-<input type="datetime-local" id="end" name="end" formControlName="end" /><br>
+<input type="datetime-local" id="end" name="end" formControlName="endDate" /><br>
   
       
       <label for="type">type de véhicule</label><br>
@@ -31,7 +31,7 @@
 <button type="submit">Trouver un véhicule</button>
 
 
-<li *ngFor="let vehicle of vehicles">
+<li *ngFor="let vehicle of vehiclesToDisplay">
     <app-vehicle-card [vehicle]="vehicle">
       <a [routerLink]="['/vehicle', vehicle.id]"></a>
     </app-vehicle-card>

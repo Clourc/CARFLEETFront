@@ -6,6 +6,7 @@ import { VehicleService } from '../vehicle.service';
   templateUrl: './vehicle-add.component.html',
   styleUrls: ['./vehicle-add.component.css'],
 })
+
 export class VehicleAddComponent implements OnInit {
   brand: string = '';
   modelId: number = 0;

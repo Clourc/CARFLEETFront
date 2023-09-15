@@ -13,6 +13,7 @@ export class ReservationListComponent implements OnInit{
 
   reservationList: any[] = [];
 
+
   ngOnInit(): void {
     setTimeout(() => {
       const userId = this.userService.getUserId();
