@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ReservationService } from '../reservation/reservation.service';
-
 
 @Injectable({
   providedIn: 'root',
@@ -11,15 +10,12 @@ import { ReservationService } from '../reservation/reservation.service';
 export class VehicleService {
   private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
 
-
-
-  private apiUrl='http://localhost:8080/vehicles'
+  private apiUrl = 'http://localhost:8080/vehicles';
 
   constructor(
     private http: HttpClient,
     private reservationService: ReservationService
   ) {}
-
 
   getVehicles(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:8080/vehicles');
@@ -28,17 +24,15 @@ export class VehicleService {
   getVehiclebyId(id: number): Observable<any> {
     return this.http.get<any>(`http://localhost:8080/vehicles/${id}`);
   }
-  
-    addVehicle(vehicleData: any): Observable<any> {
+
+  addVehicle(vehicleData: any): Observable<any> {
     return this.http.post(`${this.apiUrlAddVehicle}`, vehicleData);
   }
-
 
   findVehicleByTypeAndEnergy(type: string, energy: string): Observable<any[]> {
     const url = `${this.apiUrl}?type=${type}&energy=${energy}`;
     return this.http.get<any[]>(url);
   }
-
 
   recherche(
     vehiclesToDisplay: any[],
@@ -95,8 +89,11 @@ export class VehicleService {
   }
 
   deleteVehicle(id: number): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
     const deleteUrl = `${this.apiUrl}/${id}/delete`;
-    return this.http.delete(deleteUrl);
-
-}
+    console.log("&&&&&&&&&&&&&&&&&&&&&& deleteUrl", deleteUrl)
+    return this.http.delete(deleteUrl, httpOptions);
+  }
 }
