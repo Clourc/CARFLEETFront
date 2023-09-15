@@ -43,10 +43,7 @@ export class UserService {
 
   getUser(): string | undefined{
     if(this.currentUser){
-      return this.currentUser.role.type;
-
-    }
-    return undefined
+      return this.currentUser;
   }
 
   setUser(user: any): void {
