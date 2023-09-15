@@ -28,12 +28,11 @@ export class VehicleListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.vehicleService.getVehicles().subscribe(
-      (data) => {
+    this.vehicleService.getVehicles().subscribe((data) => {
         this.savedVehicles = data;
         this.vehiclesToDisplay = data;
         console.log("liste")
-        console.log(data);
+        console.log("vehicles dataaaaaaa", data);
       }
     );
   }
