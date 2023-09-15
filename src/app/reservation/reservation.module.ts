@@ -14,7 +14,8 @@ import { userGuard } from '../auth.guard';
 const resaRoutes: Routes = [
   { path: "vehicles/:id/reserve", component: ReservationComponent, canActivate: [userGuard] },
   { path: "reservations", component: ReservationListComponent, canActivate: [userGuard]},
-  { path: "reservations/:id", component: ReservationDetailsComponent, canActivate: [userGuard]},
+  { path: "reservations/:id", component: ReservationDetailsComponent, canActivate: [userGuard]},  
+  { path: "reservations/:id/cancel", component: ReservationCancelComponent, canActivate: [userGuard]}
  ];
 
 @NgModule({

@@ -1,1 +1,27 @@
-<p>reservation-details works!</p>
+<div *ngIf="reservationDetails.id">
+
+    <!--<h1>{{reservationDetails | json}}</h1>-->
+    <div id="details_reservation">
+
+        <h3>Réservation n°{{ reservationDetails.id }}</h3>
+        <ul>
+            Période du {{ reservationDetails.start_Date | date:'dd/MM/yyyy'}}
+            <li> {{ reservationDetails.start_Date | date:'h:mm'}} au {{reservationDetails.end_Date | date:'dd/MM/yyyy'}}
+                {{ reservationDetails.end_Date | date:'h:mm'}}</li>
+            <li> à {{ reservationDetails.vehicle.fleet.place }}</li>
+            <li>Motif {{ reservationDetails.reason }}</li>
+            <li>Status :{{reservationStatus}}</li>
+        </ul>
+    </div>
+
+    <img [src]="reservationDetails.vehicle.model.image">
+    <ul>
+        <li>Type : {{ reservationDetails.vehicle.model.type }}</li>
+        <li>Energie : {{ reservationDetails.vehicle.model.energy }}</li>
+        <li>Nombre de portes : {{ reservationDetails.vehicle.model.nbDoors }}</li>
+        <li>Nombre de sièges : {{ reservationDetails.vehicle.model.nbSeats }}</li>
+    </ul>
+
+
+    <button type="button" routerLink="cancel">Annuler ma réservation</button>
+</div>
