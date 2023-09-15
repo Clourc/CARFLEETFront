@@ -22,9 +22,10 @@ export class UserService {
 
           if (response && response.token) {
             localStorage.setItem('token', response.token);
-            this.currentUser = response.user;
-            this.currentUserId = this.getUserId();
+            this.setUser(response.user);
+            this.setUserId();
             this.router.navigate(['/vehicles']);
+            console.log(this.currentUser);
           }
           return response;
         })

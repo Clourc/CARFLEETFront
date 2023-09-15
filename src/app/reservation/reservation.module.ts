@@ -14,6 +14,8 @@ const resaRoutes: Routes = [
   { path: "vehicles/:id/reserve", component: ReservationComponent },
   { path: "reservations", component: ReservationListComponent},
   { path: "admin/reservations", component: ReservationDetailsComponent},
+  { path: "reservations/:id", component: ReservationDetailsComponent},
+  { path: "reservations/:id/cancel", component: ReservationCancelComponent}
  ];
 
 @NgModule({

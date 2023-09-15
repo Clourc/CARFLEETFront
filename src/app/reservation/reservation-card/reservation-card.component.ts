@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ReservationService } from '../reservation.service';
 
 @Component({
   selector: 'app-reservation-card',
@@ -7,13 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReservationCardComponent implements OnInit{
 
+  constructor(private reservationService: ReservationService) { }
+
   @Input() reservation: any;
   reservationPlaceCode: string = "";
   vehicleBrand: string = "";
   vehicleModel: string = "";
   vehiclePlace: string = "";
   resaStatus: string = "";
-  today = new Date();
 
   resaStyleClass: string = "";
   
@@ -23,22 +25,8 @@ export class ReservationCardComponent implements OnInit{
     this.vehicleBrand = this.reservation.vehicle.model.brand.toUpperCase();
     this.vehicleModel = this.reservation.vehicle.model.modelName;
 
-    this.resaStatus = this.setResaStatus();
+    this.resaStatus = this.reservationService.setResaStatus(this.reservation);
     this.setBorderStyle(this.resaStatus);
-  }
-
-  setResaStatus(): string {
-    const checkFinished = new Date(this.reservation.end_Date) < this.today;
-    const checkToCome = new Date(this.reservation.start_Date) > this.today;
-    console.log("today: " + this.today);
-    console.log("Start date: " + new Date(this.reservation.start_Date));
-    if(checkFinished){
-      return "terminée";
-    }
-    if(checkToCome){
-      return "à venir";
-    }
-    return "en cours";
   }
 
   setBorderStyle(status: string): void {
