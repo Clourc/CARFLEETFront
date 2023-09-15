@@ -37,7 +37,7 @@ export class VehicleDetailsComponent implements OnInit {
           this.vehicleDetails.model.brand.toUpperCase();
       });
 
-    const userRole = this.userService.getUser();
+    const userRole = this.userService.getUserRole();
     console.log(userRole);
     this.isAdmin = userRole === 'ADMIN';
   }
