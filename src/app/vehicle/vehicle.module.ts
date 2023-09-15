@@ -24,12 +24,16 @@ const vehicleRoutes: Routes = [
         children: [
           { path: 'search', component: VehicleSearchComponent },
           { path: ':id', component: VehicleDetailsComponent },
-          { path: '', component: VehicleListComponent }
-        ]
-      }
-    ]
+          { path: '', component: VehicleListComponent },
+        ],
+      },
+    ],
   },
-  { path: 'admin/vehicles/add', component: VehicleAddComponent, canActivate: [adminGuard] },
+  {
+    path: 'admin/vehicles/add',
+    component: VehicleAddComponent,
+    canActivate: [adminGuard],
+  },
 ];
 
 @NgModule({

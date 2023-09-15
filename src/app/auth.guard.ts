@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Router, CanActivateFn } from '@angular/router';
-import { AuthentificationService } from './authentification.service'; // Assurez-vous d'importer le service d'authentification approprié ici
+import { AuthentificationService } from './authentification.service'; 
 import { UserService } from './user/user.service';
 
 export const userGuard: CanActivateFn = () => {
@@ -9,9 +9,8 @@ export const userGuard: CanActivateFn = () => {
 
   if (authService.isTokenValid()) {
     console.log('User access');
-    return true; // L'utilisateur a un token, il est autorisé à accéder à la route
+    return true;
   } else {
-    // L'utilisateur n'a pas de token, redirigez-le vers la page de connexion
     router.navigate(['/login']);
     return false;
   }
@@ -34,6 +33,4 @@ export const adminGuard: CanActivateFn = () => {
   }
   router.navigate(['/login']);
   return false;
-
-
 }

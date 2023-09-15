@@ -45,6 +45,7 @@ export class UserService {
     if(this.currentUser){
       return this.currentUser;
   }
+}
 
   setUser(user: any): void {
     this.currentUser = user;
