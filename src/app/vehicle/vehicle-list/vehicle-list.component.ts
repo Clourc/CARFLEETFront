@@ -3,6 +3,7 @@ import { VehicleService } from '../vehicle.service';
 import { HttpClient } from '@angular/common/http';
 import { ReservationService } from 'src/app/reservation/reservation.service';
 import { filter, reduce } from 'rxjs';
+import { FormControl, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -23,8 +24,10 @@ export class VehicleListComponent implements OnInit {
   ) {}
 
   recherche(){
-    this.vehiclesToDisplay = [];
+    this.vehiclesToDisplay = []; console.log("test ", this.vehiclesToDisplay)
     return this.vehicleService.recherche(this.vehiclesToDisplay, this.savedVehicles, this.reservationStart, this.reservationEnd);
+    
+   
   }
 
   /* recherche() {

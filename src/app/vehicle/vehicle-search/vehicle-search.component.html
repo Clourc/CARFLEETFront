@@ -1,17 +1,19 @@
 <div class="searchpage">
-<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="searchForm" (submit)="onSubmit()">
+
 <h2>Recherche détaillée de véhicule</h2>
+
     <label for="start">Jour et heure de début</label><br>
 
-<input type="datetime-local" id="start" name="start" formControlName="startDate"  /><br>
+<input type="datetime-local" id="start" name="start" formControlName="startDate" required  /><br>
 
 
     <label for="end">Jour et heure de fin</label><br>
-<input type="datetime-local" id="end" name="end" formControlName="endDate" /><br>
+<input type="datetime-local" id="end" name="end" formControlName="endDate" required/><br>
   
       
       <label for="type">type de véhicule</label><br>
-       <select id="type-vehicule" name="type-vehicule" formControlName="type"><br>
+       <select id="type-vehicule" name="type-vehicule" formControlName="type" ><br>
            <option value="">Choisir</option>    
            <option value="citadine">citadine</option>
            <option value="fourgon">fourgon</option>
@@ -31,8 +33,32 @@
 <button type="submit">Trouver un véhicule</button>
 
 
+
+<div  *ngIf="formSubmitted && searchForm.hasError('atLeastOneSelectRequired')"    class="error-message">
+  Veuillez choisir au moins un champ "type" ou "energy".
+</div>
+<div *ngIf="formSubmitted && (searchForm.get('startDate')?.hasError('required') || searchForm.get('endDate')?.hasError('required'))" class="error-message">
+  Les champs date de début et de fin sont obligatoire .
+</div>
+<div *ngIf="formSubmitted && vehiclesToDisplay.length === 0" class="error-message">
+  Aucun véhicule trouvé.
+</div>
+
 <li *ngFor="let vehicle of vehiclesToDisplay">
     <app-vehicle-card [vehicle]="vehicle">
       <a [routerLink]="['/vehicle', vehicle.id]"></a>
     </app-vehicle-card>
   </li>
+
+
+
+<!-- 
+
+
+  <div  *ngIf="formSubmitted && (searchForm.get('type')!.hasError('required')|| searchForm.get('energy')! .hasError('required')) " class="error-message">
+    Veuillez choisir au moins un champ "type" ou "energy".
+  </div>
+  <div  *ngIf="formSubmitted && (searchForm.get('startDate')! .hasError('required') || searchForm.get('endDate')! .hasError('required')) "class="error-message">
+    Veuillez remplir les champs obligatoires.
+  </div>
+   -->
