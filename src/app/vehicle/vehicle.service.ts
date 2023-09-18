@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ReservationService } from '../reservation/reservation.service';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +11,16 @@ import { ReservationService } from '../reservation/reservation.service';
 export class VehicleService {
   private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
 
-  private apiUrl = 'http://localhost:8080/vehicles';
+  private apiUrl = 'http://localhost:8080/vehicles?fleetId=' + this.userService.getUserFleetId();
 
   constructor(
     private http: HttpClient,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private userService: UserService
   ) {}
 
   getVehicles(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/vehicles');
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   getVehiclebyId(id: number): Observable<any> {

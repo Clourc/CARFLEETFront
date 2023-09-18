@@ -3,6 +3,7 @@ import { VehicleService } from '../vehicle.service';
 import { HttpClient } from '@angular/common/http';
 import { ReservationService } from 'src/app/reservation/reservation.service';
 import { filter, reduce } from 'rxjs';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -15,25 +16,25 @@ export class VehicleListComponent implements OnInit {
   savedVehicles: any;
   reservationStart: Date | any;
   reservationEnd: Date | any;
-  
-  constructor(
-    private http: HttpClient,
-    private vehicleService: VehicleService,
-    private reservationService: ReservationService
-  ) {}
 
-  recherche(){
+  constructor(private vehicleService: VehicleService) {}
+
+  recherche() {
     this.vehiclesToDisplay = [];
-    return this.vehicleService.recherche(this.vehiclesToDisplay, this.savedVehicles, this.reservationStart, this.reservationEnd);
+    return this.vehicleService.recherche(
+      this.vehiclesToDisplay,
+      this.savedVehicles,
+      this.reservationStart,
+      this.reservationEnd
+    );
   }
 
   ngOnInit(): void {
     this.vehicleService.getVehicles().subscribe((data) => {
-        this.savedVehicles = data;
-        this.vehiclesToDisplay = data;
-        console.log("liste")
-        console.log("vehicles dataaaaaaa", data);
-      }
-    );
+      this.savedVehicles = data;
+      this.vehiclesToDisplay = data;
+      console.log('liste');
+      console.log('vehicles dataaaaaaa', data);
+    });
   }
 }
