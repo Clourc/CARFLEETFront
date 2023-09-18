@@ -19,18 +19,13 @@ export class HeaderInterceptor implements HttpInterceptor {
     if (localStorage.getItem('token')) {
       Authorization = `Bearer ${localStorage.getItem('token')}`;
     }
-    const protectedUrls = ['/vehicles'];
+    console.log("Authorization: "+ Authorization);
 
-    const urlRoute = new URL(request.url).pathname;
-
-    if (protectedUrls.includes(urlRoute)) {
+      console.log(request)
       return next.handle(
         request.clone({
           setHeaders: { Authorization },
         })
       );
-    } else {
-      return next.handle(request);
-    }
   }
 }

@@ -41,11 +41,9 @@ export class UserService {
     return this.http.get('http://localhost:8080/users/retrieve?cp=' + CP);
   }
 
-  getUser(): string | undefined{
-    if(this.currentUser){
-      return this.currentUser;
+  getUser(): string | undefined {
+    return this.currentUser;
   }
-}
 
   setUser(user: any): void {
     this.currentUser = user;
@@ -63,12 +61,7 @@ export class UserService {
     return this.currentUser.role.type;
   }
 
- 
-
-  
-    
+  getUserFleetId(): string {
+    return this.currentUser.fleet.id;
   }
-
-
-
-
+}
