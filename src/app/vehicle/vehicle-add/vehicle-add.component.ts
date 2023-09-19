@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-vehicle-add',
   templateUrl: './vehicle-add.component.html',
   styleUrls: ['./vehicle-add.component.css'],
 })
-
 export class VehicleAddComponent implements OnInit {
   brand: string = '';
   modelId: number = 0;
   vehicle: any = {};
-  fleetId: any;
+  fleetId: number = 0;
   licencePlate: string = '';
   vehicleModelName: string = '';
 
-  constructor(private vehicleService: VehicleService) {}
+  constructor(
+    private vehicleService: VehicleService,
+    private http: HttpClient
+  ) {}
 
   listModel: any = []; //[ { id:1, type:citadine, nbSeats:5, energy:essence, nbDoors:5, image: "https://i.imgur.com/FZ5BdEW.png", modelName: "ZOE R110" }, etc...] tableau d'objets
   listBrands: string[] = [];
@@ -25,26 +28,20 @@ export class VehicleAddComponent implements OnInit {
   modelIdView: any;
 
   ngOnInit(): void {
-    fetch('http://localhost:8080/models')
-      .then((response) => response.json())
-      .then((data) => {
-        this.listModel = data;
-        console.log('Liste models :');
-        console.log(this.listModel);
-        for (let model of this.listModel) {
-          if (!this.listBrands.includes(model.brand)) {
-            this.listBrands.push(model.brand);
-          }
+    this.http.get('http://localhost:8080/models').subscribe((data: any) => {
+      this.listModel = data;
+      console.log('Liste models :', this.listModel);
+      for (let model of this.listModel) {
+        if (!this.listBrands.includes(model.brand)) {
+          this.listBrands.push(model.brand);
         }
-        console.log('Liste brands: ' + this.listBrands);
-      });
-    fetch('http://localhost:8080/fleets')
-      .then((response) => response.json())
-      .then((data) => {
-        this.listFleets = data;
-        console.log('Liste fleets: ');
-        console.log(this.listFleets);
-      });
+      }
+    });
+
+    this.http.get('http://localhost:8080/fleets').subscribe((data: any) => {
+      this.listFleets = data;
+      console.log('Liste fleets :', this.listFleets);
+    });
   }
 
   filterModels(): void {
@@ -70,7 +67,11 @@ export class VehicleAddComponent implements OnInit {
   addVehicleSubmit(): void {
     console.log('Véhicule à envoyer');
     console.log(this.vehicle);
-    const vehicleToRegister: VehicleToRegister = new VehicleToRegister(this.licencePlate, this.vehicle.id, this.fleetId);
+    const vehicleToRegister: VehicleToRegister = new VehicleToRegister(
+      this.licencePlate,
+      this.vehicle.id,
+      this.fleetId
+    );
 
     console.log(vehicleToRegister);
 
@@ -85,14 +86,14 @@ export class VehicleAddComponent implements OnInit {
   }
 }
 
-class VehicleToRegister{
+class VehicleToRegister {
   licencePlate: string;
-  model: number;
-  fleet: number;
+  model: any;
+  fleet: any;
 
-  constructor(licencePlate: string, model_id: number, fleet_id: number){
+  constructor(licencePlate: string, model_id: number, fleet_id: number) {
     this.licencePlate = licencePlate;
-    this.model = model_id;
-    this.fleet = fleet_id;
+    this.model = { id: model_id};
+    this.fleet = { id: fleet_id};
   }
 }

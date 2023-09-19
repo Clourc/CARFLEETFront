@@ -16,7 +16,13 @@ export class ReservationComponent implements OnInit {
   listResa: any = [];
 
   today: Date = new Date();
-  todayString: string = this.today.getFullYear() + "-" + this.formatDate(this.today.getMonth() + 1) + "-" + this.formatDate(this.today.getDate()) + "T00:00";
+  todayString: string =
+    this.today.getFullYear() +
+    '-' +
+    this.formatDate(this.today.getMonth() + 1) +
+    '-' +
+    this.formatDate(this.today.getDate()) +
+    'T00:00';
 
   constructor(
     private reservationService: ReservationService,
@@ -29,16 +35,18 @@ export class ReservationComponent implements OnInit {
   }
 
   private formatDate(nmbr: number): string {
-    var date = nmbr + "";
-    date = (date.length < 2) ? "0" + date : date;
+    var date = nmbr + '';
+    date = date.length < 2 ? '0' + date : date;
     return date;
-}
+  }
 
   submitReservation() {
-    if(this.start_Date > this.end_Date){
-      throw new Error("La date de début de réservation doit être avant celle de fin");
+    console.log("Vehicle id: ", this.vehicleId);
+    if (this.start_Date > this.end_Date) {
+      throw new Error(
+        'La date de début de réservation doit être avant celle de fin'
+      );
     }
-    let isReserved: boolean = false;
     this.reservationService.getListResa(this.vehicleId).subscribe((data) => {
       this.listResa = data;
       console.log('Liste réservation');
@@ -52,13 +60,10 @@ export class ReservationComponent implements OnInit {
         let checkResaWide: boolean =
           this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
         if (checkResaStartDates || checkResaEndDates || checkResaWide) {
-          if (!isReserved) {
-            isReserved = true;
-          }
+          throw new Error(
+            'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
+          );
         }
-      }
-      if(isReserved){
-        throw new Error("Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période");
       }
       const reservationData = new ReservationData(
         this.start_Date,
