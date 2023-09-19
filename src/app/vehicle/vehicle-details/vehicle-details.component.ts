@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VehicleService } from '../vehicle.service';
 import { UserService } from 'src/app/user/user.service';
 
@@ -18,17 +18,17 @@ export class VehicleDetailsComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private route: ActivatedRoute,
     private vehicleService: VehicleService,
     private userService: UserService
   ) {}
 
   ngOnInit(): void {
-    this.vehicleId = this.router.url.split('/').pop();
-    console.log('Url: ' + this.router.url);
+    this.route.params.subscribe((params) => (this.vehicleId = params['id']));
     console.log('Vehicle Id: ' + this.vehicleId);
     this.http
       .get('http://localhost:8080/vehicles/' + this.vehicleId, {
-        responseType: 'json', // Indiquer que nous attendons une réponse JSON.
+        responseType: 'json',
       })
       .subscribe((data: any) => {
         console.log(data);
@@ -65,14 +65,12 @@ export class VehicleDetailsComponent implements OnInit {
     }
   }
 
-
   deleteVehicle(vehicleId: number) {
-
     console.log('Tessssssst deletee');
     return this.vehicleService.deleteVehicle(vehicleId).subscribe({
       next: (data) => {
         console.log('data sucessss', data);
-        this.router.navigate(["/vehicles"])
+        this.router.navigate(['/vehicles']);
       },
       error: (error) => {
         console.error('There was an error!', error);
