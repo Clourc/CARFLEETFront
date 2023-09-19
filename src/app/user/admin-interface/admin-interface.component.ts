@@ -19,7 +19,8 @@ export class AdminInterfaceComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.http.get(`http://localhost:8080/reservations`).subscribe((data: any) => {
+    const userId = this.userService.getUserId();
+    this.http.get(`http://localhost:8080/reservations?userId=${userId}`).subscribe((data: any) => {
       this.reservationListAdmin = data;
       console.log(this.reservationListAdmin);
 

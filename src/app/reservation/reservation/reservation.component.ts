@@ -60,11 +60,13 @@ export class ReservationComponent implements OnInit {
         let checkResaWide: boolean =
           this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
         if (checkResaStartDates || checkResaEndDates || checkResaWide) {
+          console.log("vehicle unavailable");
           throw new Error(
             'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
           );
         }
       }
+
       const reservationData = new ReservationData(
         this.start_Date,
         this.end_Date,
@@ -72,6 +74,7 @@ export class ReservationComponent implements OnInit {
         this.vehicleId,
         this.userService.getUserId()
       );
+
       console.log('Données résa: ' + reservationData);
       this.reservationService
         .postNewReservation(reservationData)

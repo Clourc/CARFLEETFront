@@ -17,8 +17,9 @@ export class ReservationListComponent implements OnInit{
   ngOnInit(): void {
     setTimeout(() => {
       const userId = this.userService.getUserId();
-      console.log("User id from service: " + userId);
-      this.http.get(`http://localhost:8080/reservations?userId=${this.userService.getUserId()}`).subscribe((data: any) => {
+      const userRole = this.userService.getUserRole();
+      console.log("User role from service: " + userRole);
+      this.http.get(`http://localhost:8080/reservations?userId=${userId}`).subscribe((data: any) => {
           this.reservationList = data;
           console.log(this.reservationList);
         })
