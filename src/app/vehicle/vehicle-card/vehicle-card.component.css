@@ -2,13 +2,13 @@
   margin: 10px;
   width: 300px;
   height: 300px;
-  border: 1px solid #ccc;
+  border: 1px solid white;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-    box-shadow: 0 2px 3px #ccc;
+  box-shadow: 08px 08px 10px 5px #818080;
     box-sizing: border-box;
     background-color:rgb(	193,	211,	215)
 }
@@ -18,7 +18,10 @@ a {
   color: black;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+display: flex ;
 text-align: center;
+justify-content: center;
+
 
 }
 
