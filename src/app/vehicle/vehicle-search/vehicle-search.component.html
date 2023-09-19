@@ -44,21 +44,14 @@
   Aucun véhicule trouvé.
 </div>
 
+</form>
+
+<div class="search-card">
 <li *ngFor="let vehicle of vehiclesToDisplay">
     <app-vehicle-card [vehicle]="vehicle">
       <a [routerLink]="['/vehicle', vehicle.id]"></a>
     </app-vehicle-card>
   </li>
+</div>
 
 
-
-<!-- 
-
-
-  <div  *ngIf="formSubmitted && (searchForm.get('type')!.hasError('required')|| searchForm.get('energy')! .hasError('required')) " class="error-message">
-    Veuillez choisir au moins un champ "type" ou "energy".
-  </div>
-  <div  *ngIf="formSubmitted && (searchForm.get('startDate')! .hasError('required') || searchForm.get('endDate')! .hasError('required')) "class="error-message">
-    Veuillez remplir les champs obligatoires.
-  </div>
-   -->

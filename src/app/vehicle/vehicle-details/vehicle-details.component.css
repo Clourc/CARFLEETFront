@@ -12,6 +12,7 @@
   box-shadow: 0 2px 3px #ccc;
   max-width: 100%;
   background-color: rgb(203, 224, 230);
+
 }
 
 h2 {
@@ -20,7 +21,7 @@ h2 {
   line-height: 1em;
   font-family: "Roboto", sans-serif;
   color: rgb(58, 57, 57);
-
+display: flex;
   justify-content: space-around;
 }
 img {
@@ -36,4 +37,15 @@ li {
 button {
   position: relative;
   left: calc(100vw - 180px);
+ margin-bottom: 50px;
+ border-radius: 6px;
+ max-width: 40%;
+
+ background: var(--slate-900, #0F172A);
+    color: var(--slate-100, #F9FAFB);
+    margin-bottom: 6%;
+    margin-top: 4%;
+
 }
+
+
