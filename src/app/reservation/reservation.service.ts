@@ -17,7 +17,7 @@ export class ReservationService {
   getListResa(vehicleId?: string){
     let endpoint = "";
     if (vehicleId) {
-      endpoint = `?vehiclesId=${vehicleId}`;
+      endpoint = `?vehicleId=${vehicleId}`;
       console.log("endpoint: " + endpoint);
       return this.http.get("http://localhost:8080/reservations" + endpoint);
     }

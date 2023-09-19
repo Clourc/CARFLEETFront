@@ -11,7 +11,7 @@ import { UserService } from '../user/user.service';
 export class VehicleService {
   private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
 
-  private apiUrl = 'http://localhost:8080/vehicles?fleetId=' + this.userService.getUserFleetId();
+  private apiUrl = 'http://localhost:8080/vehicles';
 
   constructor(
     private http: HttpClient,
@@ -20,7 +20,7 @@ export class VehicleService {
   ) {}
 
   getVehicles(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(this.apiUrl + '?fleetId=' + this.userService.getUserFleetId());
   }
 
   getVehiclebyId(id: number): Observable<any> {
