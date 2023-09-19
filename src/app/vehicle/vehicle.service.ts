@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter, switchMap } from 'rxjs/operators';
+
 import { ReservationService } from '../reservation/reservation.service';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,19 +11,24 @@ import { ReservationService } from '../reservation/reservation.service';
 export class VehicleService {
   private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
 
-  private apiUrl = 'http://localhost:8080/vehicles';
+  private apiUrl = 'http://localhost:8080/vehicles?fleetId=' + this.userService.getUserFleetId();
 
   constructor(
     private http: HttpClient,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private userService: UserService
   ) {}
 
   getVehicles(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/vehicles');
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   getVehiclebyId(id: number): Observable<any> {
     return this.http.get<any>(`http://localhost:8080/vehicles/${id}`);
+  }
+
+  addVehicle(vehicleData: any): Observable<any> {
+    return this.http.post(`${this.apiUrlAddVehicle}`, vehicleData);
   }
 
   findVehicleByTypeAndEnergy(type: string, energy: string): Observable<any[]> {
@@ -36,7 +42,6 @@ export class VehicleService {
     reservationStart: Date,
     reservationEnd: Date
   ) {
-    // this.vehicleService.recherche(this.reservationList)
     let reservationList: any[] = [];
     this.reservationService.getListResa().subscribe((data: any) => {
       reservationList = data;
@@ -69,6 +74,39 @@ console.log("resrvationList", reservationList);
           filterResult.push(reservationList[i].vehicle);
         }
       }
+      savedVehicles.forEach((vehicle: any) => {
+        // Liste de tous les véhicule
+        if (filterResult.length > 0) {
+          // filterResult est la liste des véhicule réservé dans les dates choisies
+          for (let hideVehicle of filterResult) {
+            if (hideVehicle.id != vehicle.id) {
+              // On check si le véhicule de la liste de tous les véhicule
+              // n'est pas dans la liste des véhicule réservé pour l'afficher
+              console.log('Test');
+              vehiclesToDisplay.push(vehicle);
+            }
+          }
+        } else {
+          // Si la liste de véhicule réservé est vide on affiche tous les véhicules
+          // Parce qu'ils sont tous disponible
+          vehiclesToDisplay = savedVehicles;
+        }
+      });
+      console.log('display');
+      console.log(vehiclesToDisplay);
+    });
+    // return la liste de véhicule disponible par date
+  }
+
+  deleteVehicle(id: number): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    const deleteUrl = `${this.apiUrl}/${id}/delete`;
+    console.log("&&&&&&&&&&&&&&&&&&&&&& deleteUrl", deleteUrl)
+    return this.http.delete(deleteUrl, httpOptions);
+  }
+}
 
       if (filterResult.length == 0) {
         vehiclesToDisplay = savedVehicles;

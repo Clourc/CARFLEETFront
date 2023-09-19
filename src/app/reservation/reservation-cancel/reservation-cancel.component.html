@@ -1,1 +1,9 @@
-<p>reservation-cancel works!</p>
+<h1>Annulation</h1>
+
+Vous allez annuler la réservation n° {{reservationCancel.id}} pour la période 
+du {{reservationCancel.start_Date | date:'dd/MM/yyyy'}} au {{reservationCancel.end_Date | date:'dd/MM/yyyy'}} 
+à {{reservationCancel.vehicle.fleet.place}}
+
+Motif : {{reservationCancel.reason}}.
+
+<button type="button" (click)="cancelConfirm()">Confirmer l'annulation</button>

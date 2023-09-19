@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../reservation.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-reservation',
@@ -14,14 +15,24 @@ export class ReservationComponent implements OnInit {
   vehicleId!: string | undefined;
   listResa: any = [];
 
+  today: Date = new Date();
+  todayString: string = this.today.getFullYear() + "-" + this.formatDate(this.today.getMonth() + 1) + "-" + this.formatDate(this.today.getDate()) + "T00:00";
+
   constructor(
     private reservationService: ReservationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
   }
+
+  private formatDate(nmbr: number): string {
+    var date = nmbr + "";
+    date = (date.length < 2) ? "0" + date : date;
+    return date;
+}
 
   submitReservation() {
     if(this.start_Date > this.end_Date){
@@ -53,7 +64,8 @@ export class ReservationComponent implements OnInit {
         this.start_Date,
         this.end_Date,
         this.reasonReservation,
-        this.vehicleId
+        this.vehicleId,
+        this.userService.getUserId()
       );
       console.log('Données résa: ' + reservationData);
       this.reservationService
@@ -76,12 +88,13 @@ class ReservationData {
     start_Date: Date,
     end_Date: Date,
     reason: string,
-    vehicle: string | undefined
+    vehicle: string | undefined,
+    userId: number
   ) {
     this.start_Date = start_Date;
     this.end_Date = end_Date;
     this.reason = reason;
     this.vehicle = { id: vehicle };
-    this.user = { id: 2 };
+    this.user = { id: userId };
   }
 }

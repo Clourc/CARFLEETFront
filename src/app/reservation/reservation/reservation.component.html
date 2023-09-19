@@ -1,8 +1,8 @@
-<form #resa_form="ngForm" (ngSubmit)="submitReservation()" id="resaForm">
+<form #resa_form="ngForm" (ngSubmit)="resa_form.valid && submitReservation()" id="resaForm">
     <label for="startDate">Date et heure de début</label>
-    <input type="datetime-local" id="startDate" name="startDate" [(ngModel)]="start_Date" required>
+    <input type="datetime-local" id="startDate" name="startDate" [(ngModel)]="start_Date" [min]="todayString" required>
     <label for="endDate">Date et heure de fin</label>
-    <input type="datetime-local" id="endDate" name="endDate" [(ngModel)]="end_Date" required>
+    <input type="datetime-local" id="endDate" name="endDate" [(ngModel)]="end_Date" [min]="todayString" required>
 
     <label form="reason">Motif de la réservation: </label>
     <input type="text" id="reason" name="reason" [(ngModel)]="reasonReservation" required>

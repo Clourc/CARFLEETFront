@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ReservationService } from 'src/app/reservation/reservation.service';
 import { filter, reduce } from 'rxjs';
 import { FormControl, FormsModule } from '@angular/forms';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -16,12 +17,8 @@ export class VehicleListComponent implements OnInit {
   savedVehicles: any;
   reservationStart: Date | any;
   reservationEnd: Date | any;
-  
-  constructor(
-    private http: HttpClient,
-    private vehicleService: VehicleService,
-    private reservationService: ReservationService
-  ) {}
+
+  constructor(private vehicleService: VehicleService) {}
 
   recherche(){
     this.vehiclesToDisplay = []; console.log("test ", this.vehiclesToDisplay)
@@ -78,16 +75,11 @@ export class VehicleListComponent implements OnInit {
   } */
 
   ngOnInit(): void {
-    this.vehicleService.getVehicles().subscribe(
-      (data) => {
-        this.savedVehicles = data;
-        this.vehiclesToDisplay = data;
-        console.log("liste")
-        console.log(data);
-      },
-      (error) => {
-        console.error('Erreur dans la récupération des véhicules:', error);
-      }
-    );
+    this.vehicleService.getVehicles().subscribe((data) => {
+      this.savedVehicles = data;
+      this.vehiclesToDisplay = data;
+      console.log('liste');
+      console.log('vehicles dataaaaaaa', data);
+    });
   }
 }
