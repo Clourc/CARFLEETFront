@@ -1,16 +1,13 @@
 .logo {
   height: 80%;
   margin: 20px;
-
 }
-  a {
 
-    text-decoration: none;
-    color: whitesmoke;
-    margin-bottom: 10px;
-    
-  
-  }
+a {
+  text-decoration: none;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
 
 .logo a {
   display: flex;
@@ -37,12 +34,17 @@
   margin-right: 0;
   margin-left: 20px;
   margin-top: 10px;
-
 }
 
 header {
-  background: rgb(80,78,111);
-  background: linear-gradient(90deg, rgba(80,78,111,1) 0%, rgba(15,134,158,1) 100%, rgba(0,212,255,1) 100%, rgba(34,97,117,0.01) 100%);
+  background: rgb(80, 78, 111);
+  background: linear-gradient(
+    90deg,
+    rgba(80, 78, 111, 1) 0%,
+    rgba(15, 134, 158, 1) 100%,
+    rgba(0, 212, 255, 1) 100%,
+    rgba(34, 97, 117, 0.01) 100%
+  );
   border-bottom: 1px solid #eee;
   height: 150px;
   width: 100%;
@@ -66,7 +68,6 @@ h2 {
 
 ul {
   padding: 0 10px;
-  
 }
 
 @media screen and (min-width: 768px) {
@@ -88,6 +89,7 @@ ul {
   }
 
   ul {
+    list-style: none;
     align-items: center;
     padding: 0;
   }
@@ -97,7 +99,6 @@ ul {
     color: whitesmoke;
     text-decoration: none;
     display: flex;
-
   }
 
   .menu {

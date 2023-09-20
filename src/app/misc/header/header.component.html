@@ -1,17 +1,47 @@
 <header>
-        <div class="logo">
-          <a routerLink="vehicles"><img class="logo-img" src="assets/images/logo_site_carfleet.png" alt="logo"></a>
-        </div>
+  <div class="logo">
+    <a routerLink="vehicles"
+      ><img
+        class="logo-img"
+        src="assets/images/logo_site_carfleet.png"
+        alt="logo"
+    /></a>
+  </div>
 
-        <h2> La réservation facile de votre véhicule de service </h2> 
-<div class="menu">
+  <h2>La réservation facile de votre véhicule de service</h2>
+  <div class="menu">
     <ul>
-        <a routerLink="vehicles/search"><img src="assets/images/icon-search.png" class="logo-link" alt="icon-search"> Recherche </a>
-        <a routerLink="reservations"><img src="assets/images/icon-reservation.png" class="logo-link"  alt="icon-reservation"> Réservations</a>
-        <span *ngIf=getUserRole() == "ADMIN"><a routerLink="admin"></a></span>
-        <a href="" (click)="logout()"><img src="assets/images/icon-deconnexion.png" class="logo-link" alt="icon-deconnexion"> Déconnexion</a>
+      <li>
+        <a routerLink="vehicles/search"
+          ><img
+            src="assets/images/icon-search.png"
+            class="logo-link"
+            alt="icon-search"
+          />
+          Recherche
+        </a>
+      </li>
+      <li>
+        <a routerLink="reservations"
+          ><img
+            src="assets/images/icon-reservation.png"
+            class="logo-link"
+            alt="icon-reservation"
+          />
+          Réservations</a
+        >
+      </li>
+      <li *ngIf="userRole == 'ADMIN'"><a routerLink="admin"><img src="assets/images/icon-admin.png" class="logo-link" alt="icon-admin">Admin</a></li>
+      <li>
+        <a href="" (click)="logout()"
+          ><img
+            src="assets/images/icon-deconnexion.png"
+            class="logo-link"
+            alt="icon-deconnexion"
+          />
+          Déconnexion</a
+        >
+      </li>
     </ul>
-
-
-    </div>
+  </div>
 </header>
