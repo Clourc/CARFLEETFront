@@ -13,4 +13,9 @@ export class HeaderComponent {
   public logout(): any {
     return this.userService.logout();
   }
+
+  public getUserRole (): any {
+    return this.userService.getUserRole();
 }
+}
+
