@@ -19,7 +19,8 @@ h2 {
 }
 
 form {
-    background-color:rgba(34, 97, 117, 1);
+    background: rgb(80,78,111);
+background: linear-gradient(90deg, rgba(80,78,111,1) 0%, rgba(15,134,158,1) 100%, rgba(0,212,255,1) 100%, rgba(34,97,117,0.01) 100%);
     color: whitesmoke;
     display: flex;
     align-items: center;
@@ -67,18 +68,7 @@ option {
     max-width: 50%;
 }
 
-button {
-    display: flex;
-     border-radius: 6px;
-     max-width: 40%;
-     justify-content: center;
-     align-items: center;
-     background: var(--slate-900, #0F172A);
-        color: var(--slate-100, #F9FAFB);
-        margin-bottom: 6%;
-        margin-top: 4%;
-    
-}
+
 button:hover {
     background: var(--slate-800, #1E293B);
         color: var(--slate-100, #F9FAFB);

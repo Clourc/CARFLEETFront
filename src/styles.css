@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
 .resa-ongoing {
     border: solid 2px #04BE17;
 }
@@ -10,3 +15,13 @@
 .resa-ended {
     border: solid 2px #36778a;
 }
+
+button {
+ 
+     border-radius: 6px;
+     font-weight: 600;
+     background: var(--slate-900, #0F172A);
+        color: var(--slate-100, #F9FAFB);
+
+}
+

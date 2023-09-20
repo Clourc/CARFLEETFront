@@ -1,5 +1,6 @@
 footer{
-    background-color:rgba(34, 97, 117, 1);
+    background: rgb(80,78,111);
+    background: linear-gradient(90deg, rgba(80,78,111,1) 0%, rgba(15,134,158,1) 100%, rgba(0,212,255,1) 100%, rgba(34,97,117,0.01) 100%);
     color: whitesmoke;
 position: static;
     bottom: 0;
@@ -30,5 +31,6 @@ p {
     justify-content: center;
     align-items: center;
     font-weight: bolder;
+    margin-left: 15px;
     
 }
