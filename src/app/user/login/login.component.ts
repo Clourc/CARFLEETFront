@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   CP: string = '';
   password: string = '';
   memoriserMotDePasse: boolean = false;
@@ -20,6 +20,12 @@ export class LoginComponent {
   formSubmissionTime = 0;
 
   constructor(private userService: UserService, private router: Router) {}
+
+  ngOnInit(): void {
+    if(localStorage.getItem('token')){
+      this.userService.logout();
+    }
+  }
 
   checkPseudoValidity() {
     this.isCPValid = this.CP && this.CP.length >= 3 && this.CP.length <= 20;

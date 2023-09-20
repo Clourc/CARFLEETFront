@@ -1,57 +1,76 @@
 <div class="searchpage">
-<form [formGroup]="searchForm" (submit)="onSubmit()">
+  <form [formGroup]="searchForm" (submit)="onSubmit()">
+    <h2>Recherche détaillée de véhicule</h2>
 
-<h2>Recherche détaillée de véhicule</h2>
+    <label for="start">Jour et heure de début</label><br />
 
-    <label for="start">Jour et heure de début</label><br>
+    <input
+      type="datetime-local"
+      id="start"
+      name="start"
+      formControlName="startDate"
+      required
+    /><br />
 
-<input type="datetime-local" id="start" name="start" formControlName="startDate" required  /><br>
+    <label for="end">Jour et heure de fin</label><br />
+    <input
+      type="datetime-local"
+      id="end"
+      name="end"
+      formControlName="endDate"
+      required
+    /><br />
 
+    <label for="type">type de véhicule</label><br />
+    <select id="type-vehicule" name="type-vehicule" formControlName="type">
+      <br />
+      <option value="">Choisir</option>
+      <option value="citadine">citadine</option>
+      <option value="utilitaire">utilitaire</option>
+      <option value="berline">berline</option>
+    </select>
+    <br />
 
-    <label for="end">Jour et heure de fin</label><br>
-<input type="datetime-local" id="end" name="end" formControlName="endDate" required/><br>
-  
-      
-      <label for="type">type de véhicule</label><br>
-       <select id="type-vehicule" name="type-vehicule" formControlName="type" ><br>
-           <option value="">Choisir</option>    
-           <option value="citadine">citadine</option>
-           <option value="fourgon">fourgon</option>
-           <option value="berline">berline</option>
-         </select>
-            <br>
-            
-       
-        <label for="energy">Energy</label><br>
-       
-       <select id="carburant" name="carburant" formControlName="energy" ><br>
-                <option value="">Choisir</option>
-              <option value="essence">essence</option>
-              <option value="diesel">diesel</option>
-              <option value="électrique">électrique</option>
-       </select><br>
-<button type="submit">Trouver un véhicule</button>
+    <label for="energy">Energy</label><br />
 
+    <select id="carburant" name="carburant" formControlName="energy">
+      <br />
+      <option value="">Choisir</option>
+      <option value="essence">essence</option>
+      <option value="diesel">diesel</option>
+      <option value="électrique">électrique</option></select
+    ><br />
+    <button type="submit">Trouver un véhicule</button>
 
+    <div
+      *ngIf="formSubmitted && searchForm.hasError('atLeastOneSelectRequired')"
+      class="error-message"
+    >
+      Veuillez choisir au moins un champ "type" ou "energy".
+    </div>
+    <div
+      *ngIf="
+        formSubmitted &&
+        (searchForm.get('startDate')?.hasError('required') ||
+          searchForm.get('endDate')?.hasError('required'))
+      "
+      class="error-message"
+    >
+      Les champs date de début et de fin sont obligatoire .
+    </div>
+    <div
+      *ngIf="formSubmitted && vehiclesToDisplay.length === 0"
+      class="error-message"
+    >
+      Aucun véhicule trouvé.
+    </div>
+  </form>
 
-<div  *ngIf="formSubmitted && searchForm.hasError('atLeastOneSelectRequired')"    class="error-message">
-  Veuillez choisir au moins un champ "type" ou "energy".
+  <div class="search-card">
+    <li *ngFor="let vehicle of vehiclesToDisplay">
+      <app-vehicle-card [vehicle]="vehicle">
+        <a [routerLink]="['/vehicle', vehicle.id]"></a>
+      </app-vehicle-card>
+    </li>
+  </div>
 </div>
-<div *ngIf="formSubmitted && (searchForm.get('startDate')?.hasError('required') || searchForm.get('endDate')?.hasError('required'))" class="error-message">
-  Les champs date de début et de fin sont obligatoire .
-</div>
-<div *ngIf="formSubmitted && vehiclesToDisplay.length === 0" class="error-message">
-  Aucun véhicule trouvé.
-</div>
-
-</form>
-
-<div class="search-card">
-<li *ngFor="let vehicle of vehiclesToDisplay">
-    <app-vehicle-card [vehicle]="vehicle">
-      <a [routerLink]="['/vehicle', vehicle.id]"></a>
-    </app-vehicle-card>
-  </li>
-</div>
-
-

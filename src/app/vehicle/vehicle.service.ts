@@ -19,9 +19,9 @@ export class VehicleService {
     private userService: UserService
   ) {}
 
-  getVehicles(): Observable<any[]> {
+  getVehicles(fleetId: string): Observable<any[]> {
     return this.http.get<any[]>(
-      this.apiUrl + '?fleetId=' + this.userService.getUserFleetId()
+      this.apiUrl + '?fleetId=' + fleetId
     );
   }
 
@@ -33,8 +33,8 @@ export class VehicleService {
     return this.http.post(`${this.apiUrlAddVehicle}`, vehicleData);
   }
 
-  findVehicleByTypeAndEnergy(type: string, energy: string): Observable<any[]> {
-    const url = `${this.apiUrl}?type=${type}&energy=${energy}`;
+  findVehicleByTypeAndEnergy(fleetId: string, type: string, energy: string): Observable<any[]> {
+    const url = `${this.apiUrl}?fleetId=${fleetId}&type=${type}&energy=${energy}`;
     return this.http.get<any[]>(url);
   }
 
@@ -45,7 +45,7 @@ export class VehicleService {
     reservationEnd: Date
   ) {
     let reservationList: any[] = [];
-    this.reservationService.getListResa().subscribe((data: any) => {
+    this.reservationService.getListResa(this.userService.getUserId()).subscribe((data: any) => {
       reservationList = data;
 
       const filterResult: any[] = [];
