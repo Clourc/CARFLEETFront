@@ -35,6 +35,8 @@ export class UserService {
 
   logout() {
     localStorage.removeItem('token');
+    this.currentUser = null;
+    this.currentUserId = null;
   }
 
   retrieveUser(CP: string) {

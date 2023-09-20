@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-vehicle-search',
@@ -15,9 +16,9 @@ export class VehicleSearchComponent {
   formSubmitted: boolean = false;
 
   constructor(
-    private httpClient: HttpClient,
     private fb: FormBuilder,
-    public vehicleService: VehicleService
+    private vehicleService: VehicleService,
+    private userService: UserService
   ) {
     this.searchForm = this.fb.group(
       {
@@ -64,7 +65,7 @@ export class VehicleSearchComponent {
     }
   
     this.vehicleService
-      .findVehicleByTypeAndEnergy(type, energy)
+      .findVehicleByTypeAndEnergy(this.userService.getUserFleetId(), type, energy)
       .subscribe((data: any) => {
         this.vehicles = data;
   
@@ -77,6 +78,7 @@ export class VehicleSearchComponent {
             startDate,
             endDate
           );
+          console.log(this.vehiclesToDisplay);
         }
       });
   }}

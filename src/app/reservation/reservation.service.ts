@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { UserService } from '../user/user.service';
 
 
 @Injectable({
@@ -12,17 +13,20 @@ export class ReservationService {
   today = new Date();
   reservation: any = {};
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
-  getListResa(vehicleId?: string){
-    let endpoint = "";
+  getListResa(userId?: number, vehicleId?: string){
+    if((!userId && !vehicleId) || (userId && vehicleId)){
+      throw new Error("Only one of UserId or VehicleId required");
+    }
+    let endpoint = `?userId=${userId}`;
     if (vehicleId) {
       endpoint = `?vehicleId=${vehicleId}`;
       console.log("endpoint: " + endpoint);
       return this.http.get("http://localhost:8080/reservations" + endpoint);
     }
     console.log("endpoint: " + endpoint);
-    return this.http.get("http://localhost:8080/reservations");
+    return this.http.get("http://localhost:8080/reservations" + endpoint);
   }
 
   postNewReservation(data: any) {
