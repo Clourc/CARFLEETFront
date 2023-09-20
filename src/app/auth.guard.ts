@@ -18,13 +18,11 @@ export const userGuard: CanActivateFn = () => {
 
 export const adminGuard: CanActivateFn = () => {
   const authService = inject(AuthentificationService);
-  const userService = inject(UserService);
   const router = inject(Router);
 
-  console.log('Admin access ? Role :' + userService.getUserRole());
-
+  console.log('Admin access ? Role :' + localStorage.getItem('role'));
   if(authService.isTokenValid()){
-    if(userService.getUserRole() == "ADMIN"){
+    if(localStorage.getItem('role') == "ADMIN"){
       console.log('Admin access valid');
       return true
     }

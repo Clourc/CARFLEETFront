@@ -10,3 +10,20 @@
 .resa-ended {
     border: solid 2px #36778a;
 }
+
+.dot-ongoing {
+    background-color: #04BE17;
+}
+
+.dot-toCome {
+    background-color: #FFA500;
+}
+
+.got-ended {
+    background-color: #36778a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}

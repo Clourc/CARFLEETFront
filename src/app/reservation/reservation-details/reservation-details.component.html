@@ -1,27 +1,41 @@
-<div *ngIf="reservationDetails.id">
-
-    <!--<h1>{{reservationDetails | json}}</h1>-->
-    <div id="details_reservation">
-
-        <h3>Réservation n°{{ reservationDetails.id }}</h3>
-        <ul>
-            Période du {{ reservationDetails.start_Date | date:'dd/MM/yyyy'}}
-            <li> {{ reservationDetails.start_Date | date:'h:mm'}} au {{reservationDetails.end_Date | date:'dd/MM/yyyy'}}
-                {{ reservationDetails.end_Date | date:'h:mm'}}</li>
-            <li> à {{ reservationDetails.vehicle.fleet.place }}</li>
-            <li>Motif {{ reservationDetails.reason }}</li>
-            <li>Status :{{reservationStatus}}</li>
-        </ul>
-    </div>
-
-    <img [src]="reservationDetails.vehicle.model.image">
+<div *ngIf="reservationDetails.id" id="details_reservation">
+  <h3>Réservation n°{{ reservationDetails.id }}{{reservationPlaceCode}}</h3>
+  <div id="resa_content">
     <ul>
-        <li>Type : {{ reservationDetails.vehicle.model.type }}</li>
-        <li>Energie : {{ reservationDetails.vehicle.model.energy }}</li>
-        <li>Nombre de portes : {{ reservationDetails.vehicle.model.nbDoors }}</li>
-        <li>Nombre de sièges : {{ reservationDetails.vehicle.model.nbSeats }}</li>
+      <li>
+        Période du
+        {{ reservationDetails.start_Date | date : "dd/MM/yyyy h:mm" }}
+      </li>
+      <li>
+        au
+        {{ reservationDetails.end_Date | date : "dd/MM/yyyy h:mm" }} à {{ reservationDetails.vehicle.fleet.place }}
+      </li>
+      <li>Motif : {{ reservationDetails.reason }}</li>
+      <li>Status : {{ reservationStatus }} <span class="dot" [ngClass]="resaStyleClass"></span></li>
+      <li id="vehicleModelInfo">{{reservationDetails.vehicle.model.brand}} {{reservationDetails.vehicle.model.modelName}}</li>
+      <li>Immatriculée : {{reservationDetails.vehicle.licencePlate}}</li>
     </ul>
 
+    <img [src]="reservationDetails.vehicle.model.image" />
+    <ul>
+      <li>Type : {{ reservationDetails.vehicle.model.type }}</li>
+      <li>Energie : {{ reservationDetails.vehicle.model.energy }}</li>
+      <li>Nombre de portes : {{ reservationDetails.vehicle.model.nbDoors }}</li>
+      <li>Nombre de sièges : {{ reservationDetails.vehicle.model.nbSeats }}</li>
+    </ul>
+  </div>
 
-    <button type="button" routerLink="cancel">Annuler ma réservation</button>
+  <div id="details_user" *ngIf="userRole === 'ADMIN'">
+    <h3>Usager</h3>
+    <ul>
+        <li>{{reservationDetails.user.lastName | uppercase}} {{reservationDetails.user.firstName}} </li>
+        <li>N°CP : {{reservationDetails.user.cp}}</li>
+        <li>N°Permis : {{reservationDetails.user.nbLicence}}</li>
+        <li>Mail professionnel : {{reservationDetails.user.email}}</li>
+        <li>Téléphone : {{reservationDetails.user.phone}}</li>
+        <li>Etablissement : {{reservationDetails.user.fleet.place}}</li>
+    </ul>
+  </div>
+
+  <button *ngIf="reservationStatus != 'terminée'" type="button" routerLink="cancel">Annuler ma réservation</button>
 </div>

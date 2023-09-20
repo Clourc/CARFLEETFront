@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-vehicle-add',
@@ -17,6 +18,7 @@ export class VehicleAddComponent implements OnInit {
 
   constructor(
     private vehicleService: VehicleService,
+    private userService: UserService,
     private http: HttpClient
   ) {}
 
@@ -70,7 +72,7 @@ export class VehicleAddComponent implements OnInit {
     const vehicleToRegister: VehicleToRegister = new VehicleToRegister(
       this.licencePlate,
       this.vehicle.id,
-      this.fleetId
+      parseInt(this.userService.getUserFleetId())
     );
 
     console.log(vehicleToRegister);
