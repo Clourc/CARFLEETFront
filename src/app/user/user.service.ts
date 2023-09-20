@@ -25,6 +25,7 @@ export class UserService {
             this.currentUser = response.user;
             this.setUser(response.user);
             this.setUserId();
+            this.saveUserData();
             this.router.navigate(['/vehicles']);
             console.log(this.currentUser);
           }
@@ -37,10 +38,21 @@ export class UserService {
     localStorage.removeItem('token');
     this.currentUser = null;
     this.currentUserId = null;
+    this.deleteUserData();
   }
 
   retrieveUser(CP: string) {
     return this.http.get('http://localhost:8080/users/retrieve?cp=' + CP);
+  }
+
+  saveUserData(): void {
+    localStorage.setItem('role', this.getUserRole());
+    localStorage.setItem('userId', this.getUserId().toString());
+  }
+
+  deleteUserData(): void {
+    localStorage.removeItem('role');
+    localStorage.removeItem('userId');
   }
 
   getUser(): string | undefined {

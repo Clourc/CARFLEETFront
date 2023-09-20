@@ -1,66 +1,50 @@
-#details_reservations {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration: underline;
-  width: 230px;
-  height: 26px;
-  flex-shrink: 0;
-  padding: 0;
-  margin-left: 35px;
+#details_reservation {
+  margin: 0.5rem auto 0.5rem;
+  line-height : 1.5;
+  max-width: 90vw;
+}
+
+li {
+  font-family: "Roboto", sans-serif;
 }
 
 h3 {
   font-family: "Roboto", sans-serif;
-  font-size: 24px;
   font-weight: 400;
-  line-height: normal;
   text-decoration: underline;
-
 }
 
-#details_periode {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  width: 355px;
-  height: 22px;
-  flex-shrink: 0;
+#resa_content {
+  display: flex;
+  flex-direction: column;
 }
 
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 2rem;
+}
 
+#vehicleModelInfo {
+  margin-top: 1rem;
+}
 
-
-
-
-
-
-
-
-
-
-h2 {
-  font-size: 1.3em;
-  margin-left: 20px;
-  line-height: 1em;
-  font-family: "Roboto", sans-serif;
-  color: rgb(58, 57, 57);
-
-  justify-content: space-around;
+#details_user {
+  margin-top: 2rem;
 }
 
 img {
-  max-width: 100%;
-  display: flex;
-  align-items: center;
+  width: 100%;
+}
+
+ul {
+  margin: 0.5rem 0;
 }
 
 li {
   list-style: none;
-  margin: 0;
-  padding: 0;
-
 }
 
 button {
