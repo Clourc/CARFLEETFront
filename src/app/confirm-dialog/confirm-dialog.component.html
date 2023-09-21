@@ -1,0 +1,9 @@
+<!-- Dans le template du composant de dialogue (confirm-dialog.component.html) -->
+<div [@fadeInOut]="true" class="dialog-container">
+    <div class="dialog-content">
+      <h1>{{ data.message }}</h1>
+      <button mat-button (click)="yesClick()">Oui</button>
+      <button mat-button (click)="onNoClick()">Non</button>
+    </div>
+  </div>
+  

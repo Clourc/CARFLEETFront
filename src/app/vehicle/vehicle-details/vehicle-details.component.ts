@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VehicleService } from '../vehicle.service';
 import { UserService } from 'src/app/user/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
+import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/delete-success-dialog.component';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -20,7 +23,8 @@ export class VehicleDetailsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private vehicleService: VehicleService,
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -56,20 +60,31 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   confirmDelete(vehicleId: number) {
-    const result = window.confirm(
-      'Êtes-vous sûr de vouloir supprimer ce véhicule ?'
-    );
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    
+      data: { message: 'Êtes-vous sûr de vouloir supprimer ce véhicule ?' },
+    });
 
-    if (result) {
-      this.deleteVehicle(vehicleId);
-    }
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.deleteVehicle(vehicleId); // Supprimer le véhicule si la réponse est "Oui"
+      }
+    });
+  }
+  showDeleteSuccessDialog() {
+    const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
+   
+      data: {
+        message: 'La suppression du véhicule a été effectuée avec succès.',
+      },
+    });
   }
 
   deleteVehicle(vehicleId: number) {
-    console.log('Tessssssst deletee');
-    return this.vehicleService.deleteVehicle(vehicleId).subscribe({
+    this.vehicleService.deleteVehicle(vehicleId).subscribe({
       next: (data) => {
-        console.log('data sucessss', data);
+        console.log('data success', data);
+        this.showDeleteSuccessDialog();
         this.router.navigate(['/vehicles']);
       },
       error: (error) => {
