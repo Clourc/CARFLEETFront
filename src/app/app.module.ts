@@ -12,9 +12,14 @@ import { UserModule } from './user/user.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { HeaderInterceptor } from './header.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { DeleteSuccessDialogComponent } from './delete-success-dialog/delete-success-dialog.component';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ConfirmDialogComponent, DeleteSuccessDialogComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -24,7 +29,12 @@ import { HeaderInterceptor } from './header.interceptor';
     UserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+
+
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true}
