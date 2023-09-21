@@ -3,12 +3,12 @@
     flex-direction: column;
     justify-content: space-between;
     width: 80vw;
-    height: 9rem;
     margin: 12px auto;
     padding: 2px;
     font-size: medium;
     border-radius: 5px;
-   
+    gap: 0.5rem;
+    font-size: small;
 }
 
 #resaCardHeader {
