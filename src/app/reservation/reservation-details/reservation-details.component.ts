@@ -14,7 +14,7 @@ export class ReservationDetailsComponent implements OnInit {
   reservationStatus: string | undefined;
   reservationPlaceCode: string = "";
 
-  userRole: string = this.userService.getUserRole();
+  userRole: string | null= localStorage.getItem('role');
 
   resaStyleClass: string = "";
 

@@ -24,6 +24,18 @@
     align-items: center;
 }
 
+#immatValidation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#immatInvalid {
+    text-align: center;
+    color: red;
+}
+
 #vehiclePreview {
     display: flex;
     flex-direction: column;
