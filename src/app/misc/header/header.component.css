@@ -55,19 +55,39 @@ header {
   box-shadow: lightgray 3px 3px 7px;
 }
 
+.titre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+h1 {
+  font-family:"bruno ace", "bruno ace pro";
+  color: white;
+  margin-left: 40px;
+  font-size: 6vh;
+}
+
 h2 {
   font-size: 0.9em;
   margin: 10px;
   display: flex;
   line-height: 1.2em;
-  font-family: "Roboto", sans-serif;
+  font-family: "bruno ace";
   color: whitesmoke;
   text-align: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 ul {
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 @media screen and (min-width: 768px) {

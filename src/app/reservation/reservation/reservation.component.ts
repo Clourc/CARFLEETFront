@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../reservation.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
+import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/delete-success-dialog.component';
 
 @Component({
   selector: 'app-reservation',
@@ -27,7 +30,8 @@ export class ReservationComponent implements OnInit {
   constructor(
     private reservationService: ReservationService,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -40,12 +44,22 @@ export class ReservationComponent implements OnInit {
     return date;
   }
 
+        openDialog(message : string): void {
+  
+        const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
+          data: { message: message },
+        });
+        
+        };
+
   submitReservation() {
     console.log("Vehicle id: ", this.vehicleId);
     if (this.start_Date > this.end_Date) {
+     this.openDialog("La date de début de réservation doit être avant celle de fin");
       throw new Error(
         'La date de début de réservation doit être avant celle de fin'
       );
+     
     }
     this.reservationService.getListResa(undefined, this.vehicleId).subscribe((data) => {
       this.listResa = data;
@@ -61,12 +75,14 @@ export class ReservationComponent implements OnInit {
           this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
         if (checkResaStartDates || checkResaEndDates || checkResaWide) {
           console.log("vehicle unavailable");
+          window.alert("Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période");
+
           throw new Error(
             'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
           );
         }
       }
-
+     
       const reservationData = new ReservationData(
         this.start_Date,
         this.end_Date,
@@ -79,6 +95,7 @@ export class ReservationComponent implements OnInit {
       this.reservationService
         .postNewReservation(reservationData)
         .subscribe((data: any) => {
+          window.alert("Votre réservation a bien été prise en compte");
           console.log('Data on submit: ' + data);
         });
     });
@@ -91,6 +108,10 @@ class ReservationData {
   reason: string;
   vehicle;
   user;
+  dialog: any;
+  result: any;
+  deleteResa: any;
+  reservationService: any;
 
   constructor(
     start_Date: Date,
@@ -98,6 +119,7 @@ class ReservationData {
     reason: string,
     vehicle: string | undefined,
     userId: number
+
   ) {
     this.start_Date = start_Date;
     this.end_Date = end_Date;
@@ -105,4 +127,33 @@ class ReservationData {
     this.vehicle = { id: vehicle };
     this.user = { id: userId };
   }
+
+  confirmeResa(reservationData: object) {
+    console.log('reservationData', reservationData);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Êtes-vous sûr de vouloir supprimer cette réservation ?' },
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.deleteResa(reservationData); // Supprimer la réservation si la réponse est "Oui"
+      }
+    });
+  }
+  showDeleteSuccessDialog() {
+  }
+
+  RedeleteResa(reservationData: object) {
+    this.reservationService.deleteResa(reservationData).subscribe({
+      next: (data: any) => {
+        console.log('data success', data);
+        this.showDeleteSuccessDialog();
+      },
+      error: (error: any) => {
+        console.log('data error', error);
+      },
+    });
+  }
+
+
 }
