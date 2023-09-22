@@ -85,7 +85,6 @@ class ReservationData {
   reason: string;
   vehicle;
   user;
-  dialog: any;
 
   constructor(
     start_Date: Date,

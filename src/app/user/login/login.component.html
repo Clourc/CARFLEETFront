@@ -14,7 +14,6 @@
           id="cp"
           name="name"
           class="form-control"
-          [(ngModel)]="CP"
           required
           minlength="8"
           maxlength="8"
@@ -30,7 +29,7 @@
           "
         >
           <div *ngIf="nameInput.errors?.['required']" class="invalid-message">
-            Le champ de message est obligatoire.
+            Le champ N°CP est obligatoire.
           </div>
           <div
             *ngIf="nameInput.errors?.['minlength'] || nameInput.errors?.['maxlength']"
