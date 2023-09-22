@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 html, body {
     font-family: 'Poppins', sans-serif;
+    background-color: rgb(220, 218, 218);
 }
 
 
@@ -22,6 +23,18 @@ button {
      font-weight: 600;
      background: var(--slate-900, #0F172A);
         color: var(--slate-100, #F9FAFB);
+        
 
 }
 
+.btn{
+
+    cursor: pointer;
+
+}
+
+.btn:hover{
+
+    background-color: rgb(26, 26, 102);
+    color: white;
+}

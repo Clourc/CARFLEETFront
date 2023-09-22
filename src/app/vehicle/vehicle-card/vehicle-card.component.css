@@ -1,43 +1,65 @@
 .vehicle-card {
-  margin: 10px;
-  width: 300px;
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+ width: 100%;
   border: 1px solid white;
   border-radius: 10px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; ;
+box-sizing: border-box;
+  justify-content: center;
   box-shadow: 08px 08px 10px 5px #818080;
-  background-color:rgb(	193,	211,	215)
+  background-color:rgb(103, 150, 164);
 }
+
+.vehicle-card:hover {
+  box-shadow: 08px 08px 10px 5px #818080;
+  background-color:rgb(103, 150, 164);
+  width: 430px;
+}
+
+
 
 a {
   text-decoration: none;
   color: black;
-  font-family: 'Roboto', sans-serif;
+ 
   font-weight: 999;
-display: flex ;
-text-align: center;
-justify-content: center;
+ 
 
 
 }
 
 img{
-margin: 3%;
-    max-width: 100%;
+margin:10%;
+    max-width: 95%;
+    max-height: 70%;
     display: flex;
-    align-items: center;
+   justify-content: center;
+   border-radius: 10px;
   
 }
 
 @media screen and (min-width: 768px){
 
- .vehicle-card {
-width: 500px;
-height: 400px;
-    max-width: 60%;
-    font-size: x-large;
+  .list {
+    display: flex;
+  
+    justify-content: space-between;
+   
+  }
+  
+  .vehicle-card {
+  width: 400px ;/* Deux cartes par ligne (espacement inclus) */
+  margin: 20px;
+   height: auto;
+  }
+  a {
+    width: auto;
+  }
+
+  img {
+  height: 250px;
   }
 }
