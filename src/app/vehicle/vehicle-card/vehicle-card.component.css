@@ -1,65 +1,60 @@
 .vehicle-card {
   display: flex;
   flex-direction: column;
- width: 100%;
+  width: 90%;
   border: 1px solid white;
   border-radius: 10px;
   overflow: hidden;
   align-items: center;
-  margin-bottom: 10px; ;
-box-sizing: border-box;
+  margin-bottom: 10px;
+  box-sizing: border-box;
   justify-content: center;
   box-shadow: 08px 08px 10px 5px #818080;
-  background-color:rgb(103, 150, 164);
+  background-color: rgb(103, 150, 164);
+  margin-top: 15px;
+  margin-right: 5%;
 }
 
 .vehicle-card:hover {
   box-shadow: 08px 08px 10px 5px #818080;
-  background-color:rgb(103, 150, 164);
+  background-color: rgb(103, 150, 164);
   width: 430px;
 }
-
-
 
 a {
   text-decoration: none;
   color: black;
- 
+
   font-weight: 999;
- 
-
-
 }
 
-img{
-margin:10%;
-    max-width: 95%;
-    max-height: 70%;
-    display: flex;
-   justify-content: center;
-   border-radius: 10px;
-  
+img {
+  margin: 10%;
+  max-width: 95%;
+  max-height: 70%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
 }
 
-@media screen and (min-width: 768px){
-
+@media screen and (min-width: 768px) {
   .list {
     display: flex;
-  
+
     justify-content: space-between;
-   
   }
-  
+
   .vehicle-card {
-  width: 400px ;/* Deux cartes par ligne (espacement inclus) */
-  margin: 20px;
-   height: auto;
+    width: 400px; /* Deux cartes par ligne (espacement inclus) */
+    margin: 20px;
+    height: auto;
   }
   a {
     width: auto;
+    display: inline-block;
   }
 
   img {
-  height: 250px;
+    height: 250px;
   }
 }
