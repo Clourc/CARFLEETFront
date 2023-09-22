@@ -18,9 +18,14 @@ export class VehicleListComponent implements OnInit {
   reservationStart: Date | any;
   reservationEnd: Date | any;
 
+  today: Date = new Date();
+  todayString: string = this.reservationService.dateToString(this.today);
+  maxDate: string = this.reservationService.setupMaxDate(this.today);
+
   constructor(
     private vehicleService: VehicleService,
-    private userService: UserService
+    private userService: UserService,
+    private reservationService: ReservationService
   ) {}
 
   recherche() {
