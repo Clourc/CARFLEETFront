@@ -2,6 +2,8 @@
 * {
   margin: 0;
   padding: 0;
+  width: 100%;
+
 }
 
 html,
@@ -35,10 +37,21 @@ body {
 }
 
 button {
-  border-radius: 6px;
-  font-weight: 600;
-  background: var(--slate-900, #0f172a);
-  color: var(--slate-100, #f9fafb);
+ 
+    
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #538fbe;
+    padding: 10px 70px;
+    border: 1px solid #2d6898;
+ 
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
 }
 
 @media screen and (min-width: 768px) {
@@ -46,4 +59,18 @@ button {
     background-image: url("assets/images/backgroundCars.png");
     background-repeat: no-repeat;
   }
+  *{
+    margin: 0;
+    padding: 0;
+    width: auto;
+
+  }
+  @media screen and (min-width: 1024px){
+  *{
+width: auto;
+
+  }
+
+
+}
 }
