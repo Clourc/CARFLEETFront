@@ -18,7 +18,7 @@
           required
           minlength="8"
           maxlength="8"
-          pattern="^[a-zA-Z0-9àéèç' -]{1,25}$"
+          pattern="^\d{7}[a-zA-Z]$"
           [(ngModel)]="CP"
           #nameInput="ngModel"
           placeholder="N° CP"
@@ -36,7 +36,7 @@
             *ngIf="nameInput.errors?.['minlength'] || nameInput.errors?.['maxlength']"
             class="invalid-message"
           >
-            ⚠️ Veuillez rentrer un n°CP valide.
+            ⚠️ Veuillez rentrer un n°CP valide
           </div>
         </div>
       </div>

@@ -65,7 +65,22 @@ h2 {
   /* Couleur du bouton Connexion */
 }
 
+.invalid-message:before {
+  content: "⚠️ ";
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.ng-valid[required] {
+  border: 6px solid #42a948;
+}
+
+.ng-invalid:not(form) {
+  border: 6px solid #f60703;
+}
+
 .invalid-message {
+  font-style: bold;
   opacity: 1;
   margin-top: 3px;
   color: #f60303;
@@ -75,4 +90,12 @@ h2 {
   padding: 3px;
 
   margin-bottom: 17px;
+}
+
+.btn-primary[type="submit"]:disabled {
+  margin-top: 20px;
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: grey;
+  color: #00000083;
 }

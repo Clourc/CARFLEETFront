@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../reservation.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-reservation',
@@ -27,7 +29,8 @@ export class ReservationComponent implements OnInit {
   constructor(
     private reservationService: ReservationService,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -41,47 +44,49 @@ export class ReservationComponent implements OnInit {
   }
 
   submitReservation() {
-    console.log("Vehicle id: ", this.vehicleId);
+    console.log('Vehicle id: ', this.vehicleId);
     if (this.start_Date > this.end_Date) {
       throw new Error(
         'La date de début de réservation doit être avant celle de fin'
       );
     }
-    this.reservationService.getListResa(undefined, this.vehicleId).subscribe((data) => {
-      this.listResa = data;
-      console.log('Liste réservation');
-      console.log(this.listResa);
-      //Vérification que le véhicule sélectionné ne soit pas déjà réservé pendant la période demandée
-      for (let r of this.listResa) {
-        let checkResaStartDates: boolean =
-          this.start_Date >= r.start_Date && this.start_Date <= r.end_Date;
-        let checkResaEndDates: boolean =
-          this.end_Date >= r.start_Date && this.end_Date <= r.end_Date;
-        let checkResaWide: boolean =
-          this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
-        if (checkResaStartDates || checkResaEndDates || checkResaWide) {
-          console.log("vehicle unavailable");
-          throw new Error(
-            'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
-          );
+    this.reservationService
+      .getListResa(undefined, this.vehicleId)
+      .subscribe((data) => {
+        this.listResa = data;
+        console.log('Liste réservation');
+        console.log(this.listResa);
+        //Vérification que le véhicule sélectionné ne soit pas déjà réservé pendant la période demandée
+        for (let r of this.listResa) {
+          let checkResaStartDates: boolean =
+            this.start_Date >= r.start_Date && this.start_Date <= r.end_Date;
+          let checkResaEndDates: boolean =
+            this.end_Date >= r.start_Date && this.end_Date <= r.end_Date;
+          let checkResaWide: boolean =
+            this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
+          if (checkResaStartDates || checkResaEndDates || checkResaWide) {
+            console.log('vehicle unavailable');
+            throw new Error(
+              'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
+            );
+          }
         }
-      }
 
-      const reservationData = new ReservationData(
-        this.start_Date,
-        this.end_Date,
-        this.reasonReservation,
-        this.vehicleId,
-        this.userService.getUserId()
-      );
+        const reservationData = new ReservationData(
+          this.start_Date,
+          this.end_Date,
+          this.reasonReservation,
+          this.vehicleId,
+          this.userService.getUserId()
+        );
 
-      console.log('Données résa: ' + reservationData);
-      this.reservationService
-        .postNewReservation(reservationData)
-        .subscribe((data: any) => {
-          console.log('Data on submit: ' + data);
-        });
-    });
+        console.log('Données résa: ' + reservationData);
+        this.reservationService
+          .postNewReservation(reservationData)
+          .subscribe((data: any) => {
+            console.log('Data on submit: ' + data);
+          });
+      });
   }
 }
 
@@ -91,6 +96,7 @@ class ReservationData {
   reason: string;
   vehicle;
   user;
+  dialog: any;
 
   constructor(
     start_Date: Date,
