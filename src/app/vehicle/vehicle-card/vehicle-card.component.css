@@ -40,4 +40,11 @@ height: 400px;
     max-width: 60%;
     font-size: x-large;
   }
+
+  .top-border {
+    width: 100%;
+    height: 10px; /* Hauteur de la bordure supérieure */
+    background-color: #333; /* Couleur de la bordure supérieure */
+  }
+
 }
