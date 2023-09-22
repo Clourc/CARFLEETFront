@@ -18,13 +18,8 @@ export class ReservationComponent implements OnInit {
   listResa: any = [];
 
   today: Date = new Date();
-  todayString: string =
-    this.today.getFullYear() +
-    '-' +
-    this.formatDate(this.today.getMonth() + 1) +
-    '-' +
-    this.formatDate(this.today.getDate()) +
-    'T00:00';
+  todayString: string = this.reservationService.dateToString(this.today);
+  maxDate: string = this.reservationService.setupMaxDate(this.today);
 
   constructor(
     private reservationService: ReservationService,
@@ -35,12 +30,6 @@ export class ReservationComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
-  }
-
-  private formatDate(nmbr: number): string {
-    var date = nmbr + '';
-    date = date.length < 2 ? '0' + date : date;
-    return date;
   }
 
   submitReservation() {

@@ -36,7 +36,8 @@ h3 {
 }
 
 img {
-  width: 100%;
+  max-width: 350px;
+  max-height: 200px;
 }
 
 ul {
@@ -48,6 +49,76 @@ li {
 }
 
 button {
+  width: 100px;
   position: relative;
   left: calc(100vw - 180px);
+}
+
+@media screen and (min-width: 768px){
+  #details_reservation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 450px;
+    width: 830px;
+    background-color: white;
+    padding-left: 10px;
+  }
+
+  #resa_content {
+    display: grid;
+    grid-template: 1.5rem 75px 80px 200px 20px / 1fr 1fr;
+    margin: auto 0;
+  }
+
+  #resa_content > h3 {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+  #resa_content > #listResaInfo {
+    grid-area: 2 / 1 / 3 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #resaDates {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #resa_content > #vehicleModelInfo {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+
+  #resa_content > img {
+    grid-area: 4 / 1 / 6 / 2;
+  }
+
+  #resa_content > #infoMisc {
+    grid-area: 3 / 2 / 5 / 3;
+    height: 193px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  #resa_content > button {
+    grid-area: 5 / 2 / 6 / 3;
+  }
+
+  #listResaInfo {
+    display: inline;
+  }
+
+  button {
+    position: initial;
+    width: 80%;
+  }
+
+  #userInfo {
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }

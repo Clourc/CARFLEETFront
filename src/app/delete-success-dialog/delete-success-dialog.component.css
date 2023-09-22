@@ -4,7 +4,11 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+<<<<<<< HEAD
     background-color: rgba(109, 134, 167, 0.5); /* Arrière-plan semi-transparent */
+=======
+    background-color: rgba(109, 134, 167, 0.5); 
+>>>>>>> ed5990cbcd9f077eb25dba6f68804ad0173d3bfc
     position: fixed;
     top: 0;
     left: 0;
@@ -21,7 +25,11 @@
     text-align: center;
   }
   h1{
+<<<<<<< HEAD
     font-size:15px;
+=======
+    font-size:25px;
+>>>>>>> ed5990cbcd9f077eb25dba6f68804ad0173d3bfc
   
 }
     
@@ -35,6 +43,10 @@
     background-color: #538fbe;
     padding: 10px 70px;
     border: 1px solid #2d6898;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ed5990cbcd9f077eb25dba6f68804ad0173d3bfc
   
   }
 
