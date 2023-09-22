@@ -1,23 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
 html, body {
     font-family: 'Poppins', sans-serif;
     background-color: rgb(220, 218, 218);
+=======
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+>>>>>>> 5b0cafc0420c24576e860d40361d93d311d7f91d
 }
 
 
 .resa-ongoing {
-    border: solid 2px #04BE17;
+  border: solid 2px #04be17;
 }
 
 .resa-toCome {
-    border: solid 2px #FFA500;
+  border: solid 2px #ffa500;
 }
 
 .resa-ended {
-    border: solid 2px #36778a;
+  border: solid 2px #36778a;
+}
+
+.dot-ongoing {
+  background-color: #04be17;
+}
+
+.dot-toCome {
+  background-color: #ffa500;
+}
+
+.got-ended {
+  background-color: #36778a;
 }
 
 button {
+<<<<<<< HEAD
  
      border-radius: 6px;
      font-weight: 600;
@@ -38,3 +62,17 @@ button {
     background-color: rgb(26, 26, 102);
     color: white;
 }
+=======
+  border-radius: 6px;
+  font-weight: 600;
+  background: var(--slate-900, #0f172a);
+  color: var(--slate-100, #f9fafb);
+}
+
+@media screen and (min-width: 768px) {
+  #page-content {
+    background-image: url("assets/images/backgroundCars.png");
+    background-repeat: no-repeat;
+  }
+}
+>>>>>>> 5b0cafc0420c24576e860d40361d93d311d7f91d

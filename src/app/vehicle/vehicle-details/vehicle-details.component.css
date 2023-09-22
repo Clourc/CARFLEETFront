@@ -1,8 +1,15 @@
-#vehicle_details {
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+#details_vehicle {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 20px;
-  max-height: 70vh;
+  margin-right: 25px;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
@@ -16,36 +23,60 @@
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 2em;
   margin-left: 20px;
-  line-height: 1em;
+  line-height: 3em;
   font-family: "Roboto", sans-serif;
   color: rgb(58, 57, 57);
-display: flex;
+  display: flex;
   justify-content: space-around;
 }
+
 img {
   max-width: 100%;
   display: flex;
   align-items: center;
 }
 
+
 li {
   list-style: none;
+  font-size: 1.2em;
+  font-family: poppins;
+}
+
+.test7{
+
+  display: inline-flex;
+  align-items: center;
+  
 }
 
 button {
-  position: relative;
+  position: initial;
   left: calc(100vw - 180px);
- margin-bottom: 50px;
- border-radius: 6px;
- max-width: 40%;
+  max-width: 100%;
+  border-radius: 56px;
+  font-weight: 600;
+  background: var(--slate-900, #3c6e7d);
+  color: var(--slate-100, #F9FAFB);
+  margin: 1vh 4vh 3vh 2vh;
+  font-size: 18px;
+  height: 50%;
+  padding: 8px 18px;
 
- background: var(--slate-900, #0F172A);
-    color: var(--slate-100, #F9FAFB);
-    margin-bottom: 6%;
-    margin-top: 4%;
+}
 
+.buttonCar {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+ .car-img {
+    width: 50%;
+    height: 50%;
+  }
 }
 
 
