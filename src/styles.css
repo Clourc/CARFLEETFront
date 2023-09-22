@@ -1,42 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
 }
 
-html, body {
-    font-family: 'Poppins', sans-serif;
+html,
+body {
+  font-family: "Poppins", sans-serif;
 }
+
 
 .resa-ongoing {
-    border: solid 2px #04BE17;
+  border: solid 2px #04be17;
 }
 
 .resa-toCome {
-    border: solid 2px #FFA500;
+  border: solid 2px #ffa500;
 }
 
 .resa-ended {
-    border: solid 2px #36778a;
+  border: solid 2px #36778a;
 }
 
 .dot-ongoing {
-    background-color: #04BE17;
+  background-color: #04be17;
 }
 
 .dot-toCome {
-    background-color: #FFA500;
+  background-color: #ffa500;
 }
 
 .got-ended {
-    background-color: #36778a;
+  background-color: #36778a;
 }
 
 button {
  
-     border-radius: 6px;
-     font-weight: 600;
-     background: var(--slate-900, #0F172A);
-        color: var(--slate-100, #F9FAFB);
+    
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #538fbe;
+    padding: 10px 70px;
+    border: 1px solid #2d6898;
+ 
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 
+}
+
+@media screen and (min-width: 768px) {
+  #page-content {
+    background-image: url("assets/images/backgroundCars.png");
+    background-repeat: no-repeat;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    width: auto;
+
+  }
+  @media screen and (min-width: 1024px){
+  *{
+width: auto;
+
+  }
+
+
+}
 }

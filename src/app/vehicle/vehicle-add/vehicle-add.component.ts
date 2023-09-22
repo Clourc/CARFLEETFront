@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/user/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/delete-success-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-add',
@@ -19,7 +22,10 @@ export class VehicleAddComponent implements OnInit {
   constructor(
     private vehicleService: VehicleService,
     private userService: UserService,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialog: MatDialog,
+    private router : Router
+
   ) {}
 
   listModel: any = []; //[ { id:1, type:citadine, nbSeats:5, energy:essence, nbDoors:5, image: "https://i.imgur.com/FZ5BdEW.png", modelName: "ZOE R110" }, etc...] tableau d'objets
@@ -81,9 +87,23 @@ export class VehicleAddComponent implements OnInit {
       if (this.vehicle != null) {
         console.log(response);
         console.log('Véhicule ajouté avec succès !');
+        this.openSuccessDialog('Véhicule ajouté avec succès !');
+        this.router.navigate(['/admin']);
+        
       } else {
         console.log("Erreur lors de l'ajout du véhicule");
       }
+    });
+  }
+  openSuccessDialog(message: string): void {
+    const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
+      width: '300px',
+      data: { message: message }
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+      
+      
     });
   }
 }

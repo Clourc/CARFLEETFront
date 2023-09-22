@@ -19,9 +19,9 @@
 <div class="button reserver">
 <button type="button" routerLink="reserve">Réserver</button>
 </div>
-
+  
 <div class="button supprimer">
-<button *ngIf="isAdmin" (click)="confirmDelete(vehicleDetails.id)">
+<button mat-button *ngIf="isAdmin" (click)="confirmDelete(vehicleDetails.id)">
   Supprimer
 </button>
 </div>

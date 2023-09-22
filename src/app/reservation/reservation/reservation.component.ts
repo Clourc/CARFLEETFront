@@ -19,13 +19,8 @@ export class ReservationComponent implements OnInit {
   listResa: any = [];
 
   today: Date = new Date();
-  todayString: string =
-    this.today.getFullYear() +
-    '-' +
-    this.formatDate(this.today.getMonth() + 1) +
-    '-' +
-    this.formatDate(this.today.getDate()) +
-    'T00:00';
+  todayString: string = this.reservationService.dateToString(this.today);
+  maxDate: string = this.reservationService.setupMaxDate(this.today);
 
   constructor(
     private reservationService: ReservationService,
@@ -53,7 +48,7 @@ export class ReservationComponent implements OnInit {
         };
 
   submitReservation() {
-    console.log("Vehicle id: ", this.vehicleId);
+    console.log('Vehicle id: ', this.vehicleId);
     if (this.start_Date > this.end_Date) {
      this.openDialog("La date de début de réservation doit être avant celle de fin");
       throw new Error(

@@ -1,10 +1,10 @@
 <h2>Trouvez rapidement un véhicule de service !</h2>
 <div class="form-liste">
   <form #f="ngForm" (submit)="recherche()">
-   <label for="debutreservation">Début de la réservation</label><br>
-    <input type="datetime-local" id="debutreservation" name="debutreservation" [(ngModel)]="reservationStart" #start="ngModel" required><br>
+    <label for="debutreservation">Début de la réservation</label><br>
+    <input type="datetime-local" id="debutreservation" name="debutreservation" [(ngModel)]="reservationStart" #start="ngModel" [min]="todayString" [max]="maxDate" required><br>
     <label for="finreservation">Fin de la réservation</label><br>
-    <input type="datetime-local" id="finreservation" name="finreservation" [(ngModel)]="reservationEnd" #end="ngModel" required><br>
+    <input type="datetime-local" id="finreservation" name="finreservation" [(ngModel)]="reservationEnd" #end="ngModel" [min]="reservationStart" [max]="maxDate" required><br>
     <button type="submit">Trouver un véhicule</button>
     <div *ngIf="(start.invalid || end.invalid) && f.submitted && f.invalid " class="error-message">
       Veuillez sélectionner des dates avant de cliquer sur "trouver un véhicule".
@@ -13,9 +13,9 @@
 </div>
 
 <div class="list">
-  <ul>
+
     <li *ngFor="let vehicle of vehiclesToDisplay">
       <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
-    </li>
-  </ul>
+
 </div>
+

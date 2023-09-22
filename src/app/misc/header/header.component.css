@@ -1,4 +1,30 @@
+
+img.titre{
+
+ margin-left: 0;
+  height: 100px;
+  margin-right: -20px;
+
+}
+.logo-titre{
+  
+  width: 20%;
+  height: auto;
+  color: #fbf9f9;
+}
+
+
+.title {
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
 .logo {
+  display: none;
   height: 80%;
   margin: 20px;
 }
@@ -7,7 +33,10 @@ a {
   text-decoration: none;
   color: whitesmoke;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row-reverse;
 }
+
 
 .logo a {
   display: flex;
@@ -30,10 +59,11 @@ a {
 
 .logo-link {
   height: 30px;
-  vertical-align: baseline;
-  margin-right: 0;
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-right: 20px;
+
+
+
+  width: auto;
 }
 
 header {
@@ -71,31 +101,41 @@ h1 {
 }
 
 h2 {
-  font-size: 0.9em;
-  margin: 10px;
-  display: flex;
-  line-height: 1.2em;
-  font-family: "bruno ace";
+
+ display: none;
+align-items: center;
+font-size: smaller;
+ 
+  
   color: whitesmoke;
   text-align: center;
-  justify-content: center;
+
 }
 
 ul {
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
+
+
 }
+
 
 @media screen and (min-width: 768px) {
   header {
     display: flex;
     justify-content: space-around;
   }
+  .title{
+width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   h2 {
+    display: flex;
+    margin: 0;
+    margin-bottom: 35px;
     max-width: 40%;
     font-size: x-large;
   }
@@ -123,5 +163,22 @@ ul {
 
   .menu {
     font-size: 15px;
+  }
+
+  .logo {
+    display: flex;
+    height: 80%;
+    margin: 20px;
+  
+  }
+  .logo-titre{
+
+    display: none;
+  }
+  .img-titre{
+   
+    width:auto;
+    margin-top: 20px;
+    margin-right: 0px;
   }
 }
