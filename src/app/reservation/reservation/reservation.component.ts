@@ -27,7 +27,7 @@ export class ReservationComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
@@ -39,22 +39,22 @@ export class ReservationComponent implements OnInit {
     return date;
   }
 
-        openDialog(message : string): void {
-  
-        const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
-          data: { message: message },
-        });
-        
-        };
+  openDialog(message: string): void {
+
+    const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
+      data: { message: message },
+    });
+
+  };
 
   submitReservation() {
     console.log('Vehicle id: ', this.vehicleId);
     if (this.start_Date > this.end_Date) {
-     this.openDialog("La date de début de réservation doit être avant celle de fin");
+      this.openDialog("La date de début de réservation doit être avant celle de fin");
       throw new Error(
         'La date de début de réservation doit être avant celle de fin'
       );
-     
+
     }
     this.reservationService.getListResa(undefined, this.vehicleId).subscribe((data) => {
       this.listResa = data;
@@ -70,14 +70,14 @@ export class ReservationComponent implements OnInit {
           this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
         if (checkResaStartDates || checkResaEndDates || checkResaWide) {
           console.log("vehicle unavailable");
-          window.alert("Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période");
+          this.openDialog("véhicule indisponible");
 
           throw new Error(
             'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
           );
         }
       }
-     
+
       const reservationData = new ReservationData(
         this.start_Date,
         this.end_Date,
@@ -90,13 +90,12 @@ export class ReservationComponent implements OnInit {
       this.reservationService
         .postNewReservation(reservationData)
         .subscribe((data: any) => {
-          window.alert("Votre réservation a bien été prise en compte");
+          this.openDialog("Réservation enregistrée");
           console.log('Data on submit: ' + data);
         });
     });
   }
 }
-
 class ReservationData {
   start_Date: Date;
   end_Date: Date;
@@ -129,16 +128,11 @@ class ReservationData {
       data: { message: 'Êtes-vous sûr de vouloir supprimer cette réservation ?' },
     });
 
-    dialogRef.afterClosed().subscribe((result: boolean) => {
-      if (result) {
-        this.deleteResa(reservationData); // Supprimer la réservation si la réponse est "Oui"
-      }
-    });
   }
   showDeleteSuccessDialog() {
   }
 
-  RedeleteResa(reservationData: object) {
+  validationResa(reservationData: object) {
     this.reservationService.deleteResa(reservationData).subscribe({
       next: (data: any) => {
         console.log('data success', data);
@@ -149,6 +143,4 @@ class ReservationData {
       },
     });
   }
-
-
 }
