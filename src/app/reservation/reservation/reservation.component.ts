@@ -16,13 +16,8 @@ export class ReservationComponent implements OnInit {
   listResa: any = [];
 
   today: Date = new Date();
-  todayString: string =
-    this.today.getFullYear() +
-    '-' +
-    this.formatDate(this.today.getMonth() + 1) +
-    '-' +
-    this.formatDate(this.today.getDate()) +
-    'T00:00';
+  todayString: string = this.reservationService.dateToString(this.today);
+  maxDate: string = this.reservationService.setupMaxDate(this.today);
 
   constructor(
     private reservationService: ReservationService,
@@ -34,54 +29,50 @@ export class ReservationComponent implements OnInit {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
   }
 
-  private formatDate(nmbr: number): string {
-    var date = nmbr + '';
-    date = date.length < 2 ? '0' + date : date;
-    return date;
-  }
-
   submitReservation() {
-    console.log("Vehicle id: ", this.vehicleId);
+    console.log('Vehicle id: ', this.vehicleId);
     if (this.start_Date > this.end_Date) {
       throw new Error(
         'La date de début de réservation doit être avant celle de fin'
       );
     }
-    this.reservationService.getListResa(undefined, this.vehicleId).subscribe((data) => {
-      this.listResa = data;
-      console.log('Liste réservation');
-      console.log(this.listResa);
-      //Vérification que le véhicule sélectionné ne soit pas déjà réservé pendant la période demandée
-      for (let r of this.listResa) {
-        let checkResaStartDates: boolean =
-          this.start_Date >= r.start_Date && this.start_Date <= r.end_Date;
-        let checkResaEndDates: boolean =
-          this.end_Date >= r.start_Date && this.end_Date <= r.end_Date;
-        let checkResaWide: boolean =
-          this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
-        if (checkResaStartDates || checkResaEndDates || checkResaWide) {
-          console.log("vehicle unavailable");
-          throw new Error(
-            'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
-          );
+    this.reservationService
+      .getListResa(undefined, this.vehicleId)
+      .subscribe((data) => {
+        this.listResa = data;
+        console.log('Liste réservation');
+        console.log(this.listResa);
+        //Vérification que le véhicule sélectionné ne soit pas déjà réservé pendant la période demandée
+        for (let r of this.listResa) {
+          let checkResaStartDates: boolean =
+            this.start_Date >= r.start_Date && this.start_Date <= r.end_Date;
+          let checkResaEndDates: boolean =
+            this.end_Date >= r.start_Date && this.end_Date <= r.end_Date;
+          let checkResaWide: boolean =
+            this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
+          if (checkResaStartDates || checkResaEndDates || checkResaWide) {
+            console.log('vehicle unavailable');
+            throw new Error(
+              'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
+            );
+          }
         }
-      }
 
-      const reservationData = new ReservationData(
-        this.start_Date,
-        this.end_Date,
-        this.reasonReservation,
-        this.vehicleId,
-        this.userService.getUserId()
-      );
+        const reservationData = new ReservationData(
+          this.start_Date,
+          this.end_Date,
+          this.reasonReservation,
+          this.vehicleId,
+          this.userService.getUserId()
+        );
 
-      console.log('Données résa: ' + reservationData);
-      this.reservationService
-        .postNewReservation(reservationData)
-        .subscribe((data: any) => {
-          console.log('Data on submit: ' + data);
-        });
-    });
+        console.log('Données résa: ' + reservationData);
+        this.reservationService
+          .postNewReservation(reservationData)
+          .subscribe((data: any) => {
+            console.log('Data on submit: ' + data);
+          });
+      });
   }
 }
 

@@ -51,5 +51,21 @@ export class ReservationService {
     }
     return "en cours";
   }
+
+  private formatDate(nmbr: number): string {
+    var date = nmbr + '';
+    date = date.length < 2 ? '0' + date : date;
+    return date;
+  }
+  
+  dateToString(date: Date): string {
+    return date.getFullYear() + '-' + this.formatDate(date.getMonth() + 1) + '-' + this.formatDate(date.getDate()) + 'T00:00';
+  }
+
+  setupMaxDate(date: Date): string {
+    const maxDate = date;
+    maxDate.setFullYear(maxDate.getFullYear() + 1);
+    return this.dateToString(maxDate);
+  }
 }
 
