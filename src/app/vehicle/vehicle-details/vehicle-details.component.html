@@ -1,5 +1,9 @@
 <div id="details_vehicle">
+
+  
   <h2>{{ vehicleDetails.model.brand }} {{ vehicleDetails.model.modelName }}</h2>
+
+  <div class="details-container">
   <img class="car-img"[src]="vehicleDetails.model.image" />
   <ul>
     <li>Type : {{ vehicleDetails.model.type }}</li>
@@ -8,6 +12,7 @@
     <li>Nombre de sièges : {{ vehicleDetails.model.nbSeats }}</li>
     <li>{{ vehicleDetails.fleet.place }}</li>
   </ul>
+  </div>
   
 </div>
 <div class="buttonCar">
