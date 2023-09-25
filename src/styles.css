@@ -3,10 +3,19 @@
   margin: 0;
   padding: 0;
   width: 100%;
+
 }
+
 
 html,
 body {
+
+  min-height: 100%;
+
+  background-color:lightgray;
+
+
+
   font-family: "Poppins", sans-serif;
 }
 
@@ -42,26 +51,52 @@ button {
   padding: 10px 70px;
   border: 1px solid #2d6898;
 
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 2 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(7.5px);
   -webkit-backdrop-filter: blur(7.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+button:hover {
+  background-color: #696969;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   #page-content {
     background-image: url("assets/images/backgroundCars.png");
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain ;
+   
+
   }
+
+  .screen {
+    width: 100%;
+    min-height: 100%;
+    background-color: lightgray;
+  }
+
+
+
   * {
     margin: 0;
     padding: 0;
-    width: auto;
+    width: auto;  
   }
+
+ 
   @media screen and (min-width: 1024px) {
     * {
       width: auto;
+    
     }
   }
+ 
+
+
+
 }

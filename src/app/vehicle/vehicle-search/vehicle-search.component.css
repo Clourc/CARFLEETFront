@@ -1,7 +1,7 @@
 .searchpage {
-  background-color: rgb(193, 211, 215);
+
   padding-top: 10%;
-  padding-bottom: 10%;
+margin-bottom: 15%;
 }
 
 h2 {
@@ -16,19 +16,15 @@ h2 {
 }
 
 form {
-  background: rgb(80, 78, 111);
-  background: linear-gradient(
-    90deg,
-    rgba(80, 78, 111, 1) 0%,
-    rgba(15, 134, 158, 1) 100%,
-    rgba(0, 212, 255, 1) 100%,
-    rgba(34, 97, 117, 0.01) 100%
-  );
+  background-color: rgba(34, 97, 117, 0.8);
+
+ 
   color: whitesmoke;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: auto;
+ 
   text-align: center;
   justify-content: center;
   border-radius: 10px;
@@ -72,7 +68,8 @@ button{
     padding: 10px;
     height: 40px;
     width:60%;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -98,18 +95,37 @@ li {
 }
 
 @media screen and (min-width: 768px) {
-  input {
-    width: 30%;
-  }
 
   button {
-    margin-bottom: 30px;
+
+    margin-top: 40px;
+    margin-bottom: 50px;
+    max-width: 40%;
+    font-size: large;
+}
+
+  input {
+    width: 40%;
+    font-size: large;
   }
+
+  label {
+    font-size: large;
+  }
+
+select {
+
+  width: 40%;
+  text-align: center;
+  font-size: large;
+}
 
   form {
     margin: auto;
     max-width: 80%;
     align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .search-card {
