@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VehicleService } from '../vehicle.service';
@@ -71,6 +71,7 @@ export class VehicleDetailsComponent implements OnInit {
       }
     });
   }
+  
   showDeleteSuccessDialog() {
     const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
    

@@ -1,6 +1,6 @@
 <h2>Trouvez rapidement un véhicule de service !</h2>
 <div class="form-liste">
-  <form #f="ngForm" (submit)="recherche()">
+  <form #f="ngForm" (submit)="onSubmit()">
     <label for="debutreservation">Début de la réservation</label><br>
     <input type="datetime-local" id="debutreservation" name="debutreservation" [(ngModel)]="reservationStart" #start="ngModel" [min]="todayString" [max]="maxDate" required><br>
     <label for="finreservation">Fin de la réservation</label><br>
