@@ -72,11 +72,24 @@ button {
   justify-content: space-between;
 }
 
-@media screen and (max-width: 600px) {
- .car-img {
-    width: 50%;
-    height: 50%;
-  }
+@media screen and (min-width: 600px){
+ .details-container {
+  display: flex;
+  flex-direction: row; 
 }
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 5vh;
+  font-family: "bruno ace SC";
+  font-size: 1em;
+}
+  }
+
+
+
+  
 
 

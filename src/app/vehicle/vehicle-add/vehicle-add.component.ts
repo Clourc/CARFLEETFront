@@ -102,8 +102,6 @@ export class VehicleAddComponent implements OnInit {
     });
   
     dialogRef.afterClosed().subscribe(() => {
-      
-      
     });
   }
 }

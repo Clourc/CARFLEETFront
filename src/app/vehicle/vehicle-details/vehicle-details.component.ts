@@ -71,6 +71,7 @@ export class VehicleDetailsComponent implements OnInit {
       }
     });
   }
+  
   showDeleteSuccessDialog() {
     const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
    
