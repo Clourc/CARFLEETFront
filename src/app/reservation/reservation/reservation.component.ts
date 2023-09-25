@@ -33,19 +33,15 @@ export class ReservationComponent implements OnInit {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
   }
 
-  private formatDate(nmbr: number): string {
-    var date = nmbr + '';
-    date = date.length < 2 ? '0' + date : date;
-    return date;
-  }
-
   openDialog(message: string): void {
-
     const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
-      data: { message: message },
+      width: '300px',
+      data: { message: message }
     });
 
+    dialogRef.afterClosed().subscribe(() => {});
   };
+
 
   submitReservation() {
     console.log('Vehicle id: ', this.vehicleId);
@@ -120,27 +116,5 @@ class ReservationData {
     this.reason = reason;
     this.vehicle = { id: vehicle };
     this.user = { id: userId };
-  }
-
-  confirmeResa(reservationData: object) {
-    console.log('reservationData', reservationData);
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Êtes-vous sûr de vouloir supprimer cette réservation ?' },
-    });
-
-  }
-  showDeleteSuccessDialog() {
-  }
-
-  validationResa(reservationData: object) {
-    this.reservationService.deleteResa(reservationData).subscribe({
-      next: (data: any) => {
-        console.log('data success', data);
-        this.showDeleteSuccessDialog();
-      },
-      error: (error: any) => {
-        console.log('data error', error);
-      },
-    });
   }
 }
