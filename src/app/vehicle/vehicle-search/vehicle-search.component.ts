@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
-import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
+import { ReservationService } from 'src/app/reservation/reservation.service';
 
 @Component({
   selector: 'app-vehicle-search',
@@ -15,10 +15,16 @@ export class VehicleSearchComponent {
   vehiclesToDisplay: any[] = [];
   formSubmitted: boolean = false;
 
+  startDateForm: any;
+  today: Date = new Date();
+  todayString: string = this.reservationService.dateToString(this.today);
+  maxDate: string = this.reservationService.setupMaxDate(this.today);
+
   constructor(
     private fb: FormBuilder,
     private vehicleService: VehicleService,
-    private userService: UserService
+    private userService: UserService,
+    private reservationService: ReservationService
   ) {
     this.searchForm = this.fb.group(
       {
@@ -48,12 +54,12 @@ export class VehicleSearchComponent {
   onSubmit() {
     this.vehiclesToDisplay = [];
     this.formSubmitted = true;
-  
+
     const startDate = this.searchForm.get('startDate')?.value;
     const endDate = this.searchForm.get('endDate')?.value;
     const type = this.searchForm.get('type')?.value;
     const energy = this.searchForm.get('energy')?.value;
-  
+
     if (!startDate || !endDate || this.searchForm.invalid) {
       if (!startDate) {
         this.searchForm.get('startDate')?.setErrors({ required: true });
@@ -63,12 +69,16 @@ export class VehicleSearchComponent {
       }
       return;
     }
-  
+
     this.vehicleService
-      .findVehicleByTypeAndEnergy(this.userService.getUserFleetId(), type, energy)
+      .findVehicleByTypeAndEnergy(
+        this.userService.getUserFleetId(),
+        type,
+        energy
+      )
       .subscribe((data: any) => {
         this.vehicles = data;
-  
+
         if (!startDate || !endDate) {
           this.vehiclesToDisplay = this.vehicles;
         } else {
@@ -81,5 +91,9 @@ export class VehicleSearchComponent {
           console.log(this.vehiclesToDisplay);
         }
       });
-  }}
-  
+  }
+
+  testVehiclesToDisplay(){
+    console.log(this.vehiclesToDisplay);
+  }
+}
