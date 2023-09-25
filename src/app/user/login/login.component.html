@@ -14,11 +14,10 @@
           id="cp"
           name="name"
           class="form-control"
-          [(ngModel)]="CP"
           required
           minlength="8"
           maxlength="8"
-          pattern="^[a-zA-Z0-9àéèç' -]{1,25}$"
+          pattern="^\d{7}[a-zA-Z]$"
           [(ngModel)]="CP"
           #nameInput="ngModel"
           placeholder="N° CP"
@@ -29,7 +28,15 @@
             !nameInput.invalid || nameInput.pristine || nameInput.value === ''
           "
         >
-          bla bla bla
+          <div *ngIf="nameInput.errors?.['required']" class="invalid-message">
+            Le champ N°CP est obligatoire.
+          </div>
+          <div
+            *ngIf="nameInput.errors?.['minlength'] || nameInput.errors?.['maxlength']"
+            class="invalid-message"
+          >
+            ⚠️ Veuillez rentrer un n°CP valide
+          </div>
         </div>
       </div>
 
@@ -38,7 +45,7 @@
           ><span style="font-weight: bold">M</span>ot de passe</label
         >
         <input
-          type="password"
+          [type]="passwordType"
           id="motDePasse"
           name="motDePasse"
           class="form-control"
@@ -49,13 +56,14 @@
       <div class="form-group form-check">
         <input
           type="checkbox"
-          id="memoriserMotDePasse"
-          name="memoriserMotDePasse"
+          id="afficherMotDePasse"
+          name="afficherMotDePasse"
           class="form-check-input"
-          [(ngModel)]="memoriserMotDePasse"
+          [(ngModel)]="afficherMotDePasse"
+          (click)="updatePasswordVisibility()"
         />
-        <label for="memoriserMotDePasse" class="form-check-label"
-          >Mémoriser mon identifiant</label
+        <label for="afficherMotDePasse" class="form-check-label"
+          >Afficher mot de passe</label
         >
       </div>
       <button class="btn-primary" type="submit" [disabled]="loginForm.invalid">

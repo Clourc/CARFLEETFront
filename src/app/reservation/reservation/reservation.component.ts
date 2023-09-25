@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../reservation.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-reservation',
@@ -22,7 +24,8 @@ export class ReservationComponent implements OnInit {
   constructor(
     private reservationService: ReservationService,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {

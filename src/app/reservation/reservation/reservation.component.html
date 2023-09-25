@@ -4,8 +4,16 @@
     <label for="endDate">Date et heure de fin</label>
     <input type="datetime-local" id="endDate" name="endDate" [(ngModel)]="end_Date" [min]="start_Date" [max]="maxDate" required>
 
-    <label form="reason">Motif de la réservation: </label>
-    <input type="text" id="reason" name="reason" [(ngModel)]="reasonReservation" required>
+  <label form="reason">Motif de la réservation: </label>
+  <input
+    type="text"
+    id="reason"
+    name="reason"
+    [(ngModel)]="reasonReservation"
+    required
+  />
 
-    <button type="submit" id="reserveButton">Réserver</button>
+  <button type="submit" id="reserveButton" (click)="submitReservation()">
+    Réserver
+  </button>
 </form>
