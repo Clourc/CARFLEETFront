@@ -3,7 +3,6 @@ import { ReservationService } from '../reservation.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-reservation',

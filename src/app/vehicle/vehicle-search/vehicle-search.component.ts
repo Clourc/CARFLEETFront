@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
-import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
 import { ReservationService } from 'src/app/reservation/reservation.service';

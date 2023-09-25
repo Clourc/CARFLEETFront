@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
-import { HttpClient } from '@angular/common/http';
 import { ReservationService } from 'src/app/reservation/reservation.service';
-import { filter, reduce } from 'rxjs';
-import { FormControl, FormsModule } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -31,7 +28,7 @@ export class VehicleListComponent implements OnInit {
   onSubmit() {
     this.vehiclesToDisplay = [];
     console.log('test ', this.vehiclesToDisplay);
-    return this.vehicleService.recherche(
+    this.vehicleService.recherche(
       this.vehiclesToDisplay,
       this.savedVehicles,
       this.reservationStart,
