@@ -28,7 +28,7 @@ export class VehicleListComponent implements OnInit {
     private reservationService: ReservationService
   ) {}
 
-  recherche() {
+  onSubmit() {
     this.vehiclesToDisplay = [];
     console.log('test ', this.vehiclesToDisplay);
     return this.vehicleService.recherche(
