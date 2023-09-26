@@ -1,0 +1,31 @@
+.cancel {
+
+    width: 90%;
+    border: 3px solid #807f7f69;
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  
+}
+.cancel:hover {
+    background-color: #e7a30f;
+    color: white;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 768px){
+
+.cancel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    background-color: azure;
+width: 35%;
+height: 200px;
+
+
+}
+    
+}

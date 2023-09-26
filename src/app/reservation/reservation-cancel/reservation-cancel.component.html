@@ -1,9 +1,11 @@
 <h1>Annulation</h1>
+<div class="cancel">
+Vous allez annuler la réservation n°{{reservationCancel.id}} <br>
 
-Vous allez annuler la réservation n° {{reservationCancel.id}} pour la période 
-du {{reservationCancel.start_Date | date:'dd/MM/yyyy'}} au {{reservationCancel.end_Date | date:'dd/MM/yyyy'}} 
-à {{reservationCancel.vehicle.fleet.place}}
+pour la période du <br>
+ {{reservationCancel.start_Date | date:'dd/MM/yyyy'}} au {{reservationCancel.end_Date | date:'dd/MM/yyyy'}} <br> 
+à {{reservationCancel.vehicle.fleet.place}} <br>
 
-Motif : {{reservationCancel.reason}}.
+Motif : {{reservationCancel.reason}}. <br>
 
 <button type="button" (click)="confirmDeleteResa()">Confirmer l'annulation</button>
