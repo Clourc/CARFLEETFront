@@ -124,8 +124,8 @@ select {
     margin: auto;
     max-width: 80%;
     align-items: center;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0.9;
   }
 
   .search-card {
