@@ -6,6 +6,7 @@
   border-radius: 10px;
   overflow: hidden;
   align-items: center;
+  margin: auto;
   margin-bottom: 10px;
   box-sizing: border-box;
   justify-content: center;
@@ -13,28 +14,37 @@
   background-color: rgb(103, 150, 164);
   margin-top: 15px;
   margin-right: 5%;
+  opacity: 0.98;
+  backdrop-filter: blur(10px);
+
 }
 
 .vehicle-card:hover {
   box-shadow: 08px 08px 10px 5px #818080;
-  background-color: rgb(103, 150, 164);
-  width: 430px;
+  background-color: rgb(163, 163, 163);
+  width: 450px;
+  transition: all 0.5s ease-in-out;
 }
 
 a {
   text-decoration: none;
   color: black;
+  display: flex;
+  justify-content: center;
 
   font-weight: 999;
 }
 
 img {
+  background-color: white;
   margin: 10%;
   max-width: 95%;
   max-height: 70%;
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  opacity: 1;
+
 }
 
 @media screen and (min-width: 768px) {
