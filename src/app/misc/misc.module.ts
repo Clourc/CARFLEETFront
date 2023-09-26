@@ -25,7 +25,10 @@ const miscRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
-    CguComponent
+    CguComponent,
+    MentionsComponent,
+    CookiesComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

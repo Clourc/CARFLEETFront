@@ -5,35 +5,35 @@
 
 
         <label for="firstname">NOM</label>
-        <input type="text" id="firstname" formControlName="firstname">
-        <div *ngIf="formSubmitted && searchForm.get('firstname').hasError('required')" class="error-message">
+        <input type="text" id="firstname" formControlName="firstname" required>
+        <div *ngIf="formSubmitted && searchForm.get('firstname')?.hasError('required')" class="error-message">
             Champ requis
 
         </div>
 
 
         <label for="lastname">PRENOM</label>
-        <input type="text" id="lastname" formControlName="lastname">
-        <div *ngIf="formSubmitted && searchForm.get('lastname').hasError('required')" class="error-message">
+        <input type="text" id="lastname" formControlName="lastname" required>
+        <div *ngIf="formSubmitted && searchForm.get('lastname')?.hasError('required')" class="error-message">
             Champ requis
         </div>
 
 
 
         <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email">
-        <div *ngIf="formSubmitted && searchForm.get('email').hasError('required')" class="error-message">
+        <input type="email" id="email" formControlName="email" required>
+        <div *ngIf="formSubmitted && searchForm.get('email')?.hasError('required')" class="error-message">
             Champ requis
         </div>
-        <div *ngIf="formSubmitted && searchForm.get('email').hasError('email')" class="error-message">
+        <div *ngIf="formSubmitted && searchForm.get('email')?.hasError('email')" class="error-message">
             Adresse email invalide
         </div>
 
 
 
         <label for="message">Message</label>
-        <textarea id="message" formControlName="message"></textarea>
-        <div *ngIf="formSubmitted && searchForm.get('message').hasError('required')" class="error-message">
+        <textarea id="message" formControlName="message" required></textarea>
+        <div *ngIf="formSubmitted && searchForm.get('message')?.hasError('required')" class="error-message">
             Champ requis
         </div>
 
@@ -41,7 +41,7 @@
         <div *ngIf="formSubmitted && searchForm.hasError('atLeastOneSelectRequired')" class="error-message">
             Veuillez remplir au moins un champ
         </div>
-
+{{searchForm.valid}}
         <button type="submit"
         [disabled]="!searchForm.valid">Envoyer
     </button>
