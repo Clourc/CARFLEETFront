@@ -8,12 +8,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MentionsComponent } from './mentions/mentions.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { ContactComponent } from './contact/contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const miscRoutes : Routes= [
-  {path: 'cgu', component: CguComponent},
-  { path:'mentions', component: MentionsComponent},
-  {path:'cookies', component: CookiesComponent},
-  {path:'contact', component: ContactComponent}
+const miscRoutes: Routes = [
+  { path: 'cgu', component: CguComponent },
+  { path: 'mentions', component: MentionsComponent },
+  { path: 'cookies', component: CookiesComponent },
+  { path: 'contact', component: ContactComponent }
 ];
 
 
@@ -28,7 +29,10 @@ const miscRoutes : Routes= [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(miscRoutes)
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(miscRoutes),
+
   ],
   exports: [
     HeaderComponent,
