@@ -1,26 +1,44 @@
 <div id="details_vehicle">
-
-  
   <h2>{{ vehicleDetails.model.brand }} {{ vehicleDetails.model.modelName }}</h2>
 
   <div class="details-container">
-  <img class="car-img"[src]="vehicleDetails.model.image" />
-  <ul>
-    <li>Type : {{ vehicleDetails.model.type }}</li>
-    <li>Energie : {{ vehicleDetails.model.energy }}</li>
-    <li>Nombre de portes : {{ vehicleDetails.model.nbDoors }}</li>
-    <li>Nombre de sièges : {{ vehicleDetails.model.nbSeats }}</li>
-    <li>{{ vehicleDetails.fleet.place }}</li>
-  </ul>
+    <img class="car-img" [src]="vehicleDetails.model.image" />
+    <div class="characteristics-container">
+      <ul>
+        <li class="charasteristics">
+          <i class="fas fa-car"></i> Type : {{ vehicleDetails.model.type }}
+        </li>
+        <li class="charasteristics">
+          <i class="fas fa-gas-pump" *ngIf="vehicleDetails.model.energy === 'essence'"></i>
+          <i class="fa-solid fa-charging-station" *ngIf="vehicleDetails.model.energy === 'électrique'"></i>
+          Énergie : {{ vehicleDetails.model.energy === 'essence' ? 'Essence' : (vehicleDetails.model.energy === 'électrique' ? 'Électrique' : 'Electrique') }}
+        </li>
+        <li class="charasteristics">
+          <img src="\assets\images\car-door.png" alt="Icône de porte" style="width: 20px; height: 20px;" class="seat-icon">
+           Nombre de portes : {{ vehicleDetails.model.nbDoors }}
+        </li>
+      </ul>
+    </div>
+    <div class="characteristics-container">
+      <ul>
+        <li class="charasteristics">
+          <img src="\assets\images\car_seat.png" alt="Icône de siège" style="width: 25px; height: 20px;" class="seat-icon">
+          Nombre de sièges : {{ vehicleDetails.model.nbSeats }}
+        </li>
+        <li class="charasteristics">
+          <i class="fas fa-map-marker-alt"></i> {{ vehicleDetails.fleet.place }}
+        </li>
+      </ul>
+    </div>
   </div>
-  
 </div>
+
 <div class="buttonCar">
-<div class="button reserver">
+<div class="button_reserver">
 <button type="button" routerLink="reserve">Réserver</button>
 </div>
   
-<div class="button supprimer">
+<div class="button_supprimer">
 <button mat-button *ngIf="isAdmin" (click)="confirmDelete(vehicleDetails.id)">
   Supprimer
 </button>
