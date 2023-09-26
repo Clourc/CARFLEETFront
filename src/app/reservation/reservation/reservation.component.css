@@ -6,6 +6,9 @@
   gap: 1rem;
 }
 
+
+
+
 #startDate,
 #endDate {
   width: 50vw;
@@ -24,11 +27,6 @@
   border-radius: 10px;
   background-color: #3EBDE6;
   align-self: center;
-  margin: 50px;
-}
-
-label {
-  margin: 1vh;
 }
 
 input {
