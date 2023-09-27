@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { Router, CanActivateFn } from '@angular/router';
-import { AuthentificationService } from './authentification.service'; 
+import { AuthentificationService } from './authentification.service';
+import { UserService } from './user/user.service';
 
 export const userGuard: CanActivateFn = () => {
   const authService = inject(AuthentificationService);
@@ -20,14 +21,14 @@ export const adminGuard: CanActivateFn = () => {
   const router = inject(Router);
 
   console.log('Admin access ? Role :' + localStorage.getItem('role'));
-  if(authService.isTokenValid()){
-    if(localStorage.getItem('role') == "ADMIN"){
+  if (authService.isTokenValid()) {
+    if (localStorage.getItem('role') == 'ADMIN') {
       console.log('Admin access valid');
-      return true
+      return true;
     }
     router.navigate(['/vehicles']);
     return false;
   }
   router.navigate(['/login']);
   return false;
-}
+};

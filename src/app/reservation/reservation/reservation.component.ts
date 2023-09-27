@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../reservation.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/delete-success-dialog.component';
@@ -23,6 +23,7 @@ export class ReservationComponent implements OnInit {
 
   constructor(
     private reservationService: ReservationService,
+    private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
     private dialog: MatDialog
@@ -87,7 +88,7 @@ export class ReservationComponent implements OnInit {
         .postNewReservation(reservationData)
         .subscribe((data: any) => {
           this.openDialog("Réservation enregistrée");
-          console.log('Data on submit: ' + data);
+          this.router.navigate(['/reservations']);
         });
     });
   }
