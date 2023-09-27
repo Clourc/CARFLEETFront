@@ -1,15 +1,12 @@
-
-img.titre{
-
- margin-left: 0;
+img.titre {
+  margin-left: 0;
   height: 100px;
   margin-right: -20px;
   margin-top: 20px;
   width: 150px;
 }
 
-.logo-titre{
-  
+.logo-titre {
   width: 20%;
   height: auto;
   color: #fbf9f9;
@@ -17,14 +14,13 @@ img.titre{
   margin-right: 25px;
 }
 
-
 .title {
-
   display: flex;
   justify-content: center;
   flex-direction: row;
   width: 100%;
   align-items: center;
+  max-height: 150px;
 }
 
 .logo {
@@ -40,7 +36,6 @@ a {
   display: flex;
   flex-direction: row-reverse;
 }
-
 
 .logo a {
   display: flex;
@@ -65,14 +60,12 @@ a {
   height: 30px;
   margin-right: 20px;
 
-
-
   width: auto;
 }
 
 header {
-background-color: #226175;
-opacity: 0.9;
+  background-color: #226175;
+  opacity: 0.9;
   border-bottom: 1px solid #eee;
   height: 150px;
   width: 100%;
@@ -81,7 +74,6 @@ opacity: 0.9;
   align-items: center;
   justify-content: space-between;
   box-shadow: lightgray 3px 3px 7px;
-
 }
 
 .titre {
@@ -91,34 +83,26 @@ opacity: 0.9;
   align-items: center;
 }
 
-
 h1 {
-  font-family:"bruno ace", "bruno ace pro";
+  font-family: "bruno ace", "bruno ace pro";
   color: white;
   margin-left: 40px;
   font-size: 6vh;
 }
 
 h2 {
-
- display: none;
-align-items: center;
-font-size: smaller;
- 
-  
+  display: none;
+  align-items: center;
+  font-size: smaller;
   color: whitesmoke;
   text-align: center;
-
 }
 
 ul {
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-
-
 }
-
 
 @media screen and (min-width: 768px) {
   header {
@@ -147,20 +131,20 @@ ul {
       hsl(196deg 43% 34%) 97%,
       hsl(194deg 55% 30%) 100%
     );
-
-
   }
-  .title{
-width: 60%;
+
+  .title {
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
   h2 {
     display: flex;
     margin: 0;
     margin-bottom: 35px;
-    max-width: 40%;
+    max-width: 50%;
     font-size: large;
   }
 
@@ -183,7 +167,6 @@ width: 60%;
     color: whitesmoke;
     text-decoration: none;
     display: flex;
-    margin-bottom: 15px;
   }
 
   .menu {
@@ -194,15 +177,15 @@ width: 60%;
     display: flex;
     height: 80%;
     margin: 20px;
-  
   }
-  .logo-titre{
 
+  .logo-titre {
     display: none;
   }
-  .img-titre{
-   height: 100px;
-    width:auto;
+
+  .img-titre {
+    height: 100px;
+    width: auto;
     margin-top: 20px;
     margin-right: 0px;
   }
