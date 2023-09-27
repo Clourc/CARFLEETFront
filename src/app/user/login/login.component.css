@@ -116,6 +116,8 @@
 
 .identifiant-group {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   align-items: center;
 }
@@ -137,7 +139,7 @@ label {
 
 .mdp {
   display: flex;
-  align-items: center;
+  justify-content: center;
   margin-bottom: 36px;
 }
 /* .container {
@@ -196,11 +198,12 @@ label {
   display: none;
 }
 
-.invalid-message {
+.invalid-password {
+  display: flex;
   justify-content: center;
   font-style: bold;
   opacity: 1;
-  margin-top: 3px;
+  margin-top: 0px;
   color: #f60303;
   font-size: 10px;
   text-align: left;
@@ -208,6 +211,12 @@ label {
   padding: 3px;
 
   margin-bottom: 17px;
+}
+
+.invalid-:before {
+  color: #f60303;
+  font-size: 16px;
+  margin-right: 5px;
 }
 
 .btn-primary[type="submit"]:disabled {
@@ -219,8 +228,18 @@ label {
 }
 
 .ng-valid[required] {
-  border: 6px solid #42a948;
+  opacity: 0.5;
+  border: 3px solid #3ebee6;
 }
+
+.box.ng-dirty.ng-invalid {
+  opacity: 0.5;
+  border: 3px solid #f60703;
+}
+/* .ng-invalid:not(form) {
+  opacity: 0.5;
+  border: 3px solid #f60703;
+} */
 
 .btn-primary {
   background-color: #3ebee6;
@@ -232,9 +251,33 @@ label {
   margin-top: 10px;
 }
 
+#afficher-mdp {
+  font-size: 9px;
+  font-style: italic;
+  opacity: 0.3;
+}
+
+.btn-primary[type="submit"]:disabled {
+  margin-top: 20px;
+  opacity: 0.5;
+  cursor: no-drop;
+  background-color: grey;
+
+  color: #00000083;
+}
+
+.form-check-label {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center; /* Centre verticalement le contenu */
+}
+
 @media screen and (min-width: 768px) {
+  #afficher-mdp {
+    margin-right: 10px;
+  }
   .form {
-    min-width: 100%;
+    max-width: 50%;
   }
 
   .form-group {
