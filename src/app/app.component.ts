@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
       let userCP = '';
       if(tokenData){
         decodedData = atob(tokenData);
+        console.log(decodedData);
         userCP = JSON.parse(decodedData).sub;
         this.userService.retrieveUser(userCP).subscribe((data: any) => {
           this.userService.setUser(data);
