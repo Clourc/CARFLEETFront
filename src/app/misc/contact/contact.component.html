@@ -41,7 +41,7 @@
         <div *ngIf="formSubmitted && searchForm.hasError('atLeastOneSelectRequired')" class="error-message">
             Veuillez remplir au moins un champ
         </div>
-{{searchForm.valid}}
+
         <button type="submit"
         [disabled]="!searchForm.valid">Envoyer
     </button>
