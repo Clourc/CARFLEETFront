@@ -1,88 +1,87 @@
-/* Style pour le conteneur d'authentification */
-.auth-container {
-  background-color: #226175;
-  height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.identifiant-group {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  width: 100%;
   align-items: center;
 }
 
-/* Style pour le formulaire d'authentification */
-.auth-form {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  max-width: 400px;
-  width: 95%;
+.container {
+  display: flex;
+  height: 500px;
+
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 50px;
+  box-shadow: 15px 15px #36778a;
 }
 
-/* Style pour les champs de saisie */
-.form-control {
-  margin: 10px 0;
-  padding: 5px 10px;
-  width: 90%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Style pour la case à cocher */
-.form-check {
-  text-align: left;
-  opacity: 0.4;
-}
-
-/* Style pour le bouton de connexion */
-.btn-primary {
-  background-color: #3ebee6;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px; /* Ajoutez la marge en haut selon vos besoins */
-}
-
-/* Style pour les labels */
 label {
-  font-weight: normal;
+  flex-basis: 30%;
 }
 
-/* Style pour le titre */
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.mdp {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
 }
 
-/* Style pour le sous-titre */
-h2 {
-  opacity: 0.5;
-  font-weight: normal;
-  font-size: 18px;
-  margin-top: 0;
-  margin-bottom: 20px;
-  /* Couleur du bouton Connexion */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 12px;
 }
 
-.invalid-message:before {
-  content: "⚠️ ";
-  font-size: 16px;
-  margin-right: 5px;
+.form h2 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin: 40px;
+  font-size: 10px;
+  margin-bottom: 70px;
 }
 
-.ng-valid[required] {
-  border: 6px solid #42a948;
+.box {
+  padding: 12px;
+  width: 65%;
+  margin: 15px;
+  border: 1px solid black;
+  outline: none;
+  border-radius: 20px;
 }
 
-.ng-invalid:not(form) {
-  border: 6px solid #f60703;
+#submit {
+  padding: 12px 30px;
+  width: 40%;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 20px;
 }
 
-.invalid-message {
+.side {
+  display: none;
+}
+
+.side img {
+  display: none;
+}
+
+.invalid-password {
+  display: flex;
+  justify-content: center;
   font-style: bold;
   opacity: 1;
-  margin-top: 3px;
+  margin-top: 0px;
   color: #f60303;
   font-size: 10px;
   text-align: left;
@@ -92,10 +91,101 @@ h2 {
   margin-bottom: 17px;
 }
 
+.invalid-:before {
+  color: #f60303;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
 .btn-primary[type="submit"]:disabled {
   margin-top: 20px;
   opacity: 0.5;
   cursor: not-allowed;
   background-color: grey;
   color: #00000083;
+}
+
+.ng-valid[required] {
+  opacity: 0.5;
+  border: 3px solid #3ebee6;
+}
+
+.box.ng-dirty.ng-invalid {
+  opacity: 0.5;
+  border: 3px solid #f60703;
+}
+
+.btn-primary {
+  background-color: #3ebee6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#afficher-mdp {
+  font-size: 9px;
+  font-style: italic;
+  opacity: 0.3;
+}
+
+.btn-primary[type="submit"]:disabled {
+  margin-top: 20px;
+  opacity: 0.5;
+  cursor: no-drop;
+  background-color: grey;
+
+  color: #00000083;
+}
+
+.form-check-label {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+/* Version Bureau */
+
+@media screen and (min-width: 768px) {
+  #afficher-mdp {
+    margin-right: 10px;
+  }
+  .form {
+    max-width: 50%;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+  .side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: whitesmoke;
+  }
+
+  .side img {
+    width: 250px;
+    height: 250px;
+    display: block; /* Affiche l'image */
+  }
+
+  #submit:hover {
+    cursor: pointer;
+    box-shadow: 15px 15px;
+    background-color: #36778a;
+  }
+
+  .identifiant-group {
+    min-width: 100%;
+    flex-direction: column;
+  }
+
+  .mdp {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
