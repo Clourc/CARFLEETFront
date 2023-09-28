@@ -1,0 +1,107 @@
+input {
+    background-color: lightgray;
+    height: 4vh;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px -1px 0px 0px #e2e8f0 inset;
+    max-width: 60%;
+
+}
+
+.contact {
+
+    padding-top: 3%;
+}
+
+form {
+    background-color: rgba(34, 97, 117, 0.8);
+
+
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 08px 08px 10px 5px #818080;
+
+    max-width: 90%;
+}
+
+
+h1 h2 {
+    color: whitesmoke;
+    font-size: 5, 3 em;
+    text-align: center;
+    line-height: 1em;
+    justify-content: center;
+    margin: 5% 0 5% 0;
+    font-family: "Roboto", sans-serif;
+}
+
+
+#message {
+    height: 16vh;
+    border-radius: 10px;
+    text-align: center;
+    margin: 2vh;
+    max-width: 70%;
+}
+
+
+button {
+    margin-bottom: 25px;
+    margin-top: 0px;
+    background: var(--slate-700, #374151);
+    color: var(--slate-100, #f9fafb);
+    border: 1px solid var(--slate-700, #374151);
+    padding: 10px;
+    width: 60%;
+    height: 65px;
+}
+
+button:hover {
+    background: var(--slate-800, #1e293b);
+    color: var(--slate-100, #f9fafb);
+    cursor: pointer;
+
+}
+
+@media screen and (min-width: 768px) {
+    input {
+        width: 70%;
+        font-size: large;
+    }
+
+    button {
+        margin-top: 40px;
+        margin-bottom: 50px;
+        max-width: 40%;
+        font-size: large;
+    }
+
+    label {
+        font-size: large;
+    }
+
+
+    form {
+        margin: auto;
+        max-width: 80%;
+        align-items: center;
+    }
+
+
+
+    #message {
+        width: 60vh;
+        height: 16vh;
+        border-radius: 10px;
+        text-align: center;
+        margin: 2vh;
+    }
+}

@@ -28,6 +28,7 @@ import { DeleteSuccessDialogComponent } from './delete-success-dialog/delete-suc
     MiscModule,
     UserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

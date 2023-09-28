@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   CP: string = '';
   password: string = '';
   afficherMotDePasse: boolean = false;
@@ -23,13 +23,19 @@ export class LoginComponent implements OnInit{
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       this.userService.logout();
     }
   }
 
   updatePasswordVisibility(): void {
-    this.passwordType = this.afficherMotDePasse ? 'password' : 'text';
+    if (this.passwordType === 'password') {
+      this.passwordType = 'text';
+    } else {
+      this.passwordType = 'password';
+    }
+    // this.passwordType = this.afficherMotDePasse ? 'password' : 'text';
+    console.log('sdsdsdsdsdsdsd');
   }
 
   checkPseudoValidity() {
