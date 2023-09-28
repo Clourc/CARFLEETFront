@@ -1,8 +1,6 @@
 footer{
   background-color: #226175;
-
     color: whitesmoke;
-
     bottom: 0;
     width: 100%;
     min-height: 180px;
@@ -22,7 +20,6 @@ footer{
     margin: 0;
     color: white;
     display: flex;
- 
     align-items: left;
     font-size: 1em;
   text-align: left;

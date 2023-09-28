@@ -23,7 +23,6 @@ header {
   margin-top: 20px;
   border-radius: 20px;
   align-items: center;
-}
 
 .menu {
   width: 85%;
@@ -62,15 +61,27 @@ ul {
 .logo-link {
   height: 30px;
   margin-left: 20px;
-
   width: auto;
 }
 
-h1 {
-  font-family: "bruno ace", "bruno ace pro";
-  color: white;
-  margin-left: 40px;
-  font-size: 6vh;
+header {
+  background-color: #226175;
+  opacity: 0.9;
+  border-bottom: 1px solid #eee;
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: lightgray 3px 3px 7px;
+}
+
+.titre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
@@ -79,17 +90,23 @@ h2 {
   font-size: smaller;
   color: whitesmoke;
   text-align: center;
+
+ul {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
   header {
     display: flex;
+
     flex-direction: column;
     justify-content: center;
-    background-color: 226175;
     height: 26vh;
     background-color: #226175;
   }
+  
   .logo-desk {
     display: flex;
   }
@@ -151,10 +168,12 @@ h2 {
     margin: 0 20px;
     display: flex;
   }
+  
   .logo-img {
     height: 16vh;
     border-radius: 50%;
   }
+  
   .titre {
     height: 10vh;
   }

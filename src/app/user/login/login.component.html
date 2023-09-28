@@ -1,4 +1,3 @@
-
 <div class="container">
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="form">
     <h1>Authentification <span style="color: #3ebee6">SNCF</span></h1>
@@ -23,6 +22,7 @@
           required
         />
       </div>
+      
       <div
         class="form-group"
         [hidden]="
@@ -37,6 +37,7 @@
         </div>
       </div>
     </div>
+    
     <div class="identifiant-group">
       <label for="password"
         ><span style="font-weight: bold">M</span>ot de passe</label
@@ -51,6 +52,7 @@
         required
       />
     </div>
+    
     <div class="mdp">
       <label for="afficherMotDePasse" class="form-check-label">
         <input
@@ -61,14 +63,11 @@
           [(ngModel)]="afficherMotDePasse"
           (click)="updatePasswordVisibility()"
         />
-
         <div id="afficher-mdp">Afficher mot de passe</div>
       </label>
     </div>
-    <button type="submit">  Connexion</button>
-  </form>
-
-  
-    <img src="/assets/images/Sujet.png" alt="login-figurine" />
-  
+    
+    <button type="submit">Connexion</button>
+  </form>  
+  <img src="/assets/images/Sujet.png" alt="login-figurine" />
 </div>

@@ -59,19 +59,7 @@ label {
   border-radius: 20px;
 }
 
-/* #submit {
-  padding: 12px 30px;
-  width: 40%;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  border-radius: 20px;
-} */
-
 button {
-
   max-width: 40%;
   height: 35px;
 }
@@ -105,13 +93,27 @@ button {
   margin-right: 5px;
 }
 
-/* .btn-primary[type="submit"]:disabled {
-  margin-top: 20px;
+.ng-valid[required] {
   opacity: 0.5;
-  cursor: not-allowed;
-  background-color: grey;
-  color: #00000083;
-} */
+  border: 3px solid #3ebee6;
+}
+
+.box.ng-dirty.ng-invalid {
+  opacity: 0.5;
+  border: 3px solid #f60703;
+}
+
+#afficher-mdp {
+  font-size: small ;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
 
 .ng-valid[required] {
   opacity: 0.5;
@@ -123,7 +125,7 @@ button {
   border: 3px solid #f60703;
 }
 
-/* .btn-primary {
+.btn-primary {
   background-color: #3ebee6;
   color: #fff;
   border: none;
@@ -131,59 +133,48 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 10px;
-} */
-
-#afficher-mdp {
-  font-size: small ;
-  font-style: italic;
-  opacity: 0.6;
 }
 
-/* .btn-primary[type="submit"]:disabled {
+#afficher-mdp {
+  font-size: 9px;
+  font-style: italic;
+  opacity: 0.3;
+}
+
+.btn-primary[type="submit"]:disabled {
   margin-top: 20px;
   opacity: 0.5;
   cursor: no-drop;
   background-color: grey;
-
   color: #00000083;
-} */
+}
 
 .form-check-label {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
-/* Version Bureau */
 
 @media screen and (min-width: 768px) {
-
-.container{
-
-  max-width: 70%;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-}
-
   #afficher-mdp {
     margin-right: 10px;
   }
+  
   .form {
     max-width: 50%;
-  
   }
 
   .form-group {
     width: 100%;
   }
-  /* .side {
+  
+  .side {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
     background-color: whitesmoke;
-  } */
-
+  }
 
   #submit:hover {
     cursor: pointer;
@@ -201,6 +192,13 @@ button {
     justify-content: center;
     width: 100%;
   }
+  
+  .container{
+  max-width: 70%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
 
   button {
     width: 30%;
@@ -208,16 +206,10 @@ button {
   }
 
  img {
-
-display: flex;
-
-width: 25%;
-height: 35%;
-
-align-items: center;
-justify-content: center;
+  display: flex;
+  width: 25%;
+  height: 35%;
+  align-items: center;
+  justify-content: center;
  }
-
-
-
 }
