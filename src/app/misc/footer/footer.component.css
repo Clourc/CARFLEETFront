@@ -20,7 +20,7 @@ footer{
       background-color: transparent;
 
     color: whitesmoke;
-position: relative;
+position:absolute;
     bottom: 0;
     width: 100%;
     min-height: 130px;

@@ -1,8 +1,8 @@
-<div class="auth-container">
+<!-- <div class="auth-container">
   <div class="auth-form">
-    <h1>Authentification <span style="color: #3ebee6">SNCF</span></h1>
-    <h2>Se connecter</h2>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <h1>Authentification <span style="color: #3ebee6">SNCF</span></h1>
+      <h2>Se connecter</h2>
       <div class="form-group">
         <label for="identifiant" class="required"
           ><span style="font-weight: bold">I</span>dentifiant
@@ -70,5 +70,79 @@
         Connexion
       </button>
     </form>
+  </div>
+</div> -->
+
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="form">
+    <h1>Authentification <span style="color: #3ebee6">SNCF</span></h1>
+
+    <div class="form-group">
+      <div class="identifiant-group">
+        <label for="name" class="required">
+          <span style="font-weight: bold">I</span>dentifiant
+          <span style="font-weight: bold">G</span>roupe
+          <span style="font-weight: bold">SNCF</span>
+        </label>
+        <input
+          type="text"
+          name="name"
+          class="box"
+          placeholder="N°CP"
+          minlength="8"
+          maxlength="8"
+          pattern="^\d{7}[a-zA-Z]$"
+          [(ngModel)]="CP"
+          #nameInput="ngModel"
+          required
+        />
+      </div>
+      <div
+        class="form-group"
+        [hidden]="
+          !nameInput.invalid || nameInput.pristine || nameInput.value === ''
+        "
+      >
+        <div
+          *ngIf="nameInput.errors?.['minlength'] || nameInput.errors?.['maxlength']"
+          class="invalid-password"
+        >
+          ⚠️ Veuillez rentrer un n°CP valide
+        </div>
+      </div>
+    </div>
+    <div class="identifiant-group">
+      <label for="password"
+        ><span style="font-weight: bold">M</span>ot de passe</label
+      >
+      <input
+        type="password"
+        name="password"
+        [type]="passwordType"
+        class="box"
+        placeholder="Mot de passe"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <div class="mdp">
+      <label for="afficherMotDePasse" class="form-check-label">
+        <input
+          type="checkbox"
+          id="afficherMotDePasse"
+          name="afficherMotDePasse"
+          class="form-check-input box"
+          [(ngModel)]="afficherMotDePasse"
+          (click)="updatePasswordVisibility()"
+        />
+
+        <div id="afficher-mdp">Afficher mot de passe</div>
+      </label>
+    </div>
+    <input type="submit" value="Connexion" id="submit" />
+  </form>
+
+  <div class="side">
+    <img src="/assets/images/Sujet.png" alt="" />
   </div>
 </div>
