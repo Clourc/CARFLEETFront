@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user/user.service';
+import { LoginComponent } from './user/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { UserService } from './user/user.service';
 })
 export class AppComponent implements OnInit{
   title = 'CARFLEETFront';
+  
 
   constructor(private userService: UserService){}
 

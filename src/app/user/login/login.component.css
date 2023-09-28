@@ -14,12 +14,14 @@
 
 .container {
   display: flex;
-  height: 500px;
-
+  width: 90%;
+  height: auto;
+  background-color: white;
   border: 1px solid black;
   margin: auto;
   margin-top: 50px;
-  box-shadow: 15px 15px #36778a;
+  margin-bottom: 50px;
+  box-shadow: 08px 08px 10px 5px #818080;
 }
 
 label {
@@ -37,7 +39,7 @@ label {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: white;
   padding: 12px;
 }
 
@@ -57,22 +59,16 @@ label {
   border-radius: 20px;
 }
 
-#submit {
-  padding: 12px 30px;
-  width: 40%;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  border-radius: 20px;
+button {
+  max-width: 40%;
+  height: 35px;
 }
 
 .side {
   display: none;
 }
 
-.side img {
+ img {
   display: none;
 }
 
@@ -97,12 +93,26 @@ label {
   margin-right: 5px;
 }
 
-.btn-primary[type="submit"]:disabled {
-  margin-top: 20px;
+.ng-valid[required] {
   opacity: 0.5;
-  cursor: not-allowed;
-  background-color: grey;
-  color: #00000083;
+  border: 3px solid #3ebee6;
+}
+
+.box.ng-dirty.ng-invalid {
+  opacity: 0.5;
+  border: 3px solid #f60703;
+}
+
+#afficher-mdp {
+  font-size: small ;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .ng-valid[required] {
@@ -136,7 +146,6 @@ label {
   opacity: 0.5;
   cursor: no-drop;
   background-color: grey;
-
   color: #00000083;
 }
 
@@ -145,12 +154,12 @@ label {
   flex-direction: row-reverse;
   align-items: center;
 }
-/* Version Bureau */
 
 @media screen and (min-width: 768px) {
   #afficher-mdp {
     margin-right: 10px;
   }
+  
   .form {
     max-width: 50%;
   }
@@ -158,18 +167,13 @@ label {
   .form-group {
     width: 100%;
   }
+  
   .side {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
     background-color: whitesmoke;
-  }
-
-  .side img {
-    width: 250px;
-    height: 250px;
-    display: block; /* Affiche l'image */
   }
 
   #submit:hover {
@@ -188,4 +192,24 @@ label {
     justify-content: center;
     width: 100%;
   }
+  
+  .container{
+  max-width: 70%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+  button {
+    width: 30%;
+    height: 35px;
+  }
+
+ img {
+  display: flex;
+  width: 25%;
+  height: 35%;
+  align-items: center;
+  justify-content: center;
+ }
 }
