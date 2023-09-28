@@ -44,7 +44,7 @@ h2 {
     
     display: flex;
     align-items: center;
-    aspect-ratio: 16 / 9;
+
   }
 
 
@@ -66,18 +66,18 @@ li {
 
 .charasteristics i,
 .charasteristics img {
-  margin-right: 10px; 
+  margin-right: 80px; 
 }
 
 
 .buttonCar {
   display: flex;
   justify-content: space-between;
-  position: relative; /* Ajoutez cette ligne */
+  position: relative; 
 }
 
 .button_reserver button {
-  position: absolute;
+
   bottom: 30px;
   right: 40px;
   font-weight: 600;
@@ -85,11 +85,11 @@ li {
   color: var(--slate-100, #F9FAFB);
   font-size: 12px;
   padding: 8px 18px;
-  border-radius: 56px;
+  border-radius: 55px;
 }
 
 .button_supprimer button {
-  position: absolute;
+
   bottom: 30px;
   left: 40px;
   font-weight: 600;
@@ -112,10 +112,14 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 5vh;
+  margin-left: 200px;
   font-family: "bruno ace SC";
   font-size: 1em;
+  margin-top: 60px;
 }
+
+
+
 
 
   }
