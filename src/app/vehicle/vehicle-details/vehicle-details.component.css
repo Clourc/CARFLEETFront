@@ -40,10 +40,11 @@ h2 {
   
   img {
     width: 600px; /* Largeur fixe */
-    height: 
-    300px; /* Hauteur fixe */
+    height: 400px;
+    
     display: flex;
     align-items: center;
+    aspect-ratio: 16 / 9;
   }
 
 
