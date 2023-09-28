@@ -16,11 +16,12 @@
   display: flex;
   width: 90%;
   height: auto;
-  background-color: whitesmoke;
+  background-color: white;
   border: 1px solid black;
   margin: auto;
   margin-top: 50px;
-  box-shadow: 15px 15px #36778a;
+  margin-bottom: 50px;
+  box-shadow: 08px 08px 10px 5px #818080;
 }
 
 label {
@@ -38,7 +39,7 @@ label {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: white;
   padding: 12px;
 }
 

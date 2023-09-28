@@ -31,6 +31,7 @@ justify-content: center;
   box-shadow: 0 2px 3px #ccc;
   margin-bottom: 30px;
   opacity: 0.9;
+  max-width: 95%;
 }
 
 li {

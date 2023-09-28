@@ -71,7 +71,7 @@ button:hover {
     
     background-position: center;
     background-size: cover;
-   height:150vw;
+   max-height:150vw;
 
   }
 
