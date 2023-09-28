@@ -1,77 +1,3 @@
-<!-- <div class="auth-container">
-  <div class="auth-form">
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-      <h1>Authentification <span style="color: #3ebee6">SNCF</span></h1>
-      <h2>Se connecter</h2>
-      <div class="form-group">
-        <label for="identifiant" class="required"
-          ><span style="font-weight: bold">I</span>dentifiant
-          <span style="font-weight: bold">G</span>roupe
-          <span style="font-weight: bold">SNCF</span>
-        </label>
-        <input
-          type="text"
-          id="cp"
-          name="name"
-          class="form-control"
-          required
-          minlength="8"
-          maxlength="8"
-          pattern="^\d{7}[a-zA-Z]$"
-          [(ngModel)]="CP"
-          #nameInput="ngModel"
-          placeholder="N° CP"
-        />
-        <div
-          class="form-group"
-          [hidden]="
-            !nameInput.invalid || nameInput.pristine || nameInput.value === ''
-          "
-        >
-          <div *ngIf="nameInput.errors?.['required']" class="invalid-message">
-            Le champ N°CP est obligatoire.
-          </div>
-          <div
-            *ngIf="nameInput.errors?.['minlength'] || nameInput.errors?.['maxlength']"
-            class="invalid-message"
-          >
-            ⚠️ Veuillez rentrer un n°CP valide
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="motDePasse"
-          ><span style="font-weight: bold">M</span>ot de passe</label
-        >
-        <input
-          [type]="passwordType"
-          id="motDePasse"
-          name="motDePasse"
-          class="form-control"
-          [(ngModel)]="password"
-          placeholder="********"
-        />
-      </div>
-      <div class="form-group form-check">
-        <input
-          type="checkbox"
-          id="afficherMotDePasse"
-          name="afficherMotDePasse"
-          class="form-check-input"
-          [(ngModel)]="afficherMotDePasse"
-          (click)="updatePasswordVisibility()"
-        />
-        <label for="afficherMotDePasse" class="form-check-label"
-          >Afficher mot de passe</label
-        >
-      </div>
-      <button class="btn-primary" type="submit" [disabled]="loginForm.invalid">
-        Connexion
-      </button>
-    </form>
-  </div>
-</div> -->
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="form">
@@ -139,10 +65,10 @@
         <div id="afficher-mdp">Afficher mot de passe</div>
       </label>
     </div>
-    <input type="submit" value="Connexion" id="submit" />
+    <button type="submit">  Connexion</button>
   </form>
 
-  <div class="side">
-    <img src="/assets/images/Sujet.png" alt="" />
-  </div>
+  
+    <img src="/assets/images/Sujet.png" alt="login-figurine" />
+  
 </div>

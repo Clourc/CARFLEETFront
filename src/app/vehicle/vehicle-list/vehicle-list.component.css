@@ -3,12 +3,6 @@ body {
     background-color: black;
 }
 
-h2 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 button {
   height: auto;
@@ -39,16 +33,9 @@ justify-content: center;
   opacity: 0.9;
 }
 
-.list,
-.list-reverse {
+li {
+
   list-style-type: none;
-  text-decoration: none;
-  /* padding: 10px; */
-  margin: 0;
-  color: rgb(241, 34, 34);
-  justify-content: space-around;
-  font-size: 1em;
-  text-align: center;
 }
 
 form {
@@ -84,6 +71,12 @@ label {
 @media screen and (min-width: 768px) {
 
 
+  .test {
+
+    height: 100%;
+  }
+
+
 
   .form-liste {
     max-width: 60%;
@@ -97,7 +90,7 @@ label {
     /* animation-name: scroll;
 animation: scroll 50s linear infinite  ; */
     padding: 10px;
-    overflow-x: scroll;
+    overflow-x: auto !important;
     white-space: normal;
     display: flex;
     flex-wrap: nowrap;
@@ -123,9 +116,9 @@ animation: scroll 50s linear infinite  ; */
     width: inherit;
   }
 
-  .list:hover {
+  /* .list:hover {
     width: 120%;
-  }
+  } */
   /* .list-reverse{
     display: flex;
     flex-wrap: nowrap;
@@ -139,7 +132,8 @@ animation: scroll 50s linear infinite  ; */
     } */
 
   .form-liste {
-    margin-bottom: 50px;
+    margin-top: 75px;
+    margin-bottom: 75px;
     height: 350px;
     width: 80%;
   }
