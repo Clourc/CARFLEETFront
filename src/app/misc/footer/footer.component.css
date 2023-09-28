@@ -1,34 +1,15 @@
 footer{
-    background-image: linear-gradient(
-        180deg,
-        hsl(194deg 55% 30%) 0%,
-        hsl(196deg 45% 33%) 13%,
-        hsl(197deg 39% 37%) 25%,
-        hsl(199deg 34% 40%) 37%,
-        hsl(200deg 29% 43%) 48%,
-        hsl(202deg 26% 46%) 58%,
-        hsl(203deg 23% 50%) 67%,
-        hsl(204deg 23% 53%) 76%,
-        hsl(206deg 23% 56%) 84%,
-        hsl(207deg 23% 59%) 90%,
-        hsl(209deg 24% 62%) 95%,
-        hsl(210deg 24% 65%) 99%,
-        hsl(211deg 24% 68%) 100%
-      );
-
-      background-color: currentcolor;
-      background-color: transparent;
-
+  background-color: #226175;
     color: whitesmoke;
-position:absolute;
     bottom: 0;
     width: 100%;
-    min-height: 130px;
+    min-height: 180px;
     box-shadow: lightgray 3px 3px 7px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+   
   
 }
 
@@ -39,7 +20,6 @@ position:absolute;
     margin: 0;
     color: white;
     display: flex;
- 
     align-items: left;
     font-size: 1em;
   text-align: left;

@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DeleteSuccessDialogComponent } from './delete-success-dialog/delete-success-dialog.component';
+import { LoginComponent } from './user/login/login.component';
 
 
 @NgModule({
