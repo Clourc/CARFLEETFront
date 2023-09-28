@@ -23,6 +23,7 @@ header {
   margin-top: 20px;
   border-radius: 20px;
   align-items: center;
+}
 
 .menu {
   width: 85%;
@@ -90,6 +91,7 @@ h2 {
   font-size: smaller;
   color: whitesmoke;
   text-align: center;
+}
 
 ul {
   padding: 0 10px;
@@ -106,7 +108,7 @@ ul {
     height: 26vh;
     background-color: #226175;
   }
-  
+
   .logo-desk {
     display: flex;
   }
@@ -168,12 +170,12 @@ ul {
     margin: 0 20px;
     display: flex;
   }
-  
+
   .logo-img {
     height: 16vh;
     border-radius: 50%;
   }
-  
+
   .titre {
     height: 10vh;
   }
