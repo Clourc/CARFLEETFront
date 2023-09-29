@@ -29,24 +29,12 @@ export class ContactComponent {
     );
   }
 
+  formTrySubmit(): void {
+    this.formSubmitted = true;
+  }
 
   onSubmit() {
-    this.formSubmitted = true;
     console.log(this.searchForm.value);
-    /* const firstname = this.searchForm.get('firstname')?.value;
-     const lastname = this.searchForm.get('lastname')?.value;
-     const email = this.searchForm.get('email')?.value;
-     const message = this.searchForm.get('message')?.value;
- 
-     if (this.searchForm.invalid) {
-       return;
-     }
- 
-     if (!firstname && !lastname && !email && !message) {
-       this.searchForm.get('firstname')?.setErrors({ required: true });
-     }
- 
-   }*/
   }
 }
 
