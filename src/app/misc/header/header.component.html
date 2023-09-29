@@ -1,17 +1,33 @@
 <header>
-
   <div class="titre-contain">
-          <a class="logo-car" routerLink="vehicles"><img class="logo-img" src="assets/images/logo_site_carfleet.png" alt="logo"></a>
-      
-  <a routerLink="vehicles">  <img class="titre" src="assets/images/title.png" alt="titre"></a>
-<img class="logo-sncf" src="assets/images/sncf_logo_blanc.png" alt="logo sncf">
-<div class="quote">La reservation facile de votre vehicule de service</div>
+    <div id="logo-car-div">
+      <a class="logo-car" routerLink="vehicles"
+        ><img
+          class="logo-img"
+          src="assets/images/logo_site_carfleet.png"
+          alt="logo"
+      /></a>
+    </div>
 
-</div>
+    <div id="title-logo-quote">
+      <div id="carfleet-img">
+        <a routerLink="vehicles" id="title-car-link">
+          <img class="titre" src="assets/images/title.png" alt="titre"
+        /></a>
+      </div>
+      <span class="quote"
+        >La reservation facile de votre vehicule de service</span
+      >
+    </div>
 
+    <img
+      class="logo-sncf"
+      src="assets/images/sncf_logo_blanc.png"
+      alt="logo sncf"
+    />
+  </div>
 
-       
-<div class="menu">
+  <div class="menu">
     <ul>
       <li>
         <a routerLink="vehicles/search"
@@ -33,7 +49,15 @@
           Réservations</a
         >
       </li>
-      <li *ngIf="userRole == 'ADMIN'"><a routerLink="admin"><img src="assets/images/icon-admin.png" class="logo-link" alt="icon-admin">Admin</a></li>
+      <li *ngIf="userRole == 'ADMIN'">
+        <a routerLink="admin"
+          ><img
+            src="assets/images/icon-admin.png"
+            class="logo-link"
+            alt="icon-admin"
+          />Admin</a
+        >
+      </li>
       <li>
         <a href="" (click)="logout()"
           ><img

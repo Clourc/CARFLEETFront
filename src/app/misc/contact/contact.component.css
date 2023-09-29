@@ -8,6 +8,10 @@ input {
 
 }
 
+.error-form {
+    color: rgb(232, 79, 79);
+}
+
 .contact {
 
     padding-top: 3%;
