@@ -44,7 +44,6 @@ label {
 }
 
 .form h2 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   margin: 40px;
   font-size: 10px;
   margin-bottom: 70px;
@@ -81,9 +80,7 @@ button {
   color: #f60303;
   font-size: 10px;
   text-align: left;
-
   padding: 3px;
-
   margin-bottom: 17px;
 }
 
@@ -115,47 +112,14 @@ button {
   align-items: center;
 }
 
-.ng-valid[required] {
-  opacity: 0.5;
-  border: 3px solid #3ebee6;
-}
-
-.box.ng-dirty.ng-invalid {
-  opacity: 0.5;
-  border: 3px solid #f60703;
-}
-
-.btn-primary {
-  background-color: #3ebee6;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-#afficher-mdp {
-  font-size: 9px;
-  font-style: italic;
-  opacity: 0.3;
-}
-
-.btn-primary[type="submit"]:disabled {
-  margin-top: 20px;
-  opacity: 0.5;
-  cursor: no-drop;
-  background-color: grey;
-  color: #00000083;
-}
-
-.form-check-label {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-}
-
 @media screen and (min-width: 768px) {
+  .container {
+    max-width: 70%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  
   #afficher-mdp {
     margin-right: 10px;
   }
@@ -166,14 +130,6 @@ button {
 
   .form-group {
     width: 100%;
-  }
-  
-  .side {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    background-color: whitesmoke;
   }
 
   #submit:hover {
@@ -192,13 +148,6 @@ button {
     justify-content: center;
     width: 100%;
   }
-  
-  .container{
-  max-width: 70%;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-}
 
   button {
     width: 30%;
