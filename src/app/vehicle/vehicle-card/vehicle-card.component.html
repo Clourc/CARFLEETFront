@@ -1,14 +1,9 @@
-<a [routerLink]="['/vehicles/' + vehicle.id]" >
+<a [routerLink]="['/vehicles/' + vehicle.id]">
   <div class="vehicle-card">
-{{vehicle.model.brand}}
-{{vehicle.model.modelName}}
-{{vehicle.model.energy}}
-{{vehicle.model.type}}
-{{vehicle.model.nbDoors}}portes
-{{vehicle.model.nbSeats}}places
-
-
-
-<img [src]="vehicle.model.image" alt="vehicule.model">
-</div>
+    <h3>{{ vehicle.model.brand | uppercase }} {{ vehicle.model.modelName }}</h3>
+    {{ vehicle.model.energy | uppercase }}
+    
+    
+    <img [src]="vehicle.model.image" alt="vehicule.model">
+  </div>
 </a>
