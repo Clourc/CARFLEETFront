@@ -1,53 +1,41 @@
 html,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-
+#car-image-container {
+  display: flex;
+  justify-content: center;
+}
 
 #details_vehicle {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 25px;
+  margin: 20px auto;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   box-shadow: 0 2px 3px #ccc;
-  max-width: 100%;
+  max-width: 90vw;
   background-color: rgb(203, 224, 230);
+}
 
+.details-container {
+  margin-bottom: 10px;
 }
 
 h2 {
   font-size: 2em;
-  margin-left: 20px;
-  line-height: 3em;
+  margin-left: auto;
   font-family: "poppins", sans-serif;
   color: rgb(58, 57, 57);
-  display: flex;
   text-align: center;
-  text-shadow: 1px 1px 1px #3c6e7d ;
-  
-  
-
+  text-shadow: 1px 1px 1px #3c6e7d;
 }
 
-
-  
-  img {
-    width: 600px; /* Largeur fixe */
-    height: 400px;
-    
-    display: flex;
-    align-items: center;
-
-  }
-
-
+img {
+  max-width: 350px;
+}
 
 li {
   list-style: none;
@@ -58,74 +46,67 @@ li {
 .charasteristics {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid   #3c6e7d;
-  padding-top: 10px; 
+  border-top: 1px solid #3c6e7d;
+  padding-top: 10px;
+  padding-left: 10px;
 }
-
-
-
-.charasteristics i,
-.charasteristics img {
-  margin-right: 80px; 
-}
-
 
 .buttonCar {
   display: flex;
   justify-content: space-between;
-  position: relative; 
+  position: relative;
 }
 
 .button_reserver button {
-
   bottom: 30px;
   right: 40px;
   font-weight: 600;
   background: var(--slate-900, #3c6e7d);
-  color: var(--slate-100, #F9FAFB);
+  color: var(--slate-100, #f9fafb);
   font-size: 12px;
   padding: 8px 18px;
   border-radius: 55px;
 }
 
 .button_supprimer button {
-
   bottom: 30px;
   left: 40px;
   font-weight: 600;
   background: var(--slate-900, rgb(58, 57, 57));
-  color: var(--slate-100, #F9FAFB);
+  color: var(--slate-100, #f9fafb);
   font-size: 12px;
   padding: 8px 18px;
   border-radius: 56px;
 }
 
-
-
-@media screen and (min-width: 600px){
- .details-container {
-  display: flex;
-  flex-direction: row; 
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-left: 200px;
-  font-family: "bruno ace SC";
-  font-size: 1em;
-  margin-top: 60px;
-}
-
-
-
-
-
+@media screen and (min-width: 768px) {
+  img {
+    width: 600px; /* Largeur fixe */
   }
 
+  .details-container {
+    display: flex;
+    flex-direction: row;
+  }
 
+  #car-image-container {
+    margin-left: 10px;
+  }
 
-  
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: "bruno ace SC";
+    font-size: 1em;
+    margin-right: 20px;
+  }
 
+  .buttonCar {
+    justify-content: flex-end;
+  }
 
+  button {
+    margin: 0 25px 10px 0;
+  }
+}

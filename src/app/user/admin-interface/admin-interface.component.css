@@ -1,0 +1,21 @@
+h2 {
+    margin-left: 10px;
+}
+
+a {
+    width: 150px;
+}
+
+.btn {
+    width: 150px;
+    padding: 10px 20px;
+}
+
+#btns-admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    margin-bottom: 10px;
+}

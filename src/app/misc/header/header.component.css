@@ -26,10 +26,13 @@ header {
 }
 
 .menu {
-  width: 85%;
-  justify-content: center;
-  margin: auto;
-  margin-top: 5px;
+  font-size: 0px;
+  margin: 5px auto;
+  width: 100%;
+}
+
+li {
+  width: initial;
 }
 
 .logo-sncf {
@@ -46,6 +49,7 @@ header {
 ul {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .logo-car {
@@ -58,14 +62,8 @@ ul {
   display: none;
 }
 
-.menu {
-  font-size: 0px;
-  margin-right: 25px;
-}
-
 .logo-link {
   height: 30px;
-  margin-left: 20px;
   width: auto;
 }
 
