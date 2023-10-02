@@ -1,27 +1,23 @@
 * {
-    padding: 0;
-    margin: 0;
-    /* height: 100%; */
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    background-color: blue;
-    min-height: 100vh;
+  background-color: blue;
+  min-height: 100vh;
 }
-#page-content{
-
-    min-height: 70vh;
+#page-content {
+  min-height: 70vh;
 }
-    #router-footer {
-        display: flex;
-        flex-direction:column;
-      
-        justify-content: space-between;
-    }
-    
-    footer{
+#router-footer {
+  display: flex;
+  flex-direction: column;
 
-        position: fixed;
-        bottom: 0;
+  justify-content: space-between;
+}
 
-    }
+footer {
+  position: fixed;
+  bottom: 0;
+}

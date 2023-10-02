@@ -3,19 +3,13 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  
-
 }
-
 
 html,
 body {
+  /* height:100vh; */
 
- /* height:100vh; */
-
-  background-color:grey;
-
-
+  background-color: grey;
 
   font-family: "Poppins", sans-serif;
 }
@@ -68,11 +62,10 @@ button:hover {
   #page-content {
     background-image: url("assets/images/backgroundCars.png");
     background-repeat: no-repeat;
-    
+
     background-position: center;
     background-size: cover;
-   max-height:150vw;
-
+    max-height: 150vw;
   }
 
   .screen {
@@ -81,20 +74,12 @@ button:hover {
     background-color: lightgray;
   }
 
-
-
   * {
     margin: 0;
     padding: 0;
-    width: auto;  
+    width: auto;
   }
 
- 
   @media screen and (min-width: 1024px) {
- 
   }
- 
-
-
-
 }
