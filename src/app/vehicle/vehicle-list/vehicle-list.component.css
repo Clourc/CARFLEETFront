@@ -1,24 +1,20 @@
 body {
-
-    background-color: black;
+  background-color: black;
 }
-
 
 button {
   height: auto;
   width: auto;
   justify-content: center;
-  margin-bottom: 20px; ;
+  margin-bottom: 20px;
 }
 
-a{
-
-display: flex;
-justify-content: center;
+a {
+  display: flex;
+  justify-content: center;
 }
 
 .form-liste {
-    
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -35,7 +31,6 @@ justify-content: center;
 }
 
 li {
-
   list-style-type: none;
 }
 
@@ -44,7 +39,6 @@ form {
   width: 90%;
   display: flex;
   flex-direction: column;
-
 }
 
 input {
@@ -58,26 +52,14 @@ label {
   justify-content: space-around;
 }
 
-/* .list ul {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-} */
-
 .error-message {
   color: red;
 }
+
 @media screen and (min-width: 768px) {
-
-
   .test {
-
     height: 100%;
   }
-
-
 
   .form-liste {
     max-width: 60%;
@@ -85,11 +67,7 @@ label {
 
   .list {
     display: flex;
-    justify-content: space-around;
     flex-wrap: nowrap;
-
-    /* animation-name: scroll;
-animation: scroll 50s linear infinite  ; */
     padding: 10px;
     overflow-x: auto !important;
     white-space: normal;
@@ -117,21 +95,6 @@ animation: scroll 50s linear infinite  ; */
     width: inherit;
   }
 
-  /* .list:hover {
-    width: 120%;
-  } */
-  /* .list-reverse{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    animation-name:scrollReverse; 
-    animation: scrollReverse 420s linear infinite ;
-    padding: 10px;
-    overflow:hidden;
-   
-  
-    } */
-
   .form-liste {
     margin-top: 75px;
     margin-bottom: 75px;
@@ -139,11 +102,3 @@ animation: scroll 50s linear infinite  ; */
     width: 80%;
   }
 }
-/* @keyframes scroll {
-    100% {
-      transform: translateX(0%); 
-    }
-    0% {
-      transform: translateX(100%); 
-    }
-  } */
