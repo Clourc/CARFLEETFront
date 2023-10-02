@@ -1,6 +1,6 @@
 <div class="searchpage">
   <form [formGroup]="searchForm" (submit)="onSubmit()">
-    <h2>Recherche détaillée de véhicule</h2>
+    <h2>Recherche détaillée de véhicules</h2>
 
     <label for="start">Jour et heure de début</label><br />
 
@@ -26,24 +26,24 @@
       required
     /><br />
 
-    <label for="type">type de véhicule</label><br />
+    <label for="type">Type de véhicule</label><br />
     <select id="type-vehicule" name="type-vehicule" formControlName="type">
       <br />
       <option value="">Choisir</option>
-      <option value="citadine">citadine</option>
-      <option value="utilitaire">utilitaire</option>
-      <option value="berline">berline</option>
+      <option value="citadine">Citadine</option>
+      <option value="utilitaire">Utilitaire</option>
+      <option value="berline">Berline</option>
     </select>
     <br />
 
-    <label for="energy">Energy</label><br />
+    <label for="energy">Énergie</label><br />
 
     <select id="carburant" name="carburant" formControlName="energy">
       <br />
       <option value="">Choisir</option>
-      <option value="essence">essence</option>
-      <option value="diesel">diesel</option>
-      <option value="électrique">électrique</option></select
+      <option value="essence">Essence</option>
+      <option value="diesel">Diesel</option>
+      <option value="électrique">Électrique</option></select
     ><br />
     <button type="submit">Trouver un véhicule</button>
 
@@ -51,7 +51,7 @@
       *ngIf="formSubmitted && searchForm.hasError('atLeastOneSelectRequired')"
       class="error-message"
     >
-      Veuillez choisir au moins un champ "type" ou "energy".
+      Veuillez choisir au moins un champ "type" ou "énergie".
     </div>
     <div
       *ngIf="
