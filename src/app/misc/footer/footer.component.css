@@ -9,7 +9,8 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 10px;
+    gap: 5px;
    
   
 }
@@ -61,4 +62,10 @@ p {
 
 .copyright {
   margin:10px auto;
+}
+
+@media screen and (min-width: 900px) {
+  footer {
+    gap: 20px;
+  }
 }

@@ -2,7 +2,7 @@
   margin: 0.5rem auto 0.5rem;
   line-height : 1.5;
   max-width: 90vw;
-  background-color: rgb(203, 224, 230);
+  background-color: white;
   box-shadow: 0 2px 3px #ccc;
   padding: 10px 0 10px 5px;
   border-radius: 5px;
@@ -53,8 +53,8 @@ li {
 
 button {
   width: 150px;
-  position: relative;
-  left: calc(100vw - 200px);
+  align-self: flex-end;
+  margin-right: 50px;
   padding: 10px 20px;
 }
 
