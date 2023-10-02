@@ -1,26 +1,28 @@
-<div>
-  <h2>Réservations en cours</h2>
-  <app-reservation-card
-    *ngFor="let reservation of arrayOngoing"
-    [reservation]="reservation"
-  >
-  </app-reservation-card>
-</div>
+<div id="admin-dashboard">
+  <div>
+    <h2>Réservations en cours</h2>
+    <app-reservation-card
+      *ngFor="let reservation of arrayOngoing"
+      [reservation]="reservation"
+    >
+    </app-reservation-card>
+  </div>
 
-<div>
-  <h2>Réservations à venir</h2>
-  <app-reservation-card
-    *ngFor="let reservation of arraytoCome"
-    [reservation]="reservation"
-  >
-  </app-reservation-card>
-</div>
+  <div>
+    <h2>Réservations à venir</h2>
+    <app-reservation-card
+      *ngFor="let reservation of arraytoCome"
+      [reservation]="reservation"
+    >
+    </app-reservation-card>
+  </div>
 
-<div id="btns-admin">
-  <a [routerLink]="['/admin/vehicles/add']"
-    ><button class="btn">Ajouter un véhicule</button></a
-  >
-  <a [routerLink]="['/reservations']"
-    ><button class="btn">Historique des réservations</button></a
-  >
+  <div id="btns-admin">
+    <a [routerLink]="['/admin/vehicles/add']"
+      ><button class="btn">Ajouter un véhicule</button></a
+    >
+    <a [routerLink]="['/reservations']"
+      ><button class="btn">Historique des réservations</button></a
+    >
+  </div>
 </div>
