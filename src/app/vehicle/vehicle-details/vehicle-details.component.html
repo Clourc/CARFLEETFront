@@ -9,9 +9,11 @@
           <i class="fas fa-car"></i> Type : {{ vehicleDetails.model.type }}
         </li>
         <li class="charasteristics">
-          <i class="fas fa-gas-pump" *ngIf="vehicleDetails.model.energy === 'essence'"></i>
-          <i class="fa-solid fa-charging-station" *ngIf="vehicleDetails.model.energy === 'électrique'"></i>
-          Énergie : {{ vehicleDetails.model.energy === 'essence' ? 'Essence' : (vehicleDetails.model.energy === 'électrique' ? 'Électrique' : 'Electrique') }}
+          <i class="fas fa-gas-pump" *ngIf="vehicleDetails.model.energy === ('essence' || 'diesel'); else electricIcon"></i>
+          <ng-template #electricIcon><i class="fa-solid fa-charging-station"></i></ng-template>
+          Énergie : {{ vehicleDetails.model.energy === 'essence' ? 'Essence' :
+                     (vehicleDetails.model.energy === 'électrique' ? 'Électrique' :
+                      'Diesel') }}
         </li>
         <li class="charasteristics">
           <img src="\assets\images\car-door.png" alt="Icône de porte" style="width: 20px; height: 20px;" class="seat-icon">
