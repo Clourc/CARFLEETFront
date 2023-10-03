@@ -1,39 +1,28 @@
 #resaForm {
-  background-color: rgba(34,97,117,0.6);
+  background-color: rgba(34,97,117, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin: 20px auto;
+  margin: calc(50% - 90px) auto 0;
+  padding: 30px 0 10px;
+  width: 350px;
+  height: 280px;
 }
 
 label {
   text-align: center;
 }
 
-
-#startDate,
-#endDate {
-  width: 50vw;
-}
-
-#reason {
-  width: 16rem;
-}
-
 #reserveButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border-radius: 10px;
-  background-color: #3EBDE6;
-  align-self: center;
-  margin-bottom: 20px;
+  width: 150px;
+  height: 30px;
+  margin-top: 10px;
 }
 
 input {
-  padding: 2vh;
   border-radius: 10px;
-  margin: 1vh 4vh 3vh 2vh;
+  height: 30px;
+  width: 190px;
+  padding: 0 5px;
+  margin-bottom: 15px;
 }

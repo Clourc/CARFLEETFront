@@ -7,14 +7,12 @@ body {
   background-color: blue;
   min-height: 100vh;
 }
-#page-content {
-  min-height: 70vh;
-}
+
 #router-footer {
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
+  height: 100%
 }
 
 footer {
