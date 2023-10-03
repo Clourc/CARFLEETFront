@@ -1,0 +1,36 @@
+#admin-dashboard {
+    background-color: rgb(203, 224, 230);
+    width: 90%;
+    margin: 0 auto 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+a {
+    width: 150px;
+}
+
+.btn {
+    width: 150px;
+    padding: 10px 20px;
+}
+
+#btns-admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    #admin-dashboard {
+        margin-top: 10px;
+        width: 80%;
+    }
+}

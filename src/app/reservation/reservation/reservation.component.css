@@ -1,12 +1,15 @@
 #resaForm {
-  background-color: #226175;
+  background-color: rgba(34,97,117,0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin: 20px auto;
 }
 
-
+label {
+  text-align: center;
+}
 
 
 #startDate,
@@ -20,13 +23,13 @@
 
 #reserveButton {
   display: flex;
-  padding: 8vh 30vh 2vh 10vh;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
   border-radius: 10px;
   background-color: #3EBDE6;
   align-self: center;
+  margin-bottom: 20px;
 }
 
 input {
