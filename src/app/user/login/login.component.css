@@ -29,8 +29,6 @@ label {
 }
 
 .mdp {
-  display: flex;
-  justify-content: center;
   margin-bottom: 36px;
 }
 
@@ -38,7 +36,6 @@ label {
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
   background-color: white;
   padding: 12px;
 }
@@ -59,8 +56,9 @@ label {
 }
 
 button {
-  max-width: 40%;
+  width: 195px;
   height: 35px;
+  align-self: center;
 }
 
 .side {
@@ -109,7 +107,9 @@ button {
 .form-check-label {
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
+  justify-content: space-evenly;
+  width: 250px;
+  margin: auto;
 }
 
 @media screen and (min-width: 768px) {

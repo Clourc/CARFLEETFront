@@ -5,15 +5,13 @@
     <div class="form-group">
       <div class="identifiant-group">
         <label for="name" class="required">
-          <span style="font-weight: bold">I</span>dentifiant
-          <span style="font-weight: bold">G</span>roupe
-          <span style="font-weight: bold">SNCF</span>
+          Identifiant (n°CP)
         </label>
         <input
           type="text"
           name="name"
           class="box"
-          placeholder="N°CP"
+          placeholder="1234567A"
           minlength="8"
           maxlength="8"
           pattern="^\d{7}[a-zA-Z]$"
@@ -40,14 +38,14 @@
     
     <div class="identifiant-group">
       <label for="password"
-        ><span style="font-weight: bold">M</span>ot de passe</label
+        >Mot de passe</label
       >
       <input
         type="password"
         name="password"
         [type]="passwordType"
         class="box"
-        placeholder="Mot de passe"
+        placeholder="***********"
         [(ngModel)]="password"
         required
       />
@@ -59,7 +57,7 @@
           type="checkbox"
           id="afficherMotDePasse"
           name="afficherMotDePasse"
-          class="form-check-input box"
+          class="form-check-input"
           [(ngModel)]="afficherMotDePasse"
           (click)="updatePasswordVisibility()"
         />
