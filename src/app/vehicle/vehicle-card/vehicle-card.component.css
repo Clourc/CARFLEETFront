@@ -1,29 +1,16 @@
 .vehicle-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   width: 90%;
   border: 1px solid white;
   border-radius: 10px;
-  overflow: hidden;
   align-items: center;
-  margin: auto;
+  margin: 0 auto 20px;
+  padding-bottom: 10px;
   box-sizing: border-box;
-  justify-content: center;
   box-shadow: 08px 08px 10px 5px #818080;
   background-color: rgb(103, 150, 164);
-  margin-bottom: 20px;
-  margin-right: 5%;
-  opacity: 0.98;
- 
-
 }
-/* 
-.vehicle-card:hover {
-  box-shadow: 08px 08px 10px 5px #818080;
-  background-color: rgb(163, 163, 163);
-  width: 450px;
-  transition: all 0.5s ease-in-out;
-} */
 
 a {
   text-decoration: none;
@@ -41,13 +28,9 @@ h3{
 
 img {
   background-color: white;
-  margin: 10%;
+  margin: 15px auto;
   max-width: 95%;
-  max-height: 70%;
-  display: flex;
-  justify-content: center;
   border-radius: 10px;
-  opacity: 1;
 
 }
 
