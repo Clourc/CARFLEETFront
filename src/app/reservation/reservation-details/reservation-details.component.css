@@ -36,7 +36,7 @@ h3 {
 }
 
 #details_user {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 img {
@@ -53,8 +53,10 @@ li {
 
 button {
   width: 150px;
+  background-color: orangered;
   align-self: flex-end;
-  margin-right: 50px;
+  margin-right: 25px;
+  margin-top: 20px;
   padding: 10px 20px;
 }
 
