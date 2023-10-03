@@ -1,75 +1,77 @@
-<div id="addVehicleBody">
-  <form
-    #addvehicleForm="ngForm"
-    (ngSubmit)="addvehicleForm.valid && addVehicleSubmit()"
-    id="vehicleForm"
-  >
-    <div id="brandField">
-      <label for="brand">Marque</label>
+<form
+  #addvehicleForm="ngForm"
+  (ngSubmit)="addvehicleForm.valid && addVehicleSubmit()"
+  id="vehicleForm"
+>
+  <h2>Ajouter un véhicule</h2>
+  <div id="brandField">
+    <label for="brand">Marque</label>
+    <select
+      [(ngModel)]="brand"
+      name="brand"
+      id="brand"
+      (click)="filterModels()"
+      required
+    >
+      <option *ngFor="let brand of listBrands" [value]="brand">
+        {{ brand | uppercase }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="brand" id="modelInfo">
+    <div>
+      <label for="vehicleModel">Modèle</label><br />
       <select
-        [(ngModel)]="brand"
-        name="brand"
-        id="brand"
-        (click)="filterModels()"
+        [(ngModel)]="vehicleModelName"
+        (click)="viewModel()"
+        name="vehicleModel"
+        id="vehicleModel"
         required
       >
-        <option *ngFor="let brand of listBrands" [value]="brand">
-          {{ brand | uppercase }}
+        <option
+          *ngFor="let model of listModelFiltered"
+          [value]="model.modelName"
+        >
+          {{ model.modelName }}
         </option>
       </select>
     </div>
 
-    <div *ngIf="brand" id="modelInfo">
+    <div *ngIf="vehicleModelName" id="vehiclePreview">
       <div>
-        <label for="vehicleModel">Modèle</label><br />
-        <select
-          [(ngModel)]="vehicleModelName"
-          (click)="viewModel()"
-          name="vehicleModel"
-          id="vehicleModel"
+        <label>Énergie : </label>
+        <span>{{ vehicle.energy }}</span
+        ><br />
+      </div>
+      <div>
+        <label>Nombre de portes : </label>
+        <span>{{ vehicle.nbDoors }}</span
+        ><br />
+      </div>
+      <div>
+        <label>Nombre de sièges : </label>
+        <span>{{ vehicle.nbSeats }}</span>
+      </div>
+      <img [src]="vehicle.image" />
+      <div id="immatValidation">
+        <label for="licencePlate">Immatriculation</label>
+        <input
+          [(ngModel)]="licencePlate"
+          type="text"
+          id="licencePlate"
+          name="licencePlate"
+          pattern="^[A-Z]{2}[-][0-9]{3}[-][A-Z]{2}$"
+          placeholder="AB-123-CD"
           required
-        >
-          <option
-            *ngFor="let model of listModelFiltered"
-            [value]="model.modelName"
-          >
-            {{ model.modelName }}
-          </option>
-        </select>
+        />
       </div>
-
-      <div *ngIf="vehicleModelName" id="vehiclePreview">
-        <div>
-          <label>Energie : </label>
-          <span>{{ vehicle.energy }}</span
-          ><br />
-        </div>
-        <div>
-          <label>Nombre de portes : </label>
-          <span>{{ vehicle.nbDoors }}</span
-          ><br />
-        </div>
-        <div>
-          <label>Nombre de sièges : </label>
-          <span>{{ vehicle.nbSeats }}</span>
-        </div>
-        <img [src]="vehicle.image" />
-        <div id="immatValidation">
-          <label for="licencePlate">Immatriculation</label>
-          <input
-            [(ngModel)]="licencePlate"
-            type="text"
-            id="licencePlate"
-            name="licencePlate"
-            pattern="^[A-Z]{2}[-][0-9]{3}[-][A-Z]{2}$"
-            placeholder="AB-123-CD"
-            required
-          />
-          <span *ngIf="addvehicleForm.invalid && addvehicleForm.submitted" id="immatInvalid">Veuillez entrer une immatriculation valide</span>
-        </div>
-        <button type="submit">Ajouter</button>
-      </div>
+      <span
+        *ngIf="addvehicleForm.invalid && addvehicleForm.submitted"
+        id="immatInvalid"
+        >Veuillez entrer une immatriculation valide</span
+      >
+      <button type="submit">Ajouter</button>
     </div>
-
-  </form>
-</div>
+  </div>
+</form>
