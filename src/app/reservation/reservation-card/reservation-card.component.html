@@ -4,7 +4,7 @@
   [routerLink]="['/reservations/', reservation.id]"
 >
   <div id="resaCardHeader">
-    <span>Réservation n°{{ reservation.id }}{{ reservationPlaceCode }}</span
+    <span id="resa-number">Réservation n°{{ reservation.id }}{{ reservationPlaceCode }}</span
     ><span
       >Statut : {{ resaStatus }} le
       <span *ngIf="resaStatus == 'terminée'; else elseBlock">{{

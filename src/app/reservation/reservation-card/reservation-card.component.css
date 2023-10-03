@@ -2,15 +2,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 80vw;
+    width: 360px;
     margin: 12px auto;
     padding: 2px;
-    font-size: medium;
     border-radius: 10px;
     gap: 0.5rem;
     font-size: small;
     background-color: white;
-    min-height: 100%;
 }
 
 #resaCardHeader {
@@ -19,6 +17,10 @@
     justify-content: space-between;
 }
 
+#resa-number {
+    text-decoration: underline;
+    font-size: medium;
+}
 
 @media screen and (min-width: 768px) {
     #cardBox {
