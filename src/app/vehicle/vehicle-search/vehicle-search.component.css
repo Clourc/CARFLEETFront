@@ -1,7 +1,7 @@
 .searchpage {
   border: none;
-  margin-bottom: 10%;
-  margin-top: 10%;
+  margin-bottom: 75px;
+  margin-top: 75px;
 }
 
 label {
@@ -108,13 +108,13 @@ button:hover {
     opacity: 0.9;
   }
 
-  .search-card {
+  .list {
+    overflow-x: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-wrap: nowrap;
   }
 
-  a {
-    display: inline-block;
+  .searchpage {
+    margin-bottom: 25px;
   }
 }

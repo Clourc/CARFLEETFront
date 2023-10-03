@@ -54,7 +54,7 @@ button:hover {
   #page-content {
     background-image: url("assets/images/backgroundCars.png");
     background-repeat: no-repeat;
-
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     max-height: 150vw;
