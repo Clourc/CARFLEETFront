@@ -1,6 +1,6 @@
-<div class="test">
-  <div class="form-liste">
-    <form #f="ngForm" (submit)="onSubmit()">
+<div class="form-liste">
+  <form #f="ngForm" (submit)="onSubmit()">
+    <div id="form-input">
       <label for="debutreservation">Début de la réservation</label>
       <input
         type="datetime-local"
@@ -23,21 +23,23 @@
         [max]="maxDate"
         required
       />
+    </div>
+    <div id="div-button">
       <button type="submit">Trouver un véhicule</button>
-      <div
-        *ngIf="(start.invalid || end.invalid) && f.submitted && f.invalid"
-        class="error-message"
-      >
-        Veuillez sélectionner des dates avant de cliquer sur "trouver un
-        véhicule".
-      </div>
-    </form>
-  </div>
+    </div>
+    <div
+      *ngIf="(start.invalid || end.invalid) && f.submitted && f.invalid"
+      class="error-message"
+    >
+      Veuillez sélectionner des dates avant de cliquer sur "trouver un
+      véhicule".
+    </div>
+  </form>
+</div>
 
-  <div class="list">
-    <app-vehicle-card
-      *ngFor="let vehicle of vehiclesToDisplay"
-      [vehicle]="vehicle"
-    ></app-vehicle-card>
-  </div>
+<div class="list">
+  <app-vehicle-card
+    *ngFor="let vehicle of vehiclesToDisplay"
+    [vehicle]="vehicle"
+  ></app-vehicle-card>
 </div>
