@@ -12,11 +12,10 @@ body {
   margin: 20px auto;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 5px;
-  flex-direction: column;
+  padding: 5px 5px 15px 5px;
   box-shadow: 0 2px 3px #ccc;
   max-width: 90vw;
-  background-color: rgb(203, 224, 230);
+  background-color: white;
 }
 
 .details-container {

@@ -1,4 +1,4 @@
-.cancel {
+#cancel {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,6 +8,7 @@
   padding: 15px;
   border: 3px solid #807f7f69;
   border-radius: 10px;
+  background-color: white;
   margin: calc(50% - 70px) auto 20px;
 }
 
@@ -23,7 +24,7 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-  .cancel {
+  #cancel {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
