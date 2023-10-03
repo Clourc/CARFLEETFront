@@ -1,4 +1,10 @@
-<h2>Liste des réservations</h2>
-<div>
-    <app-reservation-card *ngFor="let reservation of reservationList" [reservation]="reservation">{{reservation.reason}}</app-reservation-card>
+<div id="view">
+  <h2>Liste des réservations</h2>
+  <div>
+    <app-reservation-card
+      *ngFor="let reservation of reservationList"
+      [reservation]="reservation"
+      >{{ reservation.reason }}</app-reservation-card
+    >
+  </div>
 </div>

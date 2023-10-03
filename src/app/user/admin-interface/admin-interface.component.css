@@ -1,13 +1,14 @@
 #admin-dashboard {
-    background-color: rgb(203, 224, 230);
-    width: 90%;
-    margin: 0 auto 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 360px;
     padding-bottom: 5px;
-    border-radius: 5px;
 }
 
-h2 {
-    margin-left: 10px;
+.resa-panel {
+    margin-top: 2rem;
 }
 
 a {
@@ -25,7 +26,7 @@ a {
     justify-content: space-around;
     align-items: center;
     width: auto;
-    margin-bottom: 10px;
+    margin-top: 2rem;
 }
 
 @media screen and (min-width: 768px) {

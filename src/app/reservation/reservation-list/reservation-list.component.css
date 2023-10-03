@@ -1,4 +1,14 @@
 h2 {
-    margin-left: 10px;
-    text-decoration: underline;
+    margin-top: 2rem;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#view {
+    width: 360px;
+    margin: auto;
 }
