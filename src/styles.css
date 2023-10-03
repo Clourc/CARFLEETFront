@@ -57,7 +57,7 @@ button:hover {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    max-height: 150vw;
+    height: 150vw;
   }
 
   .screen {
