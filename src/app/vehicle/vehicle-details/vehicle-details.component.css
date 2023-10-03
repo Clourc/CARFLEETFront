@@ -12,8 +12,7 @@ body {
   margin: 20px auto;
   border: 1px solid #ccc;
   border-radius: 5px;
-  overflow: hidden;
-  display: flex;
+  padding: 5px;
   flex-direction: column;
   box-shadow: 0 2px 3px #ccc;
   max-width: 90vw;
@@ -25,11 +24,7 @@ body {
 }
 
 h2 {
-  font-size: 2em;
-  margin-left: auto;
   font-family: "poppins", sans-serif;
-  color: rgb(58, 57, 57);
-  text-align: center;
   text-shadow: 1px 1px 1px #3c6e7d;
 }
 
@@ -47,33 +42,23 @@ li {
   display: flex;
   flex-direction: column;
   border-top: 1px solid #3c6e7d;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 10px 0 5px 10px;
 }
 
 .buttonCar {
   display: flex;
-  justify-content: space-between;
-  position: relative;
+  justify-content: space-around;
 }
 
 .button_reserver button {
-  bottom: 30px;
-  right: 40px;
-  font-weight: 600;
-  background: var(--slate-900, #3c6e7d);
-  color: var(--slate-100, #f9fafb);
+  background-color: #3c6e7d;
   font-size: 12px;
   padding: 8px 18px;
   border-radius: 55px;
 }
 
 .button_supprimer button {
-  bottom: 30px;
-  left: 40px;
-  font-weight: 600;
-  background: var(--slate-900, rgb(58, 57, 57));
-  color: var(--slate-100, #f9fafb);
+  background: orangered;
   font-size: 12px;
   padding: 8px 18px;
   border-radius: 56px;
