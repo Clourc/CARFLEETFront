@@ -1,14 +1,16 @@
 .searchpage {
+  border: none;
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
 
- border: none ;
-margin-bottom: 10%;
-margin-top: 10%;
+label {
+  padding-bottom: 5px;
 }
 
 h2 {
   font-size: 1, 3em;
   margin: 5% 0 5% 0;
-  /* margin-left: 20px; */
   line-height: 1em;
   font-family: "Roboto", sans-serif;
   color: whitesmoke;
@@ -17,27 +19,25 @@ h2 {
 }
 
 form {
-  background-color: rgba(34, 97, 117, 0.8);
-
- 
+  background-color: rgba(34, 97, 117);
   color: whitesmoke;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: auto;
- 
   text-align: center;
   justify-content: center;
   border-radius: 10px;
   border: 1px solid #eee;
   box-shadow: 08px 08px 10px 5px #818080;
-
   max-width: 90%;
 }
+
 img {
   height: 10vh;
   max-width: 100%;
 }
+
 input {
   background-color: lightgray;
   width: 60%;
@@ -46,12 +46,11 @@ input {
   text-align: center;
 }
 
-
 select {
   width: 60%;
   height: 04vh;
   display: flex;
-border-radius: 10px;
+  border-radius: 10px;
   background-color: lightgray;
   box-shadow: 0px -1px 0px 0px #e2e8f0 inset;
 }
@@ -61,19 +60,17 @@ option {
   max-width: 50%;
 }
 
-button{
-    padding: 10px;
-    height: 40px;
-    width:60%;
-    margin-bottom: 25px;
-    margin-top: 20px;
+button {
+  padding: 10px;
+  height: 40px;
+  width: 60%;
+  margin: 20px 0;
 }
 
 button:hover {
   background: var(--slate-800, #1e293b);
   color: var(--slate-100, #f9fafb);
   cursor: pointer;
-
 }
 
 li {
@@ -90,14 +87,12 @@ li {
 }
 
 @media screen and (min-width: 768px) {
-
   button {
-
     margin-top: 40px;
     margin-bottom: 50px;
     max-width: 40%;
     font-size: large;
-}
+  }
 
   input {
     width: 40%;
@@ -108,12 +103,11 @@ li {
     font-size: large;
   }
 
-select {
-
-  width: 40%;
-  text-align: center;
-  font-size: large;
-}
+  select {
+    width: 40%;
+    text-align: center;
+    font-size: large;
+  }
 
   form {
     margin: auto;
