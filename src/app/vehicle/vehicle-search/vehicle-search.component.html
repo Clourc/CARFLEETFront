@@ -3,7 +3,8 @@
     <h2>Recherche détaillée de véhicules</h2>
 
     <label for="start">Jour et heure de début</label>
-    <input class="calendar"
+    <input
+      class="calendar"
       type="datetime-local"
       id="start"
       name="start"
@@ -15,7 +16,8 @@
     /><br />
 
     <label for="end">Jour et heure de fin</label>
-    <input class="calendar"
+    <input
+      class="calendar"
       type="datetime-local"
       id="end"
       name="end"
@@ -71,12 +73,9 @@
   </form>
 </div>
 
-
-  <div class="search-card">
-    <li *ngFor="let vehicle of vehiclesToDisplay">
-      <app-vehicle-card [vehicle]="vehicle">
-        <a [routerLink]="['/vehicle', vehicle.id]"></a>
-      </app-vehicle-card>
-    </li>
-  </div>
-
+<div class="search-card">
+  <app-vehicle-card
+    *ngFor="let vehicle of vehiclesToDisplay"
+    [vehicle]="vehicle"
+  ></app-vehicle-card>
+</div>
