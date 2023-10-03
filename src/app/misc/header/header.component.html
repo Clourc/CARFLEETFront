@@ -1,73 +1,62 @@
 <header>
   <div class="titre-contain">
-    <div id="logo-car-div">
-      <a class="logo-car" routerLink="vehicles"
-        ><img
-          class="logo-img"
-          src="assets/images/logo_site_carfleet.png"
-          alt="logo"
-      /></a>
-    </div>
+    <a class="logo-car" routerLink="vehicles"
+      ><img
+        class="logo-img"
+        src="assets/images/logo_site_carfleet.png"
+        alt="logo"
+    /></a>
 
-    <div id="title-logo-quote">
-      <div id="carfleet-img">
-        <a routerLink="vehicles" id="title-car-link">
-          <img class="titre" src="assets/images/title.png" alt="titre"
-        /></a>
+    <div id="quote-menu">
+      <div id="title-logo-quote">
+        <span class="quote"
+          >La réservation facile de votre véhicule de service</span
+        >
       </div>
-      <span class="quote"
-        >La réservation facile de votre véhicule de service</span
-      >
+
+      <div class="menu">
+        <ul>
+          <li>
+            <a routerLink="vehicles/search"
+              ><img
+                src="assets/images/icon-search.png"
+                class="logo-link"
+                alt="icon-search"
+              />
+              Recherche
+            </a>
+          </li>
+          <li>
+            <a routerLink="reservations"
+              ><img
+                src="assets/images/icon-reservation.png"
+                class="logo-link"
+                alt="icon-reservation"
+              />
+              Réservations</a
+            >
+          </li>
+          <li *ngIf="userRole == 'ADMIN'">
+            <a routerLink="admin"
+              ><img
+                src="assets/images/icon-admin.png"
+                class="logo-link"
+                alt="icon-admin"
+              />Admin</a
+            >
+          </li>
+          <li>
+            <a href="" (click)="logout()"
+              ><img
+                src="assets/images/icon-deconnexion.png"
+                class="logo-link"
+                alt="icon-deconnexion"
+              />
+              Déconnexion</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-
-    <img
-      class="logo-sncf"
-      src="assets/images/sncf_logo_blanc.png"
-      alt="logo sncf"
-    />
-  </div>
-
-  <div class="menu">
-    <ul>
-      <li>
-        <a routerLink="vehicles/search"
-          ><img
-            src="assets/images/icon-search.png"
-            class="logo-link"
-            alt="icon-search"
-          />
-          Recherche
-        </a>
-      </li>
-      <li>
-        <a routerLink="reservations"
-          ><img
-            src="assets/images/icon-reservation.png"
-            class="logo-link"
-            alt="icon-reservation"
-          />
-          Réservations</a
-        >
-      </li>
-      <li *ngIf="userRole == 'ADMIN'">
-        <a routerLink="admin"
-          ><img
-            src="assets/images/icon-admin.png"
-            class="logo-link"
-            alt="icon-admin"
-          />Admin</a
-        >
-      </li>
-      <li>
-        <a href="" (click)="logout()"
-          ><img
-            src="assets/images/icon-deconnexion.png"
-            class="logo-link"
-            alt="icon-deconnexion"
-          />
-          Déconnexion</a
-        >
-      </li>
-    </ul>
   </div>
 </header>
