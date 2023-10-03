@@ -22,8 +22,7 @@
                 src="assets/images/icon-search.png"
                 class="logo-link"
                 alt="icon-search"
-              />
-              Recherche
+              /><span>Recherche </span>
             </a>
           </li>
           <li>
@@ -32,9 +31,8 @@
                 src="assets/images/icon-reservation.png"
                 class="logo-link"
                 alt="icon-reservation"
-              />
-              Réservations</a
-            >
+              /><span>Réservations</span>
+            </a>
           </li>
           <li *ngIf="userRole == 'ADMIN'">
             <a routerLink="admin"
@@ -42,7 +40,7 @@
                 src="assets/images/icon-admin.png"
                 class="logo-link"
                 alt="icon-admin"
-              />Admin</a
+              /><span>Admin</span></a
             >
           </li>
           <li>
@@ -52,7 +50,7 @@
                 class="logo-link"
                 alt="icon-deconnexion"
               />
-              Déconnexion</a
+              <span>Déconnexion</span></a
             >
           </li>
         </ul>
