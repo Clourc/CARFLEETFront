@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  text-align: center;
+}
+
 .identifiant-group {
   display: flex;
   flex-direction: column;
@@ -109,11 +113,25 @@ img {
 }
 
 @media screen and (min-width: 768px) {
+h1 {
+  text-align: initial;
+}
+
   .container {
     max-width: 70%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     border-radius: 10px;
+  }
+
+  .form-check-label {
+    margin: 0;
+    justify-content: flex-end;
+  }
+
+  .box {
+    margin-left: 0;
+    width: 90%;
   }
 
   #afficher-mdp {
@@ -121,7 +139,7 @@ img {
   }
 
   .form {
-    max-width: 50%;
+    width: 50%;
   }
 
   .form-group {
@@ -135,13 +153,11 @@ img {
   }
 
   .identifiant-group {
-    min-width: 100%;
-    flex-direction: column;
+    width: 100%;
+    display: initial;
   }
 
   .mdp {
-    display: flex;
-    justify-content: center;
     width: 100%;
   }
 
@@ -151,10 +167,8 @@ img {
   }
 
   img {
-    display: flex;
+    display: initial;
     width: 25%;
     height: 35%;
-    align-items: center;
-    justify-content: center;
   }
 }
