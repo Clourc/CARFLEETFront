@@ -9,7 +9,9 @@
   border: 3px solid #807f7f69;
   border-radius: 10px;
   background-color: white;
-  margin: calc(50% - 70px) auto 20px;
+  margin: auto;
+  position: relative;
+  top: calc(50% - 10px);
 }
 
 #reason {
@@ -25,12 +27,7 @@ button {
 
 @media screen and (min-width: 768px) {
   #cancel {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     text-align: center;
-    background-color: azure;
-    width: 35%;
-    height: 200px;
+    top: calc(50% - 140px);
   }
 }

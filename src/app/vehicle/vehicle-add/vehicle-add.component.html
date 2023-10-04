@@ -1,10 +1,12 @@
+<div id="page-title">
+  <h2>Ajouter un véhicule</h2>
+</div>
 <form
   #addvehicleForm="ngForm"
   (ngSubmit)="addvehicleForm.valid && addVehicleSubmit()"
   id="vehicleForm"
 >
-  <h2>Ajouter un véhicule</h2>
-  <div id="brandField">
+  <div class="grid-element" id="brandField">
     <label for="brand">Marque</label>
     <select
       [(ngModel)]="brand"
@@ -19,9 +21,8 @@
     </select>
   </div>
 
-  <div *ngIf="brand" id="modelInfo">
-    <div>
-      <label for="vehicleModel">Modèle</label><br />
+  <div *ngIf="brand" class="grid-element" id="modelInfo">
+      <label for="vehicleModel">Modèle</label>
       <select
         [(ngModel)]="vehicleModelName"
         (click)="viewModel()"
@@ -36,42 +37,49 @@
           {{ model.modelName }}
         </option>
       </select>
-    </div>
+  </div>
 
-    <div *ngIf="vehicleModelName" id="vehiclePreview">
-      <div>
-        <label>Énergie : </label>
-        <span>{{ vehicle.energy }}</span
-        ><br />
-      </div>
-      <div>
-        <label>Nombre de portes : </label>
-        <span>{{ vehicle.nbDoors }}</span
-        ><br />
-      </div>
-      <div>
-        <label>Nombre de sièges : </label>
-        <span>{{ vehicle.nbSeats }}</span>
-      </div>
-      <img [src]="vehicle.image" />
-      <div id="immatValidation">
-        <label for="licencePlate">Immatriculation</label>
-        <input
-          [(ngModel)]="licencePlate"
-          type="text"
-          id="licencePlate"
-          name="licencePlate"
-          pattern="^[A-Z]{2}[-][0-9]{3}[-][A-Z]{2}$"
-          placeholder="AB-123-CD"
-          required
-        />
-      </div>
-      <span
-        *ngIf="addvehicleForm.invalid && addvehicleForm.submitted"
-        id="immatInvalid"
-        >Veuillez entrer une immatriculation valide</span
-      >
-      <button type="submit">Ajouter</button>
+  <div class="grid-element" *ngIf="vehicleModelName">
+    <div>
+      <label>Énergie : </label>
+      <span>{{ vehicle.energy }}</span
+      ><br />
     </div>
+  </div>
+  <div class="grid-element" *ngIf="vehicleModelName">
+    <div>
+      <label>Nombre de portes : </label>
+      <span>{{ vehicle.nbDoors }}</span
+      ><br />
+    </div>
+  </div>
+  <div class="grid-element" *ngIf="vehicleModelName">
+    <div>
+      <label>Nombre de sièges : </label>
+      <span>{{ vehicle.nbSeats }}</span>
+    </div>
+  </div>
+  <div *ngIf="vehicleModelName" id="image-immat">
+    <img [src]="vehicle.image"/>
+    <div id="immatValidation">
+      <label for="licencePlate" id="immat-label">Immatriculation</label>
+      <input
+        [(ngModel)]="licencePlate"
+        type="text"
+        id="licencePlate"
+        name="licencePlate"
+        pattern="^[A-Z]{2}[-][0-9]{3}[-][A-Z]{2}$"
+        placeholder="AB-123-CD"
+        required
+      />
+    </div>
+    <span
+      *ngIf="addvehicleForm.invalid && addvehicleForm.submitted"
+      id="immatInvalid"
+      >Veuillez entrer une immatriculation valide</span
+    >
+  </div>
+  <div *ngIf="vehicleModelName" id="submit-button">
+    <button type="submit">Ajouter</button>
   </div>
 </form>

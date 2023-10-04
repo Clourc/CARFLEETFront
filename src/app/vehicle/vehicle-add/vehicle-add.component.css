@@ -1,5 +1,5 @@
 #vehicleForm {
-    margin: calc(50% - 110px) auto;
+    margin: 0 auto 20px;
     padding: 10px 0;
     width: 360px;
     display: flex;
@@ -8,9 +8,15 @@
     background-color: white;
 }
 
+#page-title {
+    background-color: white;
+    width: 360px;
+    margin: 20px auto 0;
+}
+
 h2 {
     text-decoration: underline;
-    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 #brandField {
@@ -19,6 +25,11 @@ h2 {
 }
 
 #modelInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+#image-immat {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,12 +43,6 @@ h2 {
 #immatInvalid {
     text-align: center;
     color: red;
-}
-
-#vehiclePreview {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 input, select {
@@ -60,4 +65,44 @@ button {
     width: 150px;
     height: 30px;
     margin: 1rem 0;
+}
+
+@media screen and (min-width: 768px){
+    h2 {
+        font-weight: initial;
+    }
+
+    #vehicleForm {
+        display: grid;
+        grid-template: 70px 70px 70px 1fr 70px/ 1fr 1fr;
+        width: 750px;
+        background-color: #226175;
+        color: white;
+    }
+
+    #page-title {
+        padding-top: 15px;
+        width: 750px;
+        background-color: #226175;
+        color: white;
+    }
+
+    #image-immat {
+        grid-area: 2 / 2 / 5 / 3;
+    }
+
+    #immat-label {
+        text-align: center;
+    }
+
+    #submit-button {
+        grid-area: 5 / 1 / 6 / 3;
+        margin: auto;
+    }
+
+    .grid-element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

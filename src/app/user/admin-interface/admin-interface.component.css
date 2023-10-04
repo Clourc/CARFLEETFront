@@ -31,7 +31,18 @@ a {
 
 @media screen and (min-width: 768px) {
     #admin-dashboard {
-        margin-top: 10px;
+        margin: 15px auto;
+        padding-bottom: 15px;
         width: 80%;
+        background-color: white;
+    }
+
+    .resa-panel:first-of-type {
+        margin-top: 1rem;
+    }
+
+    h2 {
+        margin-left: 2rem;
+        text-decoration: underline;
     }
 }

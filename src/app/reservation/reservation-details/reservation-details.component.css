@@ -74,7 +74,8 @@ button {
   #resa_content {
     display: grid;
     grid-template: 1.5rem 75px 80px 200px 20px / 1fr 1fr;
-    margin: auto 0;
+    margin: auto 1rem auto 0.5rem;
+    border-right: solid 2px;
   }
 
   #resa_content > h3 {
