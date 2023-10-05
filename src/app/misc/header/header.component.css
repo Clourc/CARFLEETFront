@@ -4,46 +4,40 @@
   width: 150px;
 }
 .quote {
-  display: none;
   color: white;
 }
 
 header {
-  height: 15vh;
+  height: 115px;
   width: 100%;
+  background-color: #226175;
+}
+
+.logo-img {
+  height: 90px;
+  border-radius: 50%;
+  padding: 10px
 }
 
 .titre-contain {
   display: flex;
   flex-direction: row;
-  height: 8vh;
-  width: 90%;
   background-color: #226175;
-  margin: auto;
-  margin-top: 20px;
-  border-radius: 20px;
   align-items: center;
+}
+
+#title-logo-quote {
+  text-align: center;
+}
+
+#quote-menu {
+  padding-right: 5px;
 }
 
 .menu {
   font-size: 0px;
   margin: 5px auto;
   width: 100%;
-}
-
-li {
-  width: initial;
-}
-
-.logo-sncf {
-  width: 10%;
-  margin-right: 25px;
-}
-
-.logo {
-  display: none;
-  height: 80%;
-  margin: 20px;
 }
 
 ul {
@@ -55,11 +49,6 @@ ul {
 .logo-car {
   max-height: 80%;
   border-radius: 50%;
-  display: none;
-}
-
-#logo-car-div {
-  display: none;
 }
 
 .logo-link {
@@ -80,58 +69,35 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 26vh;
     background-color: #226175;
     padding-bottom: 10px;
   }
 
-  .logo-desk {
+  #quote-menu {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .quote {
     justify-content: center;
   }
 
-  #title-car-link {
-    position: relative;
-    left: calc(50% - 75px);
-  }
-
-  .titre-contain {
-    width: 100%;
-    height: 18vh;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-
-  h2 {
-    display: flex;
-    margin: 0;
-    margin-bottom: 35px;
-    max-width: 50%;
-    font-size: large;
-  }
-
   .logo-link {
-    margin-right: 10px;
+    width: 30px;
   }
 
   ul {
     list-style: none;
-    align-items: center;
-    width: 100%;
-    justify-content: space-around;
-    background-color: #226175;
   }
 
   a {
-    vertical-align: middle;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     color: whitesmoke;
     text-decoration: none;
-    display: flex;
-    width: 20%;
   }
 
   .menu {
@@ -139,30 +105,13 @@ h2 {
     margin: auto;
   }
 
-  .logo {
-    display: flex;
-    height: 80%;
-    margin: 20px;
-  }
-
-  .logo-car,
-  .logo-sncf,
-  .quote {
-    margin: 0 20px;
-    display: initial;
-  }
-
-  #logo-car-div {
+  .logo-car{
+    margin-left: 20px;
+    width: 110px;
     display: initial;
   }
 
   .logo-img {
-    height: 16vh;
-    border-radius: 50%;
-  }
-
-  .titre {
-    height: 5vh;
-    transform: scale(1.5);
+    padding: 0;
   }
 }

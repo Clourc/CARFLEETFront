@@ -1,31 +1,33 @@
-.cancel {
-
-    width: 90%;
-    border: 3px solid #807f7f69;
-    margin: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  
+#cancel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 250px;
+  width: 300px;
+  padding: 15px;
+  border: 3px solid #807f7f69;
+  border-radius: 10px;
+  background-color: white;
+  margin: auto;
+  position: relative;
+  top: calc(50% - 10px);
 }
-.cancel:hover {
-    background-color: #e7a30f;
-    color: white;
-    cursor: pointer;
+
+#reason {
+    margin-top: 0.5rem;
 }
 
+button {
+    margin-bottom: 10px;
+    background-color: orangered;
+    width: 200px;
+    height: 2.5rem;
+}
 
-@media screen and (min-width: 768px){
-
-.cancel {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+@media screen and (min-width: 768px) {
+  #cancel {
     text-align: center;
-    background-color: azure;
-width: 35%;
-height: 200px;
-
-
-}
-    
+    top: calc(50% - 140px);
+  }
 }

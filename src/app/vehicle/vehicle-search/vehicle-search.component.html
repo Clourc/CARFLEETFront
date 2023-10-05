@@ -2,9 +2,9 @@
   <form [formGroup]="searchForm" (submit)="onSubmit()">
     <h2>Recherche détaillée de véhicules</h2>
 
-    <label for="start">Jour et heure de début</label><br />
-
-    <input class="calendar"
+    <label for="start">Jour et heure de début</label>
+    <input
+      class="calendar"
       type="datetime-local"
       id="start"
       name="start"
@@ -15,8 +15,9 @@
       required
     /><br />
 
-    <label for="end">Jour et heure de fin</label><br />
-    <input class="calendar"
+    <label for="end">Jour et heure de fin</label>
+    <input
+      class="calendar"
       type="datetime-local"
       id="end"
       name="end"
@@ -26,7 +27,7 @@
       required
     /><br />
 
-    <label for="type">Type de véhicule</label><br />
+    <label for="type">Type de véhicule</label>
     <select id="type-vehicule" name="type-vehicule" formControlName="type">
       <br />
       <option value="">Choisir</option>
@@ -36,7 +37,7 @@
     </select>
     <br />
 
-    <label for="energy">Énergie</label><br />
+    <label for="energy">Énergie</label>
 
     <select id="carburant" name="carburant" formControlName="energy">
       <br />
@@ -72,12 +73,9 @@
   </form>
 </div>
 
-
-  <div class="search-card">
-    <li *ngFor="let vehicle of vehiclesToDisplay">
-      <app-vehicle-card [vehicle]="vehicle">
-        <a [routerLink]="['/vehicle', vehicle.id]"></a>
-      </app-vehicle-card>
-    </li>
-  </div>
-
+<div class="list">
+  <app-vehicle-card
+    *ngFor="let vehicle of vehiclesToDisplay"
+    [vehicle]="vehicle"
+  ></app-vehicle-card>
+</div>

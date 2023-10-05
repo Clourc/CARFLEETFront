@@ -1,23 +1,45 @@
-
-<div class="test">
 <div class="form-liste">
   <form #f="ngForm" (submit)="onSubmit()">
-    <label for="debutreservation">Début de la réservation</label><br>
-    <input type="datetime-local" id="debutreservation" name="debutreservation" [(ngModel)]="reservationStart" #start="ngModel" [min]="todayString" [max]="maxDate" required><br>
-    <label for="finreservation">Fin de la réservation</label><br>
-    <input type="datetime-local" id="finreservation" name="finreservation" [(ngModel)]="reservationEnd" #end="ngModel" [min]="reservationStart" [max]="maxDate" required><br>
-    <button type="submit">Trouver un véhicule</button>
-    <div *ngIf="(start.invalid || end.invalid) && f.submitted && f.invalid " class="error-message">
-      Veuillez sélectionner des dates avant de cliquer sur "trouver un véhicule".
+    <div id="form-input">
+      <label for="debutreservation">Début de la réservation</label>
+      <input
+        type="datetime-local"
+        id="debutreservation"
+        name="debutreservation"
+        [(ngModel)]="reservationStart"
+        #start="ngModel"
+        [min]="todayString"
+        [max]="maxDate"
+        required
+      />
+      <label for="finreservation">Fin de la réservation</label>
+      <input
+        type="datetime-local"
+        id="finreservation"
+        name="finreservation"
+        [(ngModel)]="reservationEnd"
+        #end="ngModel"
+        [min]="reservationStart"
+        [max]="maxDate"
+        required
+      />
+    </div>
+    <div id="div-button">
+      <button type="submit">Trouver un véhicule</button>
+    </div>
+    <div
+      *ngIf="(start.invalid || end.invalid) && f.submitted && f.invalid"
+      class="error-message"
+    >
+      Veuillez sélectionner des dates avant de cliquer sur "trouver un
+      véhicule".
     </div>
   </form>
 </div>
 
 <div class="list">
-
-    <li *ngFor="let vehicle of vehiclesToDisplay">
-      <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
-
-</div>
-
+  <app-vehicle-card
+    *ngFor="let vehicle of vehiclesToDisplay"
+    [vehicle]="vehicle"
+  ></app-vehicle-card>
 </div>

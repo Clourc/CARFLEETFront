@@ -2,11 +2,19 @@ body {
   background-color: black;
 }
 
+#form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+#div-button {
+  align-self: end;
+}
+
 button {
-  height: auto;
-  width: auto;
-  justify-content: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  width: 160px;
+  height: 40px;
 }
 
 a {
@@ -22,12 +30,9 @@ a {
   margin: auto;
   background-color: #226175;
   color: whitesmoke;
-  border-radius: 10px;
-  border: 1px solid #eee;
   box-shadow: 0 2px 3px #ccc;
-  margin-bottom: 30px;
-  opacity: 0.9;
-  max-width: 95%;
+  margin: 25px auto;
+  max-width: 90%;
 }
 
 li {
@@ -47,9 +52,8 @@ input {
 }
 
 label {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-around;
+  margin: auto;
+  padding-top: 12px;
 }
 
 .error-message {
@@ -57,48 +61,47 @@ label {
 }
 
 @media screen and (min-width: 768px) {
-  .test {
-    height: 100%;
-  }
-
   .form-liste {
     max-width: 60%;
   }
 
   .list {
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 10px;
-    overflow-x: auto !important;
-    white-space: normal;
+    overflow-x: auto;
     display: flex;
     flex-wrap: nowrap;
   }
-  .label {
-    display: flex;
-    justify-content: space-around;
+
+  label {
+    padding: 0;
   }
+
+  #form-input input:first-of-type {
+    margin-bottom: 1rem;
+  }
+  
+  #div-button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
   button {
     margin-top: 20px;
     margin-bottom: 20px;
-
     font-size: large;
     height: 40px;
   }
+
   form {
     align-items: center;
-    width: 60%;
-  }
-  input {
-    justify-content: center;
-
-    width: inherit;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .form-liste {
     margin-top: 75px;
-    margin-bottom: 75px;
-    height: 350px;
-    width: 80%;
+    margin-bottom: 25px;
+    height: 230px;
+    width: 600px;
   }
 }

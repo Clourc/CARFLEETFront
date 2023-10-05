@@ -59,7 +59,6 @@ export class ReservationCancelComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.showDeleteSuccessDialog();
-        this.location.historyGo(-2);
       });
   }
 
@@ -69,6 +68,8 @@ export class ReservationCancelComponent implements OnInit {
         message: 'Cette réservation a bien été annulée',
       },
     });
+    dialogRef.afterClosed().subscribe(() => {
+      this.location.historyGo(-2);
+    });
   }
-
 }

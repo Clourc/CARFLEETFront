@@ -1,5 +1,5 @@
 <div id="admin-dashboard">
-  <div>
+  <div class="resa-panel">
     <h2>Réservations en cours</h2>
     <app-reservation-card
       *ngFor="let reservation of arrayOngoing"
@@ -8,7 +8,7 @@
     </app-reservation-card>
   </div>
 
-  <div>
+  <div class="resa-panel">
     <h2>Réservations à venir</h2>
     <app-reservation-card
       *ngFor="let reservation of arraytoCome"
