@@ -12,7 +12,7 @@ import { UserModule } from './user/user.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { HeaderInterceptor } from './header.interceptor';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DeleteSuccessDialogComponent } from './delete-success-dialog/delete-success-dialog.component';
@@ -32,7 +32,7 @@ import { LoginComponent } from './user/login/login.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+ 
     MatDialogModule,
 
 
