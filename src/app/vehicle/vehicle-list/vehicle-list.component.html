@@ -34,7 +34,14 @@
       Veuillez sélectionner des dates avant de cliquer sur "trouver un
       véhicule".
     </div>
+    
   </form>
+  <div
+  *ngIf="formSubmitted && vehiclesToDisplay.length === 0"
+  class="error-message"
+>
+  Aucun véhicule trouvé.
+</div>
 </div>
 
 <div class="list">
@@ -42,4 +49,4 @@
     *ngFor="let vehicle of vehiclesToDisplay"
     [vehicle]="vehicle"
   ></app-vehicle-card>
-</div>
+  </div>

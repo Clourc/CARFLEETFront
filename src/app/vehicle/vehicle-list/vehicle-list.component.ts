@@ -18,6 +18,8 @@ export class VehicleListComponent implements OnInit {
   today: Date = new Date();
   todayString: string = this.reservationService.dateToString(this.today);
   maxDate: string = this.reservationService.setupMaxDate(this.today);
+  formSubmitted: boolean = false;
+
 
   constructor(
     private vehicleService: VehicleService,
@@ -46,5 +48,6 @@ export class VehicleListComponent implements OnInit {
         console.log('vehicles dataaaaaaa', data);
       });
     }, 250);
+     this.formSubmitted = true;
   }
 }
