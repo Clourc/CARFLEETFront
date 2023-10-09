@@ -13,10 +13,9 @@
         <li class="charasteristics">
           <i
             class="fas fa-gas-pump"
-            *ngIf="
-              vehicleDetails.model.energy === ('essence' || 'diesel');
-              else electricIcon
-            "
+            *ngIf="vehicleDetails.model.energy === 'essence' || vehicleDetails.model.energy === 'diesel'; else electricIcon"
+
+            
           ></i>
           <ng-template #electricIcon
             ><i class="fa-solid fa-charging-station"></i
