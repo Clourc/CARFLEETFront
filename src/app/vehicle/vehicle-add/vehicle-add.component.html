@@ -15,6 +15,7 @@
       (click)="filterModels()"
       required
     >
+      <option value="">-- Marque --</option>
       <option *ngFor="let brand of listBrands" [value]="brand">
         {{ brand | uppercase }}
       </option>
@@ -30,6 +31,7 @@
         id="vehicleModel"
         required
       >
+        <option value="">-- Modèle --</option>
         <option
           *ngFor="let model of listModelFiltered"
           [value]="model.modelName"

@@ -18,9 +18,9 @@
   <span
     >Réservation pour la période du
     {{ reservation.start_Date | date : "dd/MM/yyyy" }}
-    {{ reservation.start_Date | date : "h:mm" }} au
+    {{ reservation.start_Date | date : "H:mm" }} au
     {{ reservation.end_Date | date : "dd/MM/yyyy" }}
-    {{ reservation.end_Date | date : "h:mm" }} à {{ vehiclePlace }}.</span
+    {{ reservation.end_Date | date : "H:mm" }} à {{ vehiclePlace }}.</span
   >
   <span
     >Détails : Réservation n°{{ reservation.id }}{{ reservationPlaceCode }}

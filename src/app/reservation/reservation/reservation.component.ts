@@ -45,8 +45,9 @@ export class ReservationComponent implements OnInit {
 
 
   submitReservation() {
-    console.log('Vehicle id: ', this.vehicleId);
-    if (this.start_Date > this.end_Date) {
+    let start_Date = new Date(this.start_Date);
+    let end_Date = new Date(this.end_Date);
+    if (start_Date > end_Date) {
       this.openDialog("La date de début de réservation doit être avant celle de fin");
       throw new Error(
         'La date de début de réservation doit être avant celle de fin'
@@ -60,14 +61,14 @@ export class ReservationComponent implements OnInit {
       //Vérification que le véhicule sélectionné ne soit pas déjà réservé pendant la période demandée
       for (let r of this.listResa) {
         let checkResaStartDates: boolean =
-          this.start_Date >= r.start_Date && this.start_Date <= r.end_Date;
+          start_Date >= r.start_Date && start_Date <= r.end_Date;
         let checkResaEndDates: boolean =
-          this.end_Date >= r.start_Date && this.end_Date <= r.end_Date;
+          end_Date >= r.start_Date && end_Date <= r.end_Date;
         let checkResaWide: boolean =
-          this.start_Date <= r.start_Date && this.end_Date >= r.end_Date;
+          start_Date <= r.start_Date && end_Date >= r.end_Date;
         if (checkResaStartDates || checkResaEndDates || checkResaWide) {
           console.log("vehicle unavailable");
-          this.openDialog("véhicule indisponible");
+          this.openDialog("Véhicule indisponible");
 
           throw new Error(
             'Le véhicule est déjà réservé pour cette période, veuillez choisir un autre véhicule ou une autre période'
@@ -76,8 +77,8 @@ export class ReservationComponent implements OnInit {
       }
 
       const reservationData = new ReservationData(
-        this.start_Date,
-        this.end_Date,
+        start_Date,
+        end_Date,
         this.reasonReservation,
         this.vehicleId,
         this.userService.getUserId()

@@ -53,14 +53,14 @@ export class VehicleAddComponent implements OnInit {
   }
 
   filterModels(): void {
+    this.vehicleModelName = '';
+    this.vehicle = {};
     this.listModelFiltered = [];
     for (let model of this.listModel) {
       if (model.brand == this.brand) {
         this.listModelFiltered.push(model);
       }
     }
-    this.vehicleModelName = '';
-    this.vehicle = {};
     console.log(this.listModelFiltered);
   }
 

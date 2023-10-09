@@ -5,11 +5,11 @@
       <div id="resaDates">
         <li>
           Période du
-          {{ reservationDetails.start_Date | date : "dd/MM/yyyy h:mm" }}
+          {{ reservationDetails.start_Date | date : "dd/MM/yyyy H:mm" }}
         </li>
         <li>
           &#160;au <!-- Force un espace dans le texte -->
-          {{ reservationDetails.end_Date | date : "dd/MM/yyyy h:mm" }} à
+          {{ reservationDetails.end_Date | date : "dd/MM/yyyy H:mm" }} à
           {{ reservationDetails.vehicle.fleet.place }}
         </li>
       </div>
