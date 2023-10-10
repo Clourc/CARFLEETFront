@@ -18,7 +18,6 @@ export class UserService {
       .pipe(
         tap((data: any) => {
           const response = data.data;
-         
 
           if (response && response.token) {
             localStorage.setItem('token', response.token);
@@ -27,7 +26,6 @@ export class UserService {
             this.setUserId();
             this.saveUserData();
             this.router.navigate(['/vehicles']);
-          
           }
           return response;
         })

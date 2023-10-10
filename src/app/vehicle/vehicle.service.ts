@@ -59,7 +59,6 @@ export class VehicleService {
       reservationList = data;
 
       const filterResult: any[] = [];
-      console.log('resrvationList', reservationList);
       for (let i = 0; i < reservationList.length; i++) {
         let checkResaStartDates: boolean =
           reservationStart >= reservationList[i].start_Date &&
@@ -96,7 +95,6 @@ export class VehicleService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
     const deleteUrl = `${this.apiUrl}/${id}/delete`;
-    console.log('&&&&&&&&&&&&&&&&&&&&&& deleteUrl', deleteUrl);
     return this.http.delete(deleteUrl, httpOptions);
   }
 }

@@ -9,6 +9,7 @@ import { ReservationService } from 'src/app/reservation/reservation.service';
   templateUrl: './vehicle-search.component.html',
   styleUrls: ['./vehicle-search.component.css'],
 })
+
 export class VehicleSearchComponent {
   vehicles: any[] = [];
   searchForm: FormGroup;
@@ -47,7 +48,6 @@ export class VehicleSearchComponent {
     if (!type && !energy) {
       return { atLeastOneSelectRequired: true };
     }
-
     return null;
   }
 
@@ -75,10 +75,8 @@ export class VehicleSearchComponent {
         this.userService.getUserFleetId(),
         type,
         energy
-      )
-      .subscribe((data: any) => {
+      ).subscribe((data: any) => {
         this.vehicles = data;
-
         if (!startDate || !endDate) {
           this.vehiclesToDisplay = this.vehicles;
         } else {
@@ -88,12 +86,7 @@ export class VehicleSearchComponent {
             startDate,
             endDate
           );
-          console.log(this.vehiclesToDisplay);
         }
       });
-  }
-
-  testVehiclesToDisplay(){
-    console.log(this.vehiclesToDisplay);
   }
 }

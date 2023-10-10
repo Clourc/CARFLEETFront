@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user/user.service';
-import { LoginComponent } from './user/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,6 @@ import { LoginComponent } from './user/login/login.component';
 export class AppComponent implements OnInit{
   title = 'CARFLEETFront';
   
-
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
@@ -19,13 +17,10 @@ export class AppComponent implements OnInit{
       let userCP = '';
       if(tokenData){
         decodedData = atob(tokenData);
-        console.log(decodedData);
         userCP = JSON.parse(decodedData).sub;
         this.userService.retrieveUser(userCP).subscribe((data: any) => {
           this.userService.setUser(data);
           this.userService.setUserId();
-
-          console.log(this.userService.getUserRole());
         });
       }
   }

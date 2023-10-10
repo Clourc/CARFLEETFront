@@ -16,11 +16,13 @@ import { HeaderInterceptor } from './header.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DeleteSuccessDialogComponent } from './delete-success-dialog/delete-success-dialog.component';
-import { LoginComponent } from './user/login/login.component';
-
 
 @NgModule({
-  declarations: [AppComponent, ConfirmDialogComponent, DeleteSuccessDialogComponent],
+  declarations: [
+    AppComponent,
+    ConfirmDialogComponent,
+    DeleteSuccessDialogComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -32,16 +34,11 @@ import { LoginComponent } from './user/login/login.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
- 
     MatDialogModule,
-
-
-
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true,},
-     [DatePipe]
-
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
+    [DatePipe],
   ],
   bootstrap: [AppComponent],
 })

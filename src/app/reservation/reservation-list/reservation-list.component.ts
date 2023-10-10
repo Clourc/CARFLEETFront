@@ -13,7 +13,6 @@ export class ReservationListComponent implements OnInit{
 
   reservationList: any[] = [];
 
-
   ngOnInit(): void {
     setTimeout(() => {
       const userId = this.userService.getUserId();
@@ -21,7 +20,6 @@ export class ReservationListComponent implements OnInit{
       console.log("User role from service: " + userRole);
       this.http.get(`http://localhost:8080/reservations?userId=${userId}`).subscribe((data: any) => {
           this.reservationList = data;
-          console.log(this.reservationList);
         })
     }, 250)
   }

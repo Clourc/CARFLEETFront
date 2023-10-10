@@ -20,8 +20,6 @@ export class AdminInterfaceComponent implements OnInit {
       .get(`http://localhost:8080/reservations?userId=${userId}`)
       .subscribe((data: any) => {
         this.reservationListAdmin = data;
-        console.log(this.reservationListAdmin);
-
         this.filterReservationByDate();
       });
   }

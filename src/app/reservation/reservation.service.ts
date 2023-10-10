@@ -21,27 +21,18 @@ export class ReservationService {
     let endpoint = `?userId=${userId}`;
     if (vehicleId) {
       endpoint = `?vehicleId=${vehicleId}`;
-      console.log("endpoint: " + endpoint);
       return this.http.get("http://localhost:8080/reservations" + endpoint);
     }
-    console.log("endpoint: " + endpoint);
     return this.http.get("http://localhost:8080/reservations" + endpoint);
   }
 
   postNewReservation(data: any) {
-    console.log("Posting new reservation");
-    return this.http.post("http://localhost:8080/reservations/add", data)
-      .pipe(tap((data: any) => {
-        const response = data.data;
-        console.log("response from API: " + response);
-      }));
+    return this.http.post("http://localhost:8080/reservations/add", data);
   }
 
   setResaStatus(reservation: any): string {
     const checkFinished = new Date(reservation.end_Date) < this.today;
     const checkToCome = new Date(reservation.start_Date) > this.today;
-    console.log("today: " + this.today);
-    console.log("Start date: " + new Date(reservation.start_Date));
     if (checkFinished) {
       return "terminée";
     }

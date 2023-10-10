@@ -12,6 +12,7 @@ import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/dele
   templateUrl: './vehicle-details.component.html',
   styleUrls: ['./vehicle-details.component.css'],
 })
+
 export class VehicleDetailsComponent implements OnInit {
   vehicleId!: string | undefined;
   vehicleDetails: any;
@@ -29,20 +30,16 @@ export class VehicleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
-    console.log('Vehicle Id: ' + this.vehicleId);
     this.http
       .get('http://localhost:8080/vehicles/' + this.vehicleId, {
         responseType: 'json',
       })
       .subscribe((data: any) => {
-        console.log(data);
         this.vehicleDetails = data;
-        this.vehicleDetails.model.brand =
-          this.vehicleDetails.model.brand.toUpperCase();
+        this.vehicleDetails.model.brand = this.vehicleDetails.model.brand.toUpperCase();
       });
 
     const userRole = this.userService.getUserRole();
-    console.log(userRole);
     this.isAdmin = userRole === 'ADMIN';
   }
 
@@ -52,29 +49,25 @@ export class VehicleDetailsComponent implements OnInit {
         responseType: 'json',
       })
       .subscribe((data: any) => {
-        console.log(data);
         this.vehicleDetails = data;
-        this.vehicleDetails.model.brand =
-          this.vehicleDetails.model.brand.toUpperCase();
+        this.vehicleDetails.model.brand = this.vehicleDetails.model.brand.toUpperCase();
       });
   }
 
   confirmDelete(vehicleId: number) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-    
       data: { message: 'Êtes-vous sûr de vouloir supprimer ce véhicule ?' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.deleteVehicle(vehicleId); // Supprimer le véhicule si la réponse est "Oui"
+        this.deleteVehicle(vehicleId);
       }
     });
   }
   
   showDeleteSuccessDialog() {
     const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
-   
       data: {
         message: 'La suppression du véhicule a été effectuée avec succès.',
       },
@@ -84,7 +77,6 @@ export class VehicleDetailsComponent implements OnInit {
   deleteVehicle(vehicleId: number) {
     this.vehicleService.deleteVehicle(vehicleId).subscribe({
       next: (data) => {
-        console.log('data success', data);
         this.showDeleteSuccessDialog();
         this.router.navigate(['/vehicles']);
       },

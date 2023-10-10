@@ -1,24 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
+
 export class LoginComponent implements OnInit {
   CP: string = '';
   password: string = '';
   afficherMotDePasse: boolean = false;
-  
-
   passwordType: string = 'password';
-
   isCPValid: boolean | '' = false;
   formSubmitted = false;
-
   showSuccessMessage = false;
   formSubmissionTime = 0;
 
@@ -36,8 +32,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.passwordType = 'password';
     }
-    // this.passwordType = this.afficherMotDePasse ? 'password' : 'text';
-    console.log('sdsdsdsdsdsdsd');
   }
 
   checkPseudoValidity() {

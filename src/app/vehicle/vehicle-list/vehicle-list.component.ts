@@ -20,7 +20,6 @@ export class VehicleListComponent implements OnInit {
   maxDate: string = this.reservationService.setupMaxDate(this.today);
   formSubmitted: boolean = false;
 
-
   constructor(
     private vehicleService: VehicleService,
     private userService: UserService,
@@ -29,7 +28,6 @@ export class VehicleListComponent implements OnInit {
 
   onSubmit() {
     this.vehiclesToDisplay = [];
-    console.log('test ', this.vehiclesToDisplay);
     this.vehicleService.recherche(
       this.vehiclesToDisplay,
       this.savedVehicles,
@@ -44,8 +42,6 @@ export class VehicleListComponent implements OnInit {
       this.vehicleService.getVehicles(fleetId).subscribe((data) => {
         this.savedVehicles = data;
         this.vehiclesToDisplay = data;
-        console.log('liste');
-        console.log('vehicles dataaaaaaa', data);
       });
     }, 250);
      this.formSubmitted = true;

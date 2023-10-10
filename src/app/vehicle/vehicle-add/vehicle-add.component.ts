@@ -28,7 +28,7 @@ export class VehicleAddComponent implements OnInit {
 
   ) {}
 
-  listModel: any = []; //[ { id:1, type:citadine, nbSeats:5, energy:essence, nbDoors:5, image: "https://i.imgur.com/FZ5BdEW.png", modelName: "ZOE R110" }, etc...] tableau d'objets
+  listModel: any = [];
   listBrands: string[] = [];
   listModelFiltered: any[] = [];
   listFleets: any[] = [];
@@ -38,7 +38,6 @@ export class VehicleAddComponent implements OnInit {
   ngOnInit(): void {
     this.http.get('http://localhost:8080/models').subscribe((data: any) => {
       this.listModel = data;
-      console.log('Liste models :', this.listModel);
       for (let model of this.listModel) {
         if (!this.listBrands.includes(model.brand)) {
           this.listBrands.push(model.brand);
@@ -48,7 +47,6 @@ export class VehicleAddComponent implements OnInit {
 
     this.http.get('http://localhost:8080/fleets').subscribe((data: any) => {
       this.listFleets = data;
-      console.log('Liste fleets :', this.listFleets);
     });
   }
 
@@ -61,35 +59,25 @@ export class VehicleAddComponent implements OnInit {
         this.listModelFiltered.push(model);
       }
     }
-    console.log(this.listModelFiltered);
   }
 
   viewModel(): void {
-    //.find renvoie le premier élément correspondant à la condition donnée dans la fonction
     this.vehicle = this.listModel.find(
       (vehicle: any) => vehicle.modelName == this.vehicleModelName
     );
-    console.log(this.vehicle);
   }
 
   addVehicleSubmit(): void {
-    console.log('Véhicule à envoyer');
-    console.log(this.vehicle);
     const vehicleToRegister: VehicleToRegister = new VehicleToRegister(
       this.licencePlate,
       this.vehicle.id,
       parseInt(this.userService.getUserFleetId())
     );
 
-    console.log(vehicleToRegister);
-
-    this.vehicleService.addVehicle(vehicleToRegister).subscribe((response) => {
+    this.vehicleService.addVehicle(vehicleToRegister).subscribe(() => {
       if (this.vehicle != null) {
-        console.log(response);
-        console.log('Véhicule ajouté avec succès !');
         this.openSuccessDialog('Véhicule ajouté avec succès !');
         this.router.navigate(['/admin']);
-        
       } else {
         console.log("Erreur lors de l'ajout du véhicule");
       }

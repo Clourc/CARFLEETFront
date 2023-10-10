@@ -12,6 +12,7 @@ import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/dele
   templateUrl: './reservation-cancel.component.html',
   styleUrls: ['./reservation-cancel.component.css'],
 })
+
 export class ReservationCancelComponent implements OnInit {
   reservationCancel: any = {};
   reservationId!: string | null;
@@ -31,7 +32,6 @@ export class ReservationCancelComponent implements OnInit {
     this.http
       .get('http://localhost:8080/reservations/' + this.reservationId)
       .subscribe((data) => {
-        console.log(data);
         this.reservationCancel = data;
 
         this.reservationCancel.vehicle.model.brand =
@@ -57,7 +57,6 @@ export class ReservationCancelComponent implements OnInit {
     this.http
       .delete(`http://localhost:8080/reservations/${this.reservationId}/delete`)
       .subscribe((data) => {
-        console.log(data);
         this.showDeleteSuccessDialog();
       });
   }

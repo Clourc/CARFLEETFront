@@ -1,8 +1,5 @@
 import { Component,Input } from '@angular/core';
 
-
-
-
 @Component({
   selector: 'app-vehicle-card',
   templateUrl: './vehicle-card.component.html',
@@ -11,9 +8,5 @@ import { Component,Input } from '@angular/core';
 export class VehicleCardComponent {
 
   @Input() vehicle:any;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }
