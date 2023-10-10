@@ -1,16 +1,14 @@
-<div
-  id="cardBox"
-  [ngClass]="resaStyleClass"
-  [routerLink]="['/reservations/', reservation.id]"
->
+<div id="cardBox" [ngClass]="resaStyleClass" [routerLink]="['/reservations/', reservation.id]">
+    
   <div id="resaCardHeader">
-    <span id="resa-number">Réservation n°{{ reservation.id }}{{ reservationPlaceCode }}</span
-    ><span
-      >Statut : {{ resaStatus }} le
-      <span *ngIf="resaStatus == 'terminée'; else elseBlock">{{
-        reservation.end_Date | date : "dd/MM/yyyy"
-      }}</span></span
-    >
+    <span id="resa-number">Réservation n°{{ reservation.id }}{{ reservationPlaceCode }}</span>
+    
+    <span>
+      Statut : {{ resaStatus }} le 
+      <span *ngIf="resaStatus == 'terminée'; else elseBlock">
+        {{ reservation.end_Date | date : "dd/MM/yyyy h:mm a" : 'Europe/Paris' }}
+      </span>
+    </span>
   </div>
   <ng-template #elseBlock>{{
     reservation.start_Date | date : "dd/MM/yyyy"

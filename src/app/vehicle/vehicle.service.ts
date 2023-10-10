@@ -10,7 +10,8 @@ import { UserService } from '../user/user.service';
 })
 export class VehicleService {
   private apiUrlAddVehicle = 'http://localhost:8080/vehicles/add';
-
+  private reservationStart: any = "";
+  private reservationEnd: any = "";
   private apiUrl = 'http://localhost:8080/vehicles';
 
   constructor(
@@ -23,6 +24,13 @@ export class VehicleService {
     return this.http.get<any[]>(
       this.apiUrl + '?fleetId=' + fleetId
     );
+  }
+
+  getReservationDates() {
+    return {
+      startDate : this.reservationStart,
+      endDate: this.reservationEnd,
+    }
   }
 
   getVehiclebyId(id: number): Observable<any> {
@@ -44,6 +52,8 @@ export class VehicleService {
     reservationStart: Date,
     reservationEnd: Date
   ) {
+    this.reservationStart = reservationStart;
+    this.reservationEnd = reservationEnd;
     let reservationList: any[] = [];
     this.reservationService.getListResa(this.userService.getUserId()).subscribe((data: any) => {
       reservationList = data;

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/delete-success-dialog.component';
-
+import { VehicleService } from 'src/app/vehicle/vehicle.service';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
@@ -16,34 +16,29 @@ export class ReservationComponent implements OnInit {
   reasonReservation: string = '';
   vehicleId!: string | undefined;
   listResa: any = [];
-
   today: Date = new Date();
   todayString: string = this.reservationService.dateToString(this.today);
   maxDate: string = this.reservationService.setupMaxDate(this.today);
-
   constructor(
     private reservationService: ReservationService,
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private vehicleService: VehicleService,
   ) {}
-
-
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
+    this.start_Date = this.vehicleService.getReservationDates().startDate;
+    this.end_Date = this.vehicleService.getReservationDates().endDate;
   }
-
   openDialog(message: string): void {
     const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
       width: '300px',
       data: { message: message }
     });
-
     dialogRef.afterClosed().subscribe(() => {});
   };
-
-
   submitReservation() {
     let start_Date = new Date(this.start_Date);
     let end_Date = new Date(this.end_Date);
@@ -52,7 +47,6 @@ export class ReservationComponent implements OnInit {
       throw new Error(
         'La date de début de réservation doit être avant celle de fin'
       );
-
     }
     this.reservationService.getListResa(undefined, this.vehicleId).subscribe((data) => {
       this.listResa = data;
@@ -75,7 +69,6 @@ export class ReservationComponent implements OnInit {
           );
         }
       }
-
       const reservationData = new ReservationData(
         start_Date,
         end_Date,
@@ -83,7 +76,6 @@ export class ReservationComponent implements OnInit {
         this.vehicleId,
         this.userService.getUserId()
       );
-
       console.log('Données résa: ' + reservationData);
       this.reservationService
         .postNewReservation(reservationData)
@@ -104,14 +96,12 @@ class ReservationData {
   result: any;
   deleteResa: any;
   reservationService: any;
-
   constructor(
     start_Date: Date,
     end_Date: Date,
     reason: string,
     vehicle: string | undefined,
     userId: number
-
   ) {
     this.start_Date = start_Date;
     this.end_Date = end_Date;
@@ -120,3 +110,9 @@ class ReservationData {
     this.user = { id: userId };
   }
 }
+
+
+
+
+
+
