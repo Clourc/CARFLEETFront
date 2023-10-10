@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteSuccessDialogComponent } from 'src/app/delete-success-dialog/delete-success-dialog.component';
+import { VehicleService } from 'src/app/vehicle/vehicle.service';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
@@ -23,10 +24,13 @@ export class ReservationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private vehicleService: VehicleService,
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.vehicleId = params['id']));
+    this.start_Date = this.vehicleService.getReservationDates().startDate;
+    this.end_Date = this.vehicleService.getReservationDates().endDate;
   }
   openDialog(message: string): void {
     const dialogRef = this.dialog.open(DeleteSuccessDialogComponent, {
